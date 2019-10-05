@@ -88,3 +88,7 @@ group :development, :test do
   gem 'capistrano3-unicorn'
 end
 gem 'dotenv-rails'
+
+group :production do
+  gem 'unicorn', '5.4.1'
+end
