@@ -149,7 +149,7 @@
 |l_categorys|references|null: false, foreign_key: true|
 
 ## Assosiation
-= belong_to :l_category
+- belong_to :l_category
 - has_many :s_category
 
 ## s_categorysテーブル
@@ -160,7 +160,7 @@
 |m_categorys|references|null: false, foreign_key: true|
 
 ## Assosiation
-= belong_to :m_category
+- belong_to :m_category
 
 
 This README would normally document whatever steps are necessary to get the
