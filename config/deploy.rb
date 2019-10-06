@@ -2,6 +2,14 @@
 # capistranoのバージョンを記載。固定のバージョンを利用し続け、バージョン変更によるトラブルを防止する
 lock '3.11.2'
 
+set :default_env, {
+  rbenv_root: "/usr/local/rbenv",
+  path: "/usr/local/rbenv/shims:/usr/local/rbenv/bin:$PATH",
+  AWS_ACCESS_KEY_ID: ENV["AWS_ACCESS_KEY_ID"],
+  AWS_SECRET_ACCESS_KEY: ENV["AWS_SECRET_ACCESS_KEY"]
+}
+
+
 # Capistranoのログの表示に利用する
 set :application, 'freemarket_sample_60b_nagpya'
 
@@ -17,15 +25,6 @@ set :rbenv_ruby, '2.5.1' #カリキュラム通りに進めた場合、2.5.1か2
 # どの公開鍵を利用してデプロイするか
 set :ssh_options, auth_methods: ['publickey'],
                   keys: ['~/.ssh/key_pair2.pem']#  ※例：~/.ssh/key_pem.pem
-
-
-
-set :default_env, {
-  rbenv_root: "/usr/local/rbenv",
-  path: "/usr/local/rbenv/shims:/usr/local/rbenv/bin:$PATH",
-  AWS_ACCESS_KEY_ID: ENV["AWS_ACCESS_KEY_ID"],
-  AWS_SECRET_ACCESS_KEY: ENV["AWS_SECRET_ACCESS_KEY"]
-}
                   
 # プロセス番号を記載したファイルの場所
 set :unicorn_pid, -> { "#{shared_path}/tmp/pids/unicorn.pid" }
