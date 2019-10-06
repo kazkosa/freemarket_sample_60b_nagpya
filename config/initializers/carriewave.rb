@@ -13,8 +13,12 @@ CarrierWave.configure do |config|
       #aws_access_key_id: Rails.application.credentials.aws[:access_key_id],#credentails.ymlに鍵の本体があります
       #aws_secret_access_key: Rails.application.credentials.aws[:secret_access_key],#credentails.ymlに鍵の本体があります
       
-      aws_access_key_id: Rails.application.secrets.aws_access_key_id,
-      aws_secret_access_key: Rails.application.secrets.aws_secret_access_key,
+      # aws_access_key_id: Rails.application.secrets.aws_access_key_id,
+      # aws_secret_access_key: Rails.application.secrets.aws_secret_access_key,
+
+      aws_access_key_id: Rails.application.credentials.aws_access_key_id,
+      aws_secret_access_key: Rails.application.credentials.aws_secret_access_key,
+
 
       region: 'ap-northeast-1' #'AWSで設定した地域（おそらく'ap-northeast-1') '
     }
