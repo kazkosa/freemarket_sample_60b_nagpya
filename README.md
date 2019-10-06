@@ -64,7 +64,7 @@
 - belong_to :comment
 - belong_to :product
 
-## dealssテーブル
+## dealsテーブル
 
 |Column|Type|Options|
 |------|----|-------|
