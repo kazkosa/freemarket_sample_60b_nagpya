@@ -4,13 +4,10 @@ class TrialsController < ApplicationController
     @trial = Trial.new()
   end
   def new
-    #binding.pry
     @trial = Trial.new()
   end
   def create
-    
     @trial=Trial.new(trial_params)
-    binding.pry
     @trial.save
 
     redirect_to root_path
@@ -21,7 +18,6 @@ class TrialsController < ApplicationController
   end
   private
   def trial_params
-    # binding.pry
    params.require(:trial).permit(:image)
     # params.permit(:image)
   end
