@@ -18,12 +18,12 @@
 |birthday_day|integer|null:false|
 
 ### Association
-- has_one :adeles, :dependent => :delete_all
-- has_one :pay, :dependent => :delete_all
-- has_many :comments, :dependent => :delete_all
-- has_many :likes, :dependent => :delete_all
-- belong_to :deal
-- has_many :products through:deals ,:dependent => :delete_all
+- has_one :adeles, dependent: delete_all
+- has_one :pay, dependent: delete_all
+- has_many :comments, dependent: delete_all
+- has_many :likes, dependent: delete_all
+- belongs_to :deal
+- has_many :products through:deals ,dependent: delete_all
 
 ## addressテーブル
 
@@ -32,12 +32,15 @@
 |user|references|null: false, foreign_key: true|
 |prefectures|string|null: false|
 |municipalities|string|null: false|
-|address|string|null: false|
+|addres|string|null: false|
 |building|string|
 |phone_number|integer|
 
 ## Association
 - belong_to :user
+
+## enum
+- prefectures
 
 ## paysテーブル
 
@@ -50,7 +53,7 @@
 |security_number|integer|null: false|
 
 ## Association
-- belong_to :user
+- belongs_to :user
 
 ## comentsテーブル
 
@@ -61,8 +64,8 @@
 |body|text|
 
 ## Association
-- belong_to :comment
-- belong_to :product
+- belongs_to :user
+- belongs_to :product
 
 ## dealsテーブル
 
@@ -84,8 +87,8 @@
 |product|references|null: false, foreign_key: true|
 
 ## Association
-- belong_to :user
-- beling_to :product
+- belongs_to :user
+- belings_to :product
 
 ## prodocts
 
@@ -93,9 +96,7 @@
 |------|----|-------|
 |title|string|null: false|
 |user|references|null: false, foreign_key: true|
-|l_category|references|null: false, foreign_key: true|
-|l_category|references|null: false, foreign_key: true|
-|l_category|references|null: false, foreign_key: true|
+|category|references|null: false, foreign_key: true|
 |bland|references|null: false, foreign_key: true|
 |shipping_charges|string|null: false|
 |shipping_area|string|null: false|
@@ -107,13 +108,21 @@
 |condeition|string|null: false|
 
 ## Association
-- has_many :images, :dependent => :delete_all
-- has_many :comments, :dependent => :delete_all
-- has_many :likes, :dependent => :delete_all
-- belong_to :deal
-- belong_to :brand
-- belong_to :l_cotegory
+- has_many :images, dependent: delete_all
+- has_many :comments, dependent: delete_all
+- has_many :likes, dependent: delete_all
+- belongs_to :deal
+- belongs_to :brand
+- belongs_to :cotegory
 - has_many :users through:deals
+
+## enum
+- shipping_charges
+- shipping_area
+- shipping_date
+- shipping_method
+- size
+- condeition
 
 ## imagesテーブル
 
@@ -123,7 +132,7 @@
 |image|text|null: false|
 
 ##Assosiation
-- belong_to :product
+- belongs_to :product
 
 ## brandsテーブル
 
@@ -134,36 +143,16 @@
 ## Assosiation
 - has_many :products
 
-## l_categorysテーブル
+## categorysテーブル
 
 |Column|Type|Options|
 |------|----|-------|
 |name|string|null: false|
-
+|path|integer|null: false|
 ## Assosiation
-- has_many :products
-- has_many :m_categorys
+- has_many :products  
+(gem acenstryを使用)
 
-## m_categorysテーブル
-
-|Column|Type|Options|
-|------|----|-------|
-|name|string|null: false|
-|l_categorys|references|null: false, foreign_key: true|
-
-## Assosiation
-- belong_to :l_category
-- has_many :s_category
-
-## s_categorysテーブル
-
-|Column|Type|Options|
-|------|----|-------|
-|name|string|null: false|
-|m_categorys|references|null: false, foreign_key: true|
-
-## Assosiation
-- belong_to :m_category
 
 
 This README would normally document whatever steps are necessary to get the
