@@ -18,11 +18,12 @@
 |birthday_day|integer|null:false|
 
 ### Association
-- has_one :adeles
-- has_one :pay
-- has_many :coments
+- has_one :adeles, :dependent => :delete_all
+- has_one :pay, :dependent => :delete_all
+- has_many :comments, :dependent => :delete_all
+- has_many :likes, :dependent => :delete_all
 - belong_to :deal
-- has_many :products through:deals
+- has_many :products through:deals ,:dependent => :delete_all
 
 ## addressテーブル
 
@@ -60,10 +61,10 @@
 |body|text|
 
 ## Association
-- belong_to :coment
+- belong_to :comment
 - belong_to :product
 
-## dealsテーブル
+## dealssテーブル
 
 |Column|Type|Options|
 |------|----|-------|
@@ -75,7 +76,7 @@
 - has_many :users
 - has_many :products
 
-## likeテーブル
+## likesテーブル
 
 |Column|Type|Options|
 |------|----|-------|
@@ -92,7 +93,9 @@
 |------|----|-------|
 |title|string|null: false|
 |user|references|null: false, foreign_key: true|
-|category|references|null: false, foreign_key: true|
+|l_category|references|null: false, foreign_key: true|
+|l_category|references|null: false, foreign_key: true|
+|l_category|references|null: false, foreign_key: true|
 |bland|references|null: false, foreign_key: true|
 |shipping_charges|string|null: false|
 |shipping_area|string|null: false|
@@ -104,9 +107,9 @@
 |condeition|string|null: false|
 
 ## Association
-- has_many :images
-- has_many :coments
-- has_many :likes
+- has_many :images, :dependent => :delete_all
+- has_many :comments, :dependent => :delete_all
+- has_many :likes, :dependent => :delete_all
 - belong_to :deal
 - belong_to :brand
 - belong_to :l_cotegory
