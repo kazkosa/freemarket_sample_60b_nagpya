@@ -1,0 +1,13 @@
+<span>Hello</span>,World
+<style>span{color:blue;}</style>
+
+<%# <%= form_tag("/trials", method: :post) do %> 
+  <%# <textarea cols="30" name="text" placeholder="コメントする" rows="2" class="textbox" ></textarea> %>
+  <%# <input type="file" name="image"> %>
+  <%# <input type="submit" value="SENT"> %>
+<%# <% end %> 
+
+<%= form_for @trial  do |f|%>
+  <%= f.file_field :image %>
+  <%= f.submit "Send", class: "new__message__submit-btn" %>
+<% end %>
