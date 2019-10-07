@@ -9,24 +9,13 @@ CarrierWave.configure do |config|
     config.storage = :fog
     config.fog_provider = 'fog/aws'
     config.fog_credentials = {
-      provider: 'AWS',     #AWSのアクセスキーとシークレットキーを環境変数で定義する
-      #aws_access_key_id: Rails.application.credentials.aws[:access_key_id],#credentails.ymlに鍵の本体があります
-      #aws_secret_access_key: Rails.application.credentials.aws[:secret_access_key],#credentails.ymlに鍵の本体があります
       
-      # aws_access_key_id: Rails.application.secrets.aws_access_key_id,
-      # aws_secret_access_key: Rails.application.secrets.aws_secret_access_key,
-
-      #aws_access_key_id: Rails.application.credentials.aws_access_key_id
-      # aws_access_key_id: eval(Rails.application.credentials.aws[:secret_key_base]),
-      
-      # aws_secret_access_key: Rails.application.credentials.aws_secret_access_key,
-      # aws_secret_access_key: Rails.application.credentials.aws[:secret_access_key],
-      # aws_secret_access_key: eval(Rails.application.credentials.aws[:aws_access_key_id]),
+      #AWSのアクセスキーとシークレットキーを環境変数で定義する
+      provider: 'AWS',
       aws_access_key_id: eval(Rails.application.credentials.aws[:aws_access_key_id]),
       aws_secret_access_key: eval(Rails.application.credentials.aws[:aws_secret_access_key]),      
-      secret_key_base: eval(Rails.application.credentials.secret_key_base),
-      
-      region: 'ap-northeast-1' #'AWSで設定した地域（おそらく'ap-northeast-1') '
+      secret_key_base: eval(Rails.application.credentials.secret_key_base),      
+      region: 'ap-northeast-1'#'AWSで設定した地域（日本はおそらく'ap-northeast-1') '
     }
     config.fog_directory  = 'backet191006' #S3のバケット名'
     config.asset_host = 'https://s3-ap-northeast-1.amazonaws.com/backet191006'

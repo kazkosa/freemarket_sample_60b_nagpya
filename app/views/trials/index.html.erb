@@ -1,12 +1,35 @@
 <span>Hello</span>,World
-<style>span{color:blue;}</style>
 
-<%= @trials.each do |trial|%>
+<br>
+<br>
+This page is only for initial test to deploy.
+<br>
+<br>
+
+
+<%= link_to new_trial_path, class:"link" do%>
+  "To Updating Test of Image file"
+<%end%>
+
+<br>
+<br>
+<style>
+span{color:blue;font-weight:bold; font-size:30px;}
+.link{
+  background:lightblue;
+}
+
+</style>
+
+
+
+
+<% @trials.each do |trial|%>
   <% if trial.image.present?%>
     <%= image_tag trial.image.url %>
   <%end%>
 <%end%>
-<%= link_to "new", new_trial_path%>%
+
 
 
 
