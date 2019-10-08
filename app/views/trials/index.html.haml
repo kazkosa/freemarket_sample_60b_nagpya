@@ -1,0 +1,19 @@
+%span> Hello
+,World
+%br/
+%br/
+This page is only for initial test to deploy.
+%br/
+%br/
+= link_to new_trial_path, class:"link" do
+  "To Updating Test of Image file"
+%br/
+%br/
+:css
+  span{color:blue;font-weight:bold; font-size:30px;}
+  .link{
+    background:lightblue;
+  }
+- @trials.each do |trial|
+  - if trial.image.present?
+    = image_tag trial.image.url

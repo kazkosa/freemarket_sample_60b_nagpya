@@ -6,7 +6,7 @@
 
 |Column|Type|Options|
 |------|----|-------|
-|nickname|string|null:false|
+|nickname|string|null:false, unique: true|
 |email|string|null:false, unique:true, /\A\S+@\S+\.\S+\z/(email)|
 |password|string|null:false, /\A[a-zA-Z0-9]+\z/(半角アルファベット、数値のみ)|
 |family_name|string|null:false|
@@ -32,7 +32,7 @@
 |user|references|null: false, foreign_key: true|
 |prefectures|string|null: false|
 |municipalities|string|null: false|
-|addres|string|null: false|
+|block_number|string|null: false|
 |building|string|
 |phone_number|integer|
 
