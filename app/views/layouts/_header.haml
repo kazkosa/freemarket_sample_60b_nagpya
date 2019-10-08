@@ -3,10 +3,10 @@
     .header__contents__top
       .header__contents__top__log
         = link_to do 
-          %img{:width => "134", :src => "https://web-jp-assets.mercdn.net/_next/static/images/logo-acdd90ac4f472d5a6f7a330d33ab1225.svg"}
+          %img{width: "134", src: "https://web-jp-assets.mercdn.net/_next/static/images/logo-acdd90ac4f472d5a6f7a330d33ab1225.svg"}
       .form
-        %input#box1{ :placeholder => "何かお探しですか？", :type => "text"}
-        %button#button1{:type => 'submit'}
+        %input#box1{placeholder: "何かお探しですか？", type: "text"}
+        %button#button1{type: 'submit'}
           = link_to do
             = fa_icon 'search'         
     .header__contents__bottom
