@@ -1,0 +1,7 @@
+%span> Hello
+,World
+:css
+  span{color:blue;}
+= form_for @trial  do |f|
+  = f.file_field :image
+  = f.submit "Send", class: "new__message__submit-btn"
