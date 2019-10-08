@@ -1,0 +1,88 @@
+.side-box{
+  width: 100%;
+
+  &__mypage-nav{
+    
+    &__list{
+      
+      &__inner{
+        border-bottom: 1px solid #eee;
+        
+        &__item{
+          position: relative;
+          display: block;
+          line-height:16px;
+          padding: 16px;
+          background: #fff;
+          font-size: 14px;
+          color: #333;
+          
+          &__icon{
+            position: absolute;
+            top: 50%;
+            right: 16px;
+            color: #ccc;
+            font-size:24px;
+            -webkit-transform: translate(0, -50%);
+            -webkit-transition: all ease-out .2s;
+          }
+        }
+
+        &__item:hover{
+          background: #eee;
+          font-weight: 600;
+        }
+
+        &__item:hover .side-box__mypage-nav__list__inner__item__icon{
+          position: absolute;
+          top: 50%;
+          right: 12px;
+          color: #333;
+          font-size:30px;
+          transform: translate(0, -50%);
+          -webkit-transition: all ease-out .2s;
+        }
+      }
+    }
+
+    &__head {
+      margin: 40px 4% 0 0;
+      font-size: 16px;
+    }
+  }
+}
+
+@media screen and (min-width: 768px){
+  .side-box{
+    width: 700px;
+    margin:0 auto;
+    &__mypage-nav{
+      &__list{
+        &__inner{
+        }
+      }
+      &__head {
+        margin: 40px 4% 0 0;
+        font-size: 16px;  
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 1068px){
+  .side-box{
+    float: left;
+    width: 280px;
+    margin: 0 40px 0 0;
+    &__mypage-nav{
+      &__list{
+        &__inner{
+        }
+      }
+      &__head {
+        margin: 40px 4% 0;
+        font-size: 16px;
+      }
+    }
+  }
+}
