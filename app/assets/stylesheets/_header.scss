@@ -1,0 +1,109 @@
+a {
+  text-decoration: none;
+  color: black;
+}
+.header {
+  background-color: rgb(255, 255, 255);
+  box-shadow: rgba(0, 0, 0, 0.18) 0px 2px 4px;
+  position: relative;
+  z-index: 3;
+  &__contents {
+    width: 1020px;
+    margin: 0 auto;
+    &__bottom {
+      display: flex;
+      -webkit-box-pack: justify;
+      justify-content: space-between;
+      margin-top: 8px;
+      &__left {
+        display: flex;
+        font-size: 14px;
+        font-weight: 600;
+        line-height: 36px;
+        white-space: nowrap;
+        .tag {
+          color: red;
+        }
+        .left__content {
+          cursor: pointer;
+          height: 44px;
+          position: relative;
+          z-index: 3;
+          padding-right: 10px;
+          text-align: center;
+        }
+        .right__content {
+          cursor: pointer;
+          height: 44px;
+          position: relative;
+          z-index: 3;
+          padding-left: 10px;
+          align-items: center;
+        }
+      }
+      .right__menu {
+        display: inline-block;
+        position: relative;
+        &__list {
+          height: 44px;
+          position: relative;
+          float: left;
+          -webkit-box-align: center;
+          align-items: center;
+          display: flex;
+          font-size: 14px;
+          padding-left:14px;
+          padding-right: 14px;
+        }
+      }
+    }
+    &__top {
+      display: flex;
+      -webkit-box-pack: justify;
+      justify-content: space-between;
+      padding-top: 10px;
+      &__log {
+        -webkit-box-align: center;
+        align-items: center;
+        display: flex;
+        height: 40px;
+        margin-right: 45px;
+      }
+      .form {
+        position: relative;
+        width: 100%;
+        #box1 {
+          background-color: rgb(245, 245, 245);
+          font-size: 16px;
+          height: 40px;
+          line-height: 1.4em;
+          position: relative;
+          width: 100%;
+          -webkit-appearance: none;
+          border-width: 1px;
+          border-style: solid;
+          border-color: rgb(204, 204, 204);
+          border-image: initial;
+          border-radius: 4px;
+          outline: none;
+        }
+        #button1 {
+          background-color: transparent;
+          cursor: pointer;
+          height: 40px;
+          position: absolute;
+          right: 0px;
+          top: 0px;
+          width: 40px;
+          -webkit-appearance: none;
+          border-width: initial;
+          border-style: none;
+          border-color: initial;
+          border-image: initial;
+          border-radius: 0px 4px 4px 0px;
+          padding: 0px;
+        }
+      }
+    }
+  }
+}
