@@ -6,12 +6,8 @@ Rails.application.routes.draw do
   resources :users do
     collection do
       get :card
+      get :logout
     end
   end
   resources :trials, only: [:index,:create,:new]
-  resources :users do
-    collection do
-      get "logout"
-    end
-  end
 end
