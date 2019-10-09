@@ -1,0 +1,24 @@
+%section.user-credit-card
+  %h2.user-credit-card__head
+    支払い方法
+  .user-credit-card__inner
+    %section.user-credit-card__inner__content
+      .user-credit-card__inner__content__title
+        %h3.user-credit-card__inner__content__title__head クレジットカード一覧
+      %ul.user-credit-card__inner__content__list
+        %li.user-credit-card__inner__content__list__item
+          = form_with(model: @user, local: true,class:"user-credit-card__inner__content__list__item__form" ) do |f|
+            %figure.user-credit-card__inner__content__list__item__form__figure
+              = image_tag "logo_visa.gif", class:".user-credit-card__inner__content__list__item__form__figure__img", height:"36px"
+            = f.hidden_field :__csrf_value, class:"user-credit-card__inner__content__list__item__form__hidden" , value: ""
+            = f.hidden_field :card_sequence_no, value: "8Zc7efHfaa7CgTt15tfTv3cc", class:"user-credit-card__inner__content__list__item__form__hidden"
+            .user-credit-card__inner__content__list__item__form__settings-payment-num
+              ************7345
+            .user-credit-card__inner__content__list__item__form__settings-payment-num
+              09 / 20
+            = f.hidden_field :method, value: "card", class:"user-credit-card__inner__content__list__item__form__hidden"
+            = f.submit "削除する", class:"user-credit-card__inner__content__list__item__form__settings-payment-remove"            
+    .user-credit-card__inner__settings-not-regist
+      = link_to "", class:"user-credit-card__inner__settings-not-regist__remarks-link" do
+        %span.user-credit-card__inner__settings-not-regist__remarks-link__text 支払い方法について
+        =fa_icon "angle-right",class:"icon-arrow-right fa-1g"
