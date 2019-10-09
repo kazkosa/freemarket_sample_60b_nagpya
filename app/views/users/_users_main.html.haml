@@ -1,0 +1,64 @@
+%section.mypage-user__box__i
+  = link_to"https://www.mercari.com/jp/u/290156031/" do
+    %figure
+      = image_tag "//static.mercdn.net/images/member_photo_noimage_thumb.png", width: "60"'src',height: "60"
+    %h2.bold ゆり
+    .mypage-user__box__i__number
+      %div
+        評価
+        %span.bold 0
+      %div
+        出品数
+        %span.bold 0
+%section.mypage-tabs
+  %ul.mypage-tabs__do
+    %li.active
+      %h3
+        = link_to "" , class: "oshirase-tag" , data:{toggle:"tab"} do
+          お知らせ
+    %li
+      %h3
+        = link_to "" , class: "todo-tag" , data:{toggle:"tab"} do
+          やることリスト
+  .mypage-item
+    .mypage-item__list-info.active
+      %li.mypage-item__list-info__not
+        お知らせの商品がありません
+    -# .mypage-item__list-todo.active
+    -#   %li.mypage-item__list-todo__not
+    -#     現在、やることリストはありません
+        -# modalを使う時に使う記述
+-# %aside.modal{"data-close" => "modal", "data-modal" => "banner"}
+-#   .modal-inner.modal-banner
+-#     .modal-banner-eye-catch
+-#       %img{:alt => "", :src => "//www-mercari-jp.akamaized.net/assets/img/common/jp/top/main_content_pc.png?2296184308"}/
+-#       %img{:alt => "", :src => "//www-mercari-jp.akamaized.net/assets/img/common/common/logo.svg?2296184308"}/
+-#     .modal-banner-body
+-#       %h2 今すぐ無料ダウンロード！
+-#       %p.bold 全ての機能を使えるスマホアプリはこちら！
+-#       .modal-banner-app.clearfix
+-#         %a.pull-left{:href => "https://itunes.apple.com/jp/app/id667861049?l=ja&mt=8", :target => "_blank"}
+-#           %img{:alt => "", :src => "//www-mercari-jp.akamaized.net/assets/img/common/common/app-store.svg?2296184308"}/
+-#         %a.pull-left{:href => "https://play.google.com/store/apps/details?id=com.kouzoh.mercari&hl=ja", :target => "_blank"}
+-#           %img{:alt => "", :src => "//www-mercari-jp.akamaized.net/assets/img/common/common/google-play.svg?2296184308"}/
+-#       %a.modal-banner-app-open{"data-action" => "app/launch", "data-play-id" => "com.kouzoh.mercari", "data-toggle" => "open-app", "data-url-scheme" => "mercari://", :href => ""}
+-#         アプリで開く
+-#     %i.icon-close{"data-close" => "modal"}
+%section.mypage-tabs-2
+  %h2.mypage-tabs-2__head 購入した商品
+  %ul.mypage-tabs-2__do
+    %li.active
+      %h3
+        = link_to "" , class: "transaction-now-tag" , data:{toggle:"tab"} do
+          取引中
+    %li
+      %h3
+        = link_to "" , class: "transaction-old-tag" , data:{toggle:"tab"} do
+          過去の取引
+.mypage-item
+  %ul.mypage-item__list-now.active
+    %li.mypage-item__list-now__not
+      取引中の商品がありません
+  -# %ul.mypage-item__list-old.active
+  -#   %li.mypage-item__list-old__not
+  -#     過去に取引した商品がありません

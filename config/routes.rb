@@ -9,4 +9,5 @@ Rails.application.routes.draw do
     end
   end
   resources :trials, only: [:index,:create,:new]
+  resources :users 
 end

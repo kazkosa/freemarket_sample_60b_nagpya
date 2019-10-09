@@ -16,11 +16,10 @@
     display:flex;
     flex-flow:column-reverse;
     width: 700px;
-    margin:0 auto 40px auto;
+    margin:40px auto 40px auto;
   }
-}
-
-@media screen and (min-width: 1068px){
+ }
+ @media screen and (min-width: 1068px){
   .mypage-wrapper{
     display:flex;
     flex-flow:row;
