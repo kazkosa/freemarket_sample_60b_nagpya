@@ -1,0 +1,164 @@
+.mypage-user{
+  background: #eee;
+  &__box{
+    margin: 40px auto 0;
+    width: 1000px;
+    &__i{
+      img{
+        border-radius: 30px;
+      }
+      height: 200px;
+      position: relative;
+      height: 155px;
+      padding: 20px;
+      background: url(http://webcreatorbox.com/sample/images/check.png);
+      background-size: cover;
+      text-align: center;
+      &__number  {
+        font-size: 10;
+        display: flex; 
+        justify-content: center;
+        div{
+          margin: 0 30px 0 30px ;
+        }
+      }
+    }
+  }
+
+  .mypage-tabs{
+    &__do{
+      display: flex;
+    }
+
+    li.active a {
+      border-top: 2px solid #ea352d;
+      background: white;
+    }
+
+    &__do a {
+      position: relative;
+      display: block;
+      color: #333;
+      font-size: 16px;
+      line-height: 72px;
+      width: 500px;
+      background:rgb(168, 165, 165);
+      text-align: center;
+    }
+  }
+  
+  .mypage-item {
+    background: white;
+    &__list-info{
+      &__not{
+        // @include user_not();
+
+        padding: 160px 0 60px;
+        background: url(img1.png);
+        background-repeat: no-repeat;
+        background-position: center 40px;
+        background-size: 100px 100px;
+        text-align: center;
+        font-size: 16px;
+        color: #ccc;
+      }
+    }
+    // active動作をするときの処理として保留
+    .active{
+
+    }
+
+    &__list-todo{
+      &__not{
+
+        // @include user_not();
+
+        padding: 160px 0 60px;
+        background: url(img1.png);
+        background-repeat: no-repeat;
+        background-position: center 40px;
+        background-size: 100px 100px;
+        text-align: center;
+        font-size: 16px;
+        color: #ccc;
+      }
+    }
+    // active動作をするときの処理として保留
+    .active{
+
+    }
+
+  } 
+
+  .mypage-tabs-2{
+    &__head{
+      background: #fafafa;
+      font-size: 16px;
+      line-height: 72px;
+      padding: 0 16px;
+      margin-top:50px;
+    }
+
+    &__do{
+      display: flex;
+    }
+
+     li.active a {
+      border-top: 2px solid #ea352d;
+      background: white;
+    }
+
+    &__do a {
+      position: relative;
+      display: block;
+      color: #333;
+      font-size: 16px;
+      line-height: 72px;
+      width: 500px;
+      background:rgb(168, 165, 165);
+      text-align: center;
+    }
+  }  
+
+  .mypage-item {
+    background: white;
+    &__list-now{
+      &__not{
+        // @include user_not();
+  
+        padding: 160px 0 60px;
+        background: url(img1.png);
+        background-repeat: no-repeat;
+        background-position: center 40px;
+        background-size: 100px 100px;
+        text-align: center;
+        font-size: 16px;
+        color: #ccc;
+      }
+    }
+
+    // active動作をするときの処理として保留
+    .active{
+  
+    }
+  
+    &__list-old{
+      &__not{
+        // @include user_not();
+  
+        padding: 160px 0 60px;
+        background: url(img1.png);
+        background-repeat: no-repeat;
+        background-position: center 40px;
+        background-size: 100px 100px;
+        text-align: center;
+        font-size: 16px;
+        color: #ccc;
+      }
+    }
+    // active動作をするときの処理として保留
+    .active{
+  
+    }
+  }
+} 
