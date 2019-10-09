@@ -1,6 +1,7 @@
-= render "/layouts/header"
-= render "/users/users_main"
-= render "/layouts/footer"
-
-
-      
+= render "layouts/header"
+%section.mypage-wrapper
+  .left-content
+    = render "layouts/sidebar"
+  .right-content
+    = render "users_main"
+= render "layouts/footer"
