@@ -1,0 +1,30 @@
+.mypage-wrapper{
+  display:flex;
+  flex-flow:column-reverse;
+  margin: 40px 0;
+  width: 100%;
+  .left-content{
+  }
+  .right-content{
+    width:100%;
+  }
+}
+
+
+@media screen and (min-width: 768px){
+  .mypage-wrapper{
+    display:flex;
+    flex-flow:column-reverse;
+    width: 700px;
+    margin:0 auto 40px auto;
+  }
+}
+
+@media screen and (min-width: 1068px){
+  .mypage-wrapper{
+    display:flex;
+    flex-flow:row;
+    margin: 40px auto;
+    width: 1020px;
+  }
+}
