@@ -9,5 +9,9 @@ Rails.application.routes.draw do
     end
   end
   resources :trials, only: [:index,:create,:new]
-  resources :users 
+  resources :users do
+    collection do
+      get "logout"
+    end
+  end
 end

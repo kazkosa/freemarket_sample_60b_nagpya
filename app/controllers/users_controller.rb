@@ -4,4 +4,7 @@ class UsersController < ApplicationController
   def card
     @user = User.new() #temporaly 
   end
+  end  
+  def logout
+  end  
 end
