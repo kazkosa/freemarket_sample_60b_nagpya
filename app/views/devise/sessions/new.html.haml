@@ -1,17 +1,67 @@
-%h2 Log in
-= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
-  .field
-    = f.label :email
-    %br/
-    = f.email_field :email, autofocus: true, autocomplete: "email"
-  .field
-    = f.label :password
-    %br/
-    = f.password_field :password, autocomplete: "current-password"
-  - if devise_mapping.rememberable?
-    .field
-      = f.check_box :remember_me
-      = f.label :remember_me
-  .actions
-    = f.submit "Log in"
-= render "devise/shared/links"
+-# ログインページ
+-# ヘッダー
+%header.login__header
+  %h1.login__header__log
+    = link_to root_path do
+      %img{width: "185", src: "https://web-jp-assets.mercdn.net/_next/static/images/logo-acdd90ac4f472d5a6f7a330d33ab1225.svg"}            
+-# メイン
+%main.login__main
+  .login__main__contents
+    .login__main__contents__first
+      %p.login__main__contents__first__text
+        アカウントをお持ちではない方はこちら
+      = link_to new_user_registration_path, class: "login__main__contents__first__btn" do
+        新規会員登録
+    .login__main__contents__second
+      = link_to root_path, class: "login__main__contents__second__face" do
+        Facebookでログイン
+      = link_to root_path, class: "login__main__contents__second__google" do
+        Googleでログイン
+    .login__main__contents__third
+      = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
+        .field
+          = f.email_field :email, autofocus: true, autocomplete: "email", placeholder: " メールアドレス"
+        .field
+          = f.password_field :password, autocomplete: "current-password", placeholder: " パスワード"
+        .robot
+          私はロボットじゃありません  
+        .actions
+          = link_to  new_registration_path(resource_name) do
+            = f.submit "ログイン"
+        = link_to root_path, class: "" do
+          パスワードをお忘れの方    
+-# フッター             
+%footer.login__footer
+  %nav.login__footer__nav
+    %ul.login__footer__nav__menu
+      %li.login__footer__nav__menu__list
+        = link_to do
+          プライバシーポリシー
+      %li.login__footer__nav__menu__list
+        = link_to do
+          メルカリ利用規約
+      %li.login__footer__nav__menu__list
+        = link_to do
+          特定商取引に関する表記
+  = link_to root_path, class: "login__footer__log" do
+    %img{width: "80", src: "https://www-mercari-jp.akamaized.net/assets/img/common/common/logo-gray.svg?2296184308"}  
+  %p.login__footer__2019
+    %small
+      2019 Mercari  
+-# %h2 Log in
+-# = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
+-#   .field
+-#     = f.label :email
+-#     %br/
+-#     = f.email_field :email, autofocus: true, autocomplete: "email"
+-#   .field
+-#     = f.label :password
+-#     %br/
+-#     = f.password_field :password, autocomplete: "current-password"
+-#   - if devise_mapping.rememberable?
+-#     .field
+-#       = f.check_box :remember_me
+-#       = f.label :remember_me
+-#   .actions
+-#     = f.submit "Log in"
+-# = render "devise/shared/links"

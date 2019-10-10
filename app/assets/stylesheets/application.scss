@@ -7,4 +7,9 @@
 @import "font-awesome";
 @import "sidebar";
 @import "_common_top";
-@import "toppage"
+@import "toppage";
+
+// user登録用
+@import "login/header&footer";
+@import "login/main";
+
