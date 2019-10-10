@@ -7,6 +7,9 @@ Rails.application.routes.draw do
     collection do
       get :card
       get :logout
+      get :notification
+      get :todo
+      get :like
     end
   end
   resources :trials, only: [:index,:create,:new]
