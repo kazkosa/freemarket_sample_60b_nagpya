@@ -1,0 +1,101 @@
+.login__main {
+  &__contents {
+    width: 460px;
+    background-color: white;
+    margin: 0 auto;
+    &__first {
+      height: 145px;
+      text-align: center;
+      border-bottom: 1px solid gainsboro;
+      &__text {
+      width: 330px;
+      height: 14px;
+      font-size: 14px;
+      margin: 0 auto;
+      padding-top: 35px;
+      }
+      &__btn {
+      margin-top: 8px;  
+      display: inline-block;  
+      width: 330px;
+      height: 40px;
+      text-align: center;
+      background-color: #0099E8;
+      color: white;
+        &__text {
+          margin: 0 auto;
+          padding-top: 8px;
+        }
+      }
+    } 
+    &__second {
+      height: 181px;
+      &__face {
+        display: block;  
+        width: 330px;
+        height: 20px;
+        text-align: center;
+        background-color: #385185;
+        margin: 0 auto;
+        margin-top: 32px;
+        color: white;
+        padding: 15px 0;
+        
+      }
+      &__google {
+        display: block;  
+        width: 328px;
+        height: 20px;
+        text-align: center;
+        border: 1px solid black;
+        margin: 0 auto;
+        margin-top: 16px;
+        padding: 15px 0;
+      }
+    }
+    &__third {
+      height: 410px;
+      text-align: center;
+      .field {
+        padding-top: 20px;
+        #user_email {
+        width: 328px;
+        height: 22px;
+        padding: 10px 16px 8px;
+        }
+        #user_password {
+        width: 328px;
+        height: 22px;
+        padding: 10px 16px 8px;
+        }
+      }
+      .robot {
+        height: 80px;
+        width: 328px;
+        margin: 0 auto;
+        margin-top: 40px;
+        margin-bottom: 40px;
+        border: 1px solid black;
+      }
+      .actions {
+      margin: 0 auto;  
+      height: 20px;
+      width: 328px;
+      .form__mask__text {
+        background-color: red;
+        padding-top: 15px;
+        padding-bottom: 15px;
+       }
+      }
+      .owasure {
+        margin-top: 60px;
+        display: block;
+        color: #0099E8;
+      }
+    }  
+  }
+}
+
+.hidden {
+  display: none;
+}

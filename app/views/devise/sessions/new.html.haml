@@ -11,12 +11,18 @@
       %p.login__main__contents__first__text
         アカウントをお持ちではない方はこちら
       = link_to new_user_registration_path, class: "login__main__contents__first__btn" do
-        新規会員登録
+        %p.login__main__contents__first__btn__text
+          新規会員登録
     .login__main__contents__second
       = link_to root_path, class: "login__main__contents__second__face" do
-        Facebookでログイン
+
+        = fa_icon 'facebook', class: 'icon fa-lg'
+        %span.login__main__contents__second__face__text
+          Facebookでログイン
       = link_to root_path, class: "login__main__contents__second__google" do
-        Googleでログイン
+        = fa_icon 'google', class: 'icon fa-lg'
+        %span.login__main__contents__second__google__text
+          Googleでログイン
     .login__main__contents__third
       = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
         .field
@@ -26,9 +32,12 @@
         .robot
           私はロボットじゃありません  
         .actions
-          = link_to  new_registration_path(resource_name) do
-            = f.submit "ログイン"
-        = link_to root_path, class: "" do
+          = link_to   do
+            .form__mask
+              %p.form__mask__text
+                ログイン
+              = f.submit class: 'hidden'
+        = link_to root_path, class: "owasure" do
           パスワードをお忘れの方    
 -# フッター             
 %footer.login__footer
