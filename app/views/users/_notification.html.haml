@@ -1,0 +1,49 @@
+%section.mypage-tabs
+  %ul.mypage-tabs__do
+    %li.active
+      %h3
+        = link_to notification_users_path , class: "oshirase-tag" , data:{toggle:"tab"} do
+          お知らせ
+    %li
+      %h3
+        = link_to todo_users_path , class: "todo-tag" , data:{toggle:"tab"} do
+          やることリスト
+  %ul.mypage-item
+    - if @notifications
+      - @notifications.each do | notification |
+        %li.mypage-item__list-info
+          = link_to "", class:"mypage-item__list-info__link" do
+            .mypage-item__list-info__link__mark
+              = image_tag "mark_m.png", class:"mark_m"
+            .mypage-item__list-info__link__item-body
+              .mypage-item__list-info__link__item-body__text
+                3日後、P999還元クーポンの有効期限が切れます！タップして詳細を確認しましょう。
+              %time.mypage-item__list-info__link__item-body__time
+                = fa_icon "time",class:"icon-time fa-lg"
+                %span 21 時間前
+            =fa_icon "angle-right",class:"side-box__mypage-nav__list__inner__item__icon fa-1g"
+        %li.mypage-item__list-info
+          = link_to "", class:"mypage-item__list-info__link" do
+            .mypage-item__list-info__link__mark
+              = image_tag "mark_m.png", class:"mark_m"
+            .mypage-item__list-info__link__item-body
+              .mypage-item__list-info__link__item-body__text
+                《お買い物応援！》¥1,000の商品を実質1円でご購入いただけます！
+              %time.mypage-item__list-info__link__item-body__time
+                = fa_icon "time",class:"icon-time fa-lg"
+                %span 21 時間前
+            =fa_icon "angle-right",class:"side-box__mypage-nav__list__inner__item__icon fa-1g"
+        %li.mypage-item__list-info
+          = link_to "", class:"mypage-item__list-info__link" do
+            .mypage-item__list-info__link__mark
+              = image_tag "mark_m.png", class:"mark_m"
+            .mypage-item__list-info__link__item-body
+              .mypage-item__list-info__link__item-body__text
+                《速報》今なら販売手数料が実質無料！出品が超お得♪
+              %time.mypage-item__list-info__link__item-body__time
+                = fa_icon "time",class:"icon-time fa-lg"
+                %span 3 日前
+            =fa_icon "angle-right",class:"side-box__mypage-nav__list__inner__item__icon fa-1g"
+    - else
+      %li.mypage-item__list-info__not
+        お知らせの商品がありません
