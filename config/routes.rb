@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   resources :products ,   only: :index
   resources :users do
     collection do
+      get :plofile
       get :card
       get :logout
     end
