@@ -13,29 +13,35 @@
     background: url(http://webcreatorbox.com/sample/images/check.png); 
     text-align: center;
     font-size: 10px;
-  
+    height:  70px;
+    position:relative;
     .i {
-      width: 300px;
-      height: 60px;
+      width: 255px;
+      height:  60px;
       border-radius: 4px;
       border: 1px solid #ccc;
       background: #ffffff;
       line-height: 1.5;
       font-size: 16px;
-      margin: 0 0 0 8px;
-      padding: 10px 16px 8px;
-      
+      position:absolute;
+      top: 55px;
+      left: 280px;
+      padding: 10px 16px 0 38px;
     }
-    img{
-      width: 60px;
-      height: 60px;
-      border-radius: 30px;
-      padding: 10px 16px 8px 30px;
+    figure{
+      padding: 0 0 0 100px;
+      img{
+        width: 70px;
+        height: 70px;
+        border-radius: 80px;
+        position:absolute;
+        top: 55px;
+        left: 200px;
+      }
     }
   }
   .profile-content {
     padding: 40px 16px;
-    
     .d {
       display: block;
       width: 97%;

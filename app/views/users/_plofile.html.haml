@@ -4,9 +4,9 @@
     =form_with(model: @user) do |f| 
       .profile-icon
         %figure
-          = image_tag"//static.mercdn.net/images/member_photo_noimage_thumb.png",width:"60",height:"60"
+          = image_tag"//static.mercdn.net/images/member_photo_noimage_thumb.png"
         =f.text_field :name,value:"ゆり" , class: "i"
       .profile-content
-        =f.text_area :introduction, placeholder:"#", class: "d"
+        =f.text_area :introduction, placeholder: "例）こんにちは☆ ご覧いただきありがとうございます！かわいいものやきれいめオフィスカジュアル中心に出品しています。服のサイズは主に9号です。気持ちよくお取引できるよう心がけていますので、商品や発送方法などご質問がありましたらお気軽にどうぞ♪", class: "d"
         %button.btn-red
           変更する
