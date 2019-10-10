@@ -1,0 +1,12 @@
+.content
+  %section.chapter-container
+    %h2.chapter-head プロフィール
+    =form_with(model: @user) do |f| 
+      .profile-icon
+        %figure
+          = image_tag"//static.mercdn.net/images/member_photo_noimage_thumb.png",width:"60",height:"60"
+        =f.text_field :name,value:"ゆり" , class: "i"
+      .profile-content
+        =f.text_area :introduction, placeholder:"#", class: "d"
+        %button.btn-red
+          変更する
