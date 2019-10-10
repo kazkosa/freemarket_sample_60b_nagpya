@@ -1,10 +1,11 @@
 class UsersController < ApplicationController
   def index
-  end  
-  
+  end
+  def card
+    @user = User.new() #temporaly 
+  end
   def logout
   end  
-  
   def plofile
     #仮のモデル作成
     @user =User.new()
