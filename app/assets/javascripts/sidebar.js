@@ -1,0 +1,72 @@
+$(function(){
+
+  function pushed_sidebar(data){
+    $(".side-box__mypage-nav__list__inner__item").removeClass("active");;
+    data.addClass("active");
+  }
+  if(document.URL.match(/.+\/users/)){
+    pushed_sidebar($(".side-mypage"));
+  }
+
+  if(document.URL.match(/.+\/users\/notification/)){
+    pushed_sidebar($(".side-notification"));
+  }
+  if(document.URL.match(/.+\/users\/todo/)){
+    pushed_sidebar($(".side-todo"));
+  }
+  if(document.URL.match(/.+\/users\/like/)){
+    pushed_sidebar($(".side-like"));
+  }
+  if(document.URL.match(/.+\/users\/side-sell/)){
+    pushed_sidebar($(".side-sell"));
+  }
+  if(document.URL.match(/.+\/users\/side-listings-listing/)){
+    pushed_sidebar($(".side-listings-listing"));
+  }
+  if(document.URL.match(/.+\/users\/side-listings-inprogress/)){
+    pushed_sidebar($(".side-listings-inprogress"));
+  }
+  if(document.URL.match(/.+\/users\/side-listings-complete/)){
+    pushed_sidebar($(".side-listings-complete"));
+  }
+  if(document.URL.match(/.+\/users\/side-purchase/)){
+    pushed_sidebar($(".side-purchase"));
+  }
+  if(document.URL.match(/.+\/users\/side-purchased/)){
+    pushed_sidebar($(".side-purchased"));
+  }
+  if(document.URL.match(/.+\/users\/side-news/)){
+    pushed_sidebar($(".side-news"));
+  }
+  if(document.URL.match(/.+\/users\/side-help-senter/)){
+    pushed_sidebar($(".side-help-senter"));
+  }
+  if(document.URL.match(/.+\/users\/side-sales/)){
+    pushed_sidebar($(".side-sales"));
+  }
+  if(document.URL.match(/.+\/users\/side-point/)){
+    pushed_sidebar($(".side-point"));
+  }
+  if(document.URL.match(/.+\/users\/side-profile/)){
+    pushed_sidebar($(".side-profile"));
+  }
+  if(document.URL.match(/.+\/users\/side-deliver_address/)){
+    pushed_sidebar($(".side-deliver_address"));
+  }
+  if(document.URL.match(/.+\/users\/card/)){
+    pushed_sidebar($(".side-card" ));
+  }
+  if(document.URL.match(/.+\/users\/side-email_password/)){
+    pushed_sidebar($(".side-email_password"));
+  }
+  if(document.URL.match(/.+\/users\/side-identification/)){
+    pushed_sidebar($(".side-identification"));
+  }
+  if(document.URL.match(/.+\/users\/side-sms_confirmation/)){
+    pushed_sidebar($(".side-sms_confirmation"));
+  }
+  if(document.URL.match(/.+\/users\/logout/)){
+    pushed_sidebar($(".side-logout"));
+  }  
+});
+

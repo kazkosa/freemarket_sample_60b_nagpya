@@ -1,0 +1,34 @@
+%section.user-credit-card
+  %h2.user-credit-card__head
+    いいね！一覧
+  %ul.mypage-item
+    - if @likes
+      - @likes.each do | like |
+        %li.mypage-item__list-info
+          = link_to "", class:"mypage-item__list-info__link" do
+            .mypage-item__list-info__link__mark
+              = image_tag "mark_m.png", class:"mark_m"
+            .mypage-item__list-info__link__item-body
+              .mypage-item__list-info__link__item-body__text
+                値下げ☆美品　ジススチャートサングラス
+                %br
+                ¥2,900
+        %li.mypage-item__list-info
+          = link_to "", class:"mypage-item__list-info__link" do
+            .mypage-item__list-info__link__mark
+              = image_tag "mark_m.png", class:"mark_m"
+            .mypage-item__list-info__link__item-body
+              .mypage-item__list-info__link__item-body__text
+                ANAPコート
+                %br
+                ¥2,480
+    - else
+      %li.mypage-item__list-info__not
+        いいね<!DOCTYPE html>
+        %html(lang="en")
+          %head
+            %meta(charset="UTF-8")/
+            %meta(name="viewport" content="width=device-width, initial-scale=1.0")/
+            %meta(http-equiv="X-UA-Compatible" content="ie=edge")/
+            %title Document
+          %bodyがありません

@@ -8,6 +8,9 @@ Rails.application.routes.draw do
       get :plofile
       get :card
       get :logout
+      get :notification
+      get :todo
+      get :like
     end
   end
   resources :trials, only: [:index,:create,:new]
