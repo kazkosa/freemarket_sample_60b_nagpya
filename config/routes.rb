@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   resources :users do
     collection do
       get :plofile
+      get :identification
       get :card
       get :logout
     end
