@@ -28,7 +28,11 @@
         }
 
         &__item:hover{
-          background: #eee;
+          background: #ddd;
+          font-weight: 600;
+        }
+        &__item.active{
+          background: #ddd;
           font-weight: 600;
         }
 

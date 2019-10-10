@@ -5,5 +5,14 @@ class UsersController < ApplicationController
     @user = User.new() #temporaly 
   end
   def logout
-  end  
+  end
+  def notification
+    @notifications = [1] #nemporaly
+  end
+  def todo
+    @todos = [1] #nemporaly
+  end
+  def like
+    @likes = [1] #nemporaly
+  end
 end
