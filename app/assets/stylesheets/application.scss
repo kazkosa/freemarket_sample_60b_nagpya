@@ -9,7 +9,8 @@
 @import "_common_top";
 @import "toppage";
 
-// user登録用
+// ログイン、サインアップ関連登録用
 @import "login/header&footer";
 @import "login/main";
 @import "login/registrations";
+@import "login/singup";

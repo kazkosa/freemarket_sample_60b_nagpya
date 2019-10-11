@@ -20,7 +20,7 @@ a {
         font-size: 14px;
         font-weight: 600;
         line-height: 36px;
-        white-space: nowrap;
+        white-space: nowrap;  
         .tag {
           color: red;
         }
@@ -43,7 +43,7 @@ a {
       }
       .right__menu {
         display: inline-block;
-        position: relative;
+        margin-left: 230px;
         &__list {
           height: 44px;
           position: relative;

@@ -1,0 +1,53 @@
+// サインアップのヘッダー
+.sing__header {
+  &__log {
+  }
+  &__nav {
+    &__menu {
+      &__list {
+        .point {
+
+        }
+      }
+    }
+  }
+}
+// サインアップのメイン
+.sing__main {
+  &__title {
+
+  }
+  &__wrapper {
+    &__content {
+      &_m {
+        &_s {
+
+        }
+        .form-require {
+
+        }
+        .input-default {
+
+        }
+        .input-default.half {
+
+        }
+        .birthday-select-wrap {
+          .select-wrap {
+
+          }
+          .select-wrap__month {
+
+          }
+          .select-wrap__day {
+
+          }
+          .sing__main_wrapper__content_m_text {
+
+          }
+        }
+      }
+    }
+  }
+}
+// サインアップのフッター
