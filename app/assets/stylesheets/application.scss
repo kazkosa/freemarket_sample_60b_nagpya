@@ -13,4 +13,8 @@
 @import "card";
 @import "toppage";
 @import "identification";
-
+// ログイン、サインアップ関連登録用
+@import "login/header&footer";
+@import "login/main";
+@import "login/registrations";
+@import "login/singup";
