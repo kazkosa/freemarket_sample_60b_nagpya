@@ -1,0 +1,89 @@
+.single-container
+  = render "layouts/single-header"
+  %main.single-main
+    %section.single-main__buy-container
+      %h2.single-main__buy-container__head 購入内容の確認
+      %section.single-main__buy-container__item
+        .single-main__buy-container__item__inner
+          .single-main__buy-container__item__inner__wrapper
+            .single-main__buy-container__item__inner__wrapper__image
+              = image_tag"https://static.mercdn.net/thumb/photos/m81784685949_1.jpg?1567865587"
+            .single-main__buy-container__item__inner__wrapper__name
+              ブリオ ローラーコースター セット 33730
+          = form_with(model: User.new, local: true, class:"single-main__buy-container__item__inner__form") do |f| #using User instance is temp until implementing
+            %p.single-main__buy-container__item__inner__form__price-ja
+              ¥6,300
+              %span.single-main__buy-container__item__inner__form__price-ja__ship
+                送料込み
+            %ul.single-main__buy-container__item__inner__form__point.not-have
+              %li.single-main__buy-container__item__inner__form__point__list
+                .single-main__buy-container__item__inner__form__point__list__text
+                  ポイントはありません
+            %ul.single-main__buy-container__item__inner__form__price-table
+              %li.single-main__buy-container__item__inner__form__price-table__you-pay
+                .single-main__buy-container__item__inner__form__price-table__you-pay__price-cell
+                  支払い金額
+                .single-main__buy-container__item__inner__form__price-table__you-pay__price-cell
+                  %span{data:{buy:{pay:"6300"}}}
+                    ¥6,300
+            = f.hidden_field :seller_id ,         value:"999999999"
+            = f.hidden_field :payment_fee ,       value:"0"
+            = f.hidden_field :payment_amount ,    value:"6300"
+            = f.hidden_field :price ,             value:"6300"
+            = f.hidden_field :category_id ,       value:"777"
+            = f.hidden_field :item_condition ,    value:"4"
+            = f.hidden_field :shipping_payer ,    value:"2"
+            = f.hidden_field :shipping_method ,   value:"14"
+            = f.hidden_field :shipping_duration , value:"2"
+            = f.hidden_field :shipping_class ,    value:"0"
+            = f.hidden_field :zip_code1 ,         value:"999"
+            = f.hidden_field :zip_code2 ,         value:"999"
+            = f.hidden_field :paid_method ,       value:"card"
+            = f.hidden_field :checksum ,          value:"899f66afd663f82ef0399ccbb9e36013"
+            = f.hidden_field :payment_card_sequence_no ,      value:"8Zc7efHfaa7CgTt15tfTv3cc"
+            = f.hidden_field :payment_use_last_card_base64 ,  value:"eWVz"
+            = f.hidden_field :item_name_base64 ,  value:"44OW44Oq44KqIOODreODvOODqeODvOOCs+ODvOOCueOCv+ODvCDjgrvjg4Pjg4ggMzM3MzA="
+            = f.hidden_field :description_base64,  value:"fofoeafewoikfoawfoajwogijojogjo"
+            = f.hidden_field :shipping_from_area_base64 ,  value:"MTM="
+            = f.hidden_field :family_name_base64 ,  value:"5bCP5Z2C"
+            = f.hidden_field :first_name_base64  , value:"5ZKM5LmL"
+            = f.hidden_field :family_name_kana_base64, value:"44Kz44K144Kr"
+            = f.hidden_field :first_name_kana_base64, value:"44Kr44K6000Om44Kt"
+            = f.hidden_field :prefecture_base64, value:"5oSb55+l55yM"
+            = f.hidden_field :city_base64, value:"5bKh5bSO5biC6JOR5bed55S65a2X5bGx9999999w"
+            = f.hidden_field :address1_base64, value:"MS0yMA=="
+            = f.hidden_field :address2_base64, value:""
+            = f.hidden_field :telephone_base64, value:""
+            = f.hidden_field :__csrf_value, value:"3314fa3515172844a413"
+            = f.hidden_field :_s,value:"TOVvBDZonF0vRUWtSJJJ"
+            = f.submit "購入する",class:"single-main__buy-container__item__inner__form__button-red"
+      %section.single-main__buy-container__buyer-info
+        .single-main__buy-container__buyer-info__content
+          %h3 配送先
+          %address.single-main__buy-container__buyer-info__content__text
+            〒xxx-xxxx
+            %br/
+            愛知県名古屋市中区栄
+            x丁目xx-xx
+            %br/
+            TECH 太郎
+          %p.single-main__buy-container__buyer-info__content__text
+          -# %a.buy-user-info-fix{:href => "https://www.mercari.com/jp/transaction/address/m81784685949/?_s=U2FsdGVkX1-aTef1BQ3cbM5ZNS8j9xVxQHJytDDXpqJTxEWJbDKXyTOVvBDZonF0aQTa5GmZABwEctnzMhDTYL1dbVWKpDvOuuU1WFF6CSc0ix3uQiWRcb8vRUWtSJJJ"}
+          = link_to "",class:"single-main__buy-container__buyer-info__content__edit-link" do
+            %span 変更する
+            =fa_icon "angle-right",class:"fa-1g"
+      %section.single-main__buy-container__pay-method{data: {buy: "pay-method"}}
+        .single-main__buy-container__pay-method__inner
+          %h3 支払い方法
+          %p.single-main__buy-container__pay-method__inner__text
+            ************9999
+            %br/
+            09 / 21
+          %figure.single-main__buy-container__pay-method__inner__image-box
+            =image_tag "//www-mercari-jp.akamaized.net/assets/img/card/visa.svg?3466462615"
+          %p
+          %a.buy-user-info-fix{:href => "https://www.mercari.com/jp/transaction/select_card/m81784685949/?_s=U2FsdGVkX1-aTef1BQ3cbM5ZNS8j9xVxQHJytDDXpqJTxEWJbDKXyTOVvBDZonF0aQTa5GmZABwEctnzMhDTYL1dbVWKpDvOuuU1WFF6CSc0ix3uQiWRcb8vRUWtSJJJ"}
+          = link_to "", class:"single-main__buy-container__pay-method__inner__edit-link"  do
+            %span 変更する
+            =fa_icon "angle-right",class:"fa-1g" 
+  = render "layouts/single-footer"
