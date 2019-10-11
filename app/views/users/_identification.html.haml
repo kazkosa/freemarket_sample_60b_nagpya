@@ -1,0 +1,51 @@
+%section.mypage-identification
+  %h2.mypage-identification-head 本人情報の登録
+  =form_with(model: @user ,class: "mypage-identification-inner") do |f| 
+    %div
+      %p
+        お客さまの本人情報をご登録ください。
+        %br>/
+        登録されたお名前・生年月日を変更する場合、本人確認書類の提出が必要になります。
+      .text-right
+        = link_to"#" do
+          本人確認書類のアップロードについて＞
+          %i.icon-arrow-right
+    .form-group
+      %label お名前
+      %p 石黒有里
+    .form-group
+      %label お名前カナ
+      %p イシグロ ユリ
+    .form-group
+      %label{for:"birthday"} 生年月日
+      %p 2019年10月10日
+    .form-group
+      =f.label :zip_code,"郵便番号" 
+      %span.arbitrary 任意
+      %br 
+      =f.text_field :zip_code , placeholder:"例) 1234567", class:"input-default"
+    .form-group
+      =f.label :prefecture ,"都道府県"
+      %span.arbitrary 任意
+      %br 
+      .select-wrap
+        = fa_icon  "chevron-down", class: 'tag'
+        = f.collection_select :prefecture_id, Prefecture.all, :id, :name,{prompt:"都道府県を選んでください"},{class:"select-default "}
+    .form-group
+      =f.label :city ,"市区町村"
+      %span.arbitrary 任意
+      %br 
+      =f.text_field :city , placeholder:"例) 横浜市緑区", class:"input-default"
+    .form-group
+      =f.label :address1_label, "番地"
+      %span.arbitrary 任意
+      %br 
+      =f.text_field :address1 , placeholder:"例) 青山1−1−1 ", class:"input-default"
+    .form-group
+      =f.label :address2_label ,"建物名"
+      %span.arbitrary 任意
+      %br 
+      =f.text_field :address2, placeholder:"例) 柳ビル103", class:"input-default"
+    %button.btn-red 登録する
+    .text-right
+      = link_to "本人情報の登録について＞", "#"
