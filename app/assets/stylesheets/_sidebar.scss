@@ -1,6 +1,5 @@
 .side-box{
   width: 100%;
-
   &__mypage-nav{
     
     &__list{
@@ -29,7 +28,11 @@
         }
 
         &__item:hover{
-          background: #eee;
+          background: #ddd;
+          font-weight: 600;
+        }
+        &__item.active{
+          background: #ddd;
           font-weight: 600;
         }
 
