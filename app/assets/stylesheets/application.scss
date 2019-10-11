@@ -16,3 +16,8 @@
 @import "single-header";
 @import "single-footer";
 @import "buy";
+// ログイン、サインアップ関連登録用
+@import "login/header&footer";
+@import "login/main";
+@import "login/registrations";
+@import "login/singup";

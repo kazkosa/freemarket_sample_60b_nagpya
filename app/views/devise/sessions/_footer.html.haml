@@ -1,0 +1,18 @@
+-# ログイン画面のfooterです
+%footer.login__footer
+  %nav.login__footer__nav
+    %ul.login__footer__nav__menu
+      %li.login__footer__nav__menu__list
+        = link_to do
+          プライバシーポリシー
+      %li.login__footer__nav__menu__list
+        = link_to do
+          メルカリ利用規約
+      %li.login__footer__nav__menu__list
+        = link_to do
+          特定商取引に関する表記
+  = link_to root_path, class: "login__footer__log" do
+    %img{width: "80", src: "https://www-mercari-jp.akamaized.net/assets/img/common/common/logo-gray.svg?2296184308"}  
+  %p.login__footer__2019
+    %small
+      2019 Mercari  

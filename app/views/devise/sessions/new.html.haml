@@ -1,17 +1,37 @@
-%h2 Log in
-= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
-  .field
-    = f.label :email
-    %br/
-    = f.email_field :email, autofocus: true, autocomplete: "email"
-  .field
-    = f.label :password
-    %br/
-    = f.password_field :password, autocomplete: "current-password"
-  - if devise_mapping.rememberable?
-    .field
-      = f.check_box :remember_me
-      = f.label :remember_me
-  .actions
-    = f.submit "Log in"
-= render "devise/shared/links"
+-# ログインページ
+=render "header"
+-# メイン
+%main.login__main
+  .login__main__contents
+    .login__main__contents__first
+      %p.login__main__contents__first__text
+        アカウントをお持ちではない方はこちら
+      = link_to new_user_registration_path, class: "login__main__contents__first__btn" do
+        %p.login__main__contents__first__btn__text
+          新規会員登録
+    .login__main__contents__second
+      = link_to root_path, class: "login__main__contents__second__face" do
+        = fa_icon 'facebook', class: 'icon fa-lg'
+        %span.login__main__contents__second__face__text
+          Facebookでログイン
+      = link_to root_path, class: "login__main__contents__second__google" do
+        = fa_icon 'google', class: 'icon fa-lg'
+        %span.login__main__contents__second__google__text
+          Googleでログイン
+    .login__main__contents__third
+      = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
+        .field
+          = f.email_field :email, autofocus: true, autocomplete: "email", placeholder: " メールアドレス"
+        .field
+          = f.password_field :password, autocomplete: "current-password", placeholder: " パスワード"
+        .robot
+          私はロボットじゃありません  
+        .actions
+          = link_to do
+            .form__mask
+              %p.form__mask__text
+                ログイン
+              = f.submit class: 'hidden'
+        = link_to root_path, class: "owasure" do
+          パスワードをお忘れの方    
+=render "footer"
