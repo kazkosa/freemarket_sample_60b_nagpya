@@ -16,7 +16,6 @@ class RegulationController < ApplicationController
   end   
 
   def singup3
-    @pay = pays.new
   end   
 
   def singup4
