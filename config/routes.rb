@@ -19,8 +19,8 @@ Rails.application.routes.draw do
   resources :regulation do
     collection do
       get :singup1
-      post :singup2
-      post :singup3
+      get :singup2
+      get :singup3
       get :singup4
     end
   end  
