@@ -1,0 +1,19 @@
+=render "header"
+%main.sing__main
+  %h2.sing__main__title
+    電話番号の確認
+  %form{method: "post", class: "sing__main__wrapper"}
+    .sing__main__wrapper__content
+      .sing__main__wrapper__content_m
+        %label{for:"phone_number"} 携帯電話の番号
+        %input.input-default{name: "phone_number", placeholder: "携帯電話の番号を入力", type: "text", value: ""}/
+        %p.l-single-text
+          本人確認のため、携帯電話のSNS(ショートメッセージサービスを利用して認証を行います。)
+      .sing__main__wrapper__content_m
+        %button.btn-default.btn-red{:type => "submit"} SNS認証を送信する    
+        %p.l-single-text
+          ※電話番号は本人確認や不正利用防止のため利用します。他のユーザーに公開されることはありません。
+      .sing__main__wrapper__content_m
+        =link_to root_path ,class:"m_text" do
+          電話番号の確認が必要な理由>    
+=render "footer"
