@@ -1,11 +1,32 @@
 // サインアップのヘッダー
 .sing__header {
+  height: 128px;
+  text-align: center;
+  border: 0;
   &__log {
+    margin-top: 40px;
+    display: inline-block;
+    height: 50px;
   }
   &__nav {
+    display: inline-block;
+    padding: 0 0 0 44px;
+  
     &__menu {
+      display: flex;
       &__list {
+        position: relative;
+        z-index: 1;
+        display: inline-block;
+        font-size: 12px;
+        margin-right: 40px;
         .point {
+          width: 12px;
+          height: 12px;
+          margin: 8px auto 0;
+          background: #ccc;
+          border-radius: 50%;
+
 
         }
       }
@@ -14,27 +35,64 @@
 }
 // サインアップのメイン
 .sing__main {
+  width: 700px;
+  background-color: white;
+  padding: 0;
+  margin: 0 auto;
   &__title {
-
+    font-size: 22px;
+    padding: 32px;
+    text-align: center;
   }
   &__wrapper {
+    padding: 40px 40px 64px;
+    border-top: 1px solid #f5f5f5;
     &__content {
+      max-width: 343px;
+      margin: 0 auto;
       &_m {
+        margin-top: 30px;
+        &_text {
+          display: inline-block;
+          margin-top: 8px;
+          color: #888;
+          font-size: 14px;
+        }
         &_s {
-
         }
         .form-require {
-
+          background: #ea352d;
+          margin: 0 0 0 8px;
+          padding: 2px 4px;
+          border-radius: 2px;
+          color: #fff;
+          font-size: 12px;
+          vertical-align: top;
         }
         .input-default {
-
+          width: 90%;
+          margin: 8px 0 0;
+          padding: 10px 16px 8px;
+          height: 28px;
+          border-radius: 4px;
+          border: 1px solid #ccc;
+          background: #fff;
+          line-height: 1.5;
+          font-size: 16px;
         }
         .input-default.half {
-
+          width: 38%;
+          margin: 8px 0 0;
         }
         .birthday-select-wrap {
           .select-wrap {
-
+            width: 110px;
+            float: left;
+            .input-default.one_third {
+            width: 40%;
+            height: 48px;
+            padding: 0 10px;
+            }
           }
           .select-wrap__month {
 
@@ -46,8 +104,27 @@
 
           }
         }
+        .l-single-text {
+          display: inline-block;
+          margin-top: 8px;
+          color: #888;
+          font-size: 14px;
+        }
+        .btn-default.btn-red {
+          background: #ea352d;
+          border: 1px solid #ea352d;
+          color: #fff;
+          width: 100%;
+          line-height: 48px;
+          font-size: 14px;
+          margin-top: 32px;
+        }
+        .m_text {
+          color: #0099E8;
+          float: right;
+          font-size: 14px;
+        }
       }
     }
   }
 }
-// サインアップのフッター
