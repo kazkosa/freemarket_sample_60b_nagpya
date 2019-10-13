@@ -1,0 +1,327 @@
+= render "layouts/header"
+%section.item-box-container
+  %h1.item-box-container__item-name ブリオ ローラーコースター セット 33730
+  .item-box-container__main
+    .item-box-container__main__photo
+      .item-box-container__main__photo__inner
+        .item-box-container__main__photo__inner__large-box
+          .item-box-container__main__photo__inner__large-box__wrapper
+            .item-box-container__main__photo__inner__large-box__wrapper__item.active
+              .item-box-container__main__photo__inner__large-box__wrapper__item__inner
+                = image_tag "materials/brio_a.jpg", class:"item-box-container__main__photo__inner__large-box__wrapper__item__inner__img", data: { src: "materials/brio_a.jpg"}
+            .item-box-container__main__photo__inner__large-box__wrapper__item
+              .item-box-container__main__photo__inner__large-box__wrapper__item__inner
+                = image_tag "materials/brio_b.jpg", class:"item-box-container__main__photo__inner__large-box__wrapper__item__inner__img", data: { src: "materials/brio_b.jpg"}
+            .item-box-container__main__photo__inner__large-box__wrapper__item
+              .item-box-container__main__photo__inner__large-box__wrapper__item__inner
+                = image_tag "materials/brio_c.jpg", class:"item-box-container__main__photo__inner__large-box__wrapper__item__inner__img", data: { src: "materials/brio_c.jpg"}
+            .item-box-container__main__photo__inner__large-box__wrapper__item
+              .item-box-container__main__photo__inner__large-box__wrapper__item__inner
+                = image_tag "materials/brio_d.jpg", class:"item-box-container__main__photo__inner__large-box__wrapper__item__inner__img", data: { src: "materials/brio_d.jpg"}
+        .item-box-container__main__photo__inner__nav
+          .item-box-container__main__photo__inner__nav__prev
+            prev
+          .item-box-container__main__photo__inner__nav__next
+            next
+        .item-box-container__main__photo__inner__smal-box-wrapper
+          .item-box-container__main__photo__inner__smal-box-wrapper__item.active#image1
+            %span
+            .item-box-container__main__photo__inner__smal-box-wrapper__item__inner
+              = image_tag "materials/brio_a.jpg"
+          .item-box-container__main__photo__inner__smal-box-wrapper__item#image2
+            %span
+            .item-box-container__main__photo__inner__smal-box-wrapper__item__inner
+              = image_tag "materials/brio_b.jpg"
+          .item-box-container__main__photo__inner__smal-box-wrapper__item#image3
+            %span
+            .item-box-container__main__photo__inner__smal-box-wrapper__item__inner
+              = image_tag "materials/brio_c.jpg"
+          .item-box-container__main__photo__inner__smal-box-wrapper__item#image4
+            %span
+            .item-box-container__main__photo__inner__smal-box-wrapper__item__inner
+              = image_tag "materials/brio_d.jpg"
+    .item-box-container__main__price-box
+      %span.item-box-container__main__price-box__price ¥6,300
+      %span.item-box-container__main__price-box__tax (税込)
+      %span.item-box-container__main__price-box__shipping-fee 送料込み
+    %table.item-box-container__main__detail-table
+      %tbody
+        %tr
+          %th 出品者
+          %td
+            = link_to "" ,class:"seller_link" do
+              メル
+            %div
+              .item-user-ratings
+                = image_tag "evaluation/good.png", class:"evaluation-mark good"
+                %span 971
+              .item-user-ratings
+                = image_tag "evaluation/normal.png", class:"evaluation-mark normal"
+                %span 3
+              .item-user-ratings
+                = image_tag "evaluation/bad.png", class:"evaluation-mark bad"
+                %span 0
+        %tr
+          %th カテゴリー
+          %td
+            = link_to "",class:"item_category_link" do
+              %div
+                おもちゃ・ホビー・グッズ
+            = link_to "",class:"item_category_link" do
+              .item_sub-category_link
+                =fa_icon "angle-right",class:"angle-right fa-1g"
+                その他
+            = link_to "",class:"item_category_link" do
+              .item_sub-category_link
+                =fa_icon "angle-right",class:"angle-right fa-1g"
+                鉄道
+        %tr
+          %th ブランド
+          %td
+            = link_to "" do
+              Brio
+        %tr
+          %th 商品の状態
+          %td やや傷や汚れあり
+        %tr
+          %th 配送料の負担
+          %td 送料込み(出品者負担)
+        %tr
+          %th 配送の方法
+          %td らくらくメルカリ便
+        %tr
+          %th 配送元地域
+          %td
+            = link_to "" do
+              東京都
+        %tr
+          %th 発送日の目安
+          %td 2~3日で発送
+  .item-box-container__price-box
+    %span.item-box-container__price-box__price ¥6,300
+    %span.item-box-container__price-box__tax (税込)
+    %span.item-box-container__price-box__shipping-fee 送料込み
+  = link_to "" , class:"item-buy-btn" do
+    購入画面に進む
+  = link_to "" , class:"item-action-text", data:{action:"item/openDetail",adjust:{url:""},key:"id=m81784685949",play:{id:"com.kouzoh.mercari" } } do
+    アプリで購入
+  .item-box-container__description
+    %p.item-box-container__description__inner
+      BRIO Roller Coaster Set
+      
+      子供達のお気に入りのおもちゃで普通の線路と組み合わせてよく遊びました。
+      日本ではもう売ってないレア商品のようです。
+      
+      amazonで14098円。
+      楽天で19432円で販売中。
+      
+      写真4のようにプラスチックの部品のみスレによる傷がありますが、その他には目立つ難はありません。
+      
+      いいおもちゃなのでまだまだ何代も使って頂けると思います。
+      ブリオ大好きな方に使って頂けると嬉しいです。
+  .item-box-container__evaluation-btn
+    .item-box-container__evaluation-btn__left
+      %button.item-box-container__evaluation-btn__left__like
+        =fa_icon "heart-o",class:"icon-like-border fa-lg"
+        %span いいね!
+        %span.fade-in-down{data:{num:"like"}}
+          9
+      = link_to "" , class:"item-button item-button-report", data: { modal:"report-item", open: "modal"} do
+        =fa_icon "flag-o",class:"icon-flag fa-lg"
+        %span 不適切な商品の報告
+    .item-box-container__evaluation-btn__right
+      = link_to ""  do
+        =fa_icon "lock",class:"icon-lock fa-lg"
+        %span あんしん・あんぜんへの取り組み
+
+.float-item-buy-btn
+  .float-item-buy-btn__box
+    = link_to "", class:"item-buy-btn" do
+      購入画面に進む
+
+.item-box-message
+  .item-box-message__container
+    .item-box-message__container__content
+      %ul.item-box-message__container__content__list
+        %li.item-box-message__container__content__list__message-box
+          = link_to "", class:"item-box-message__container__content__list__message-box__lunchar" do
+            %figure.item-box-message__container__content__list__message-box__lunchar__box
+              %div.item-box-message__container__content__list__message-box__lunchar__box__avatar
+                = image_tag "//static.mercdn.net/thumb/members/810915501.jpg?1395785151"
+              .item-box-message__container__content__list__message-box__lunchar__box__name
+                メル
+            .item-box-message__container__content__list__message-box__lunchar__role 出品者
+          .item-box-message__container__content__list__message-box__body
+            .item-box-message__container__content__list__message-box__body__text 値下げしました。
+            .item-box-message__container__content__list__message-box__body__wrapper
+              %time.item-box-message__container__content__list__message-box__body__wrapper__icon-left
+                =fa_icon "clock-o",class:"icon-time fa-lg"
+                %span 4 日前
+              .item-box-message__container__content__list__message-box__body__wrapper__icon-right
+                = form_with url:"", method:"post" do |f|
+                  .actions
+                    = f.button  type: 'submit', class: 'btn-flag' do
+                      =fa_icon "flag-o",class:"icon-flag fa-lg"
+            .item-box-message__container__content__list__message-box__body__balloon
+    .item-box-message__container__notice
+      = form_with url:"", class:"item-box-message__container__notice__form" do |f|
+        %p 相手のことを考え丁寧なコメントを心がけましょう。不快な言葉遣いなどは利用制限や退会処分となることがあります。
+        = f.text_area :body , class:"textarea-default"
+        = f.button  type: 'submit', class: "item-box-message__container__notice__form__submit" do
+          %span コメントする
+    %aside.item-box-message__container__modal
+      .item-box-message__container__modal__banner
+        .item-box-message__container__modal__banner__body
+          .item-box-message__container__modal__banner__body__head 確認
+          %div{"data-comment" => "body"}
+          %br/
+          本当にこのコメントを削除してよろしいですか？
+        = form_with url:"", class:"item-box-message__container__modal__banner__form" do |f|
+          .item-box-message__container__modal__banner__form__wrapper
+            .item-box-message__container__modal__banner__form__wrapper__btn-block
+            .item-box-message__container__modal__banner__form__wrapper__btn-cancel{data:{close: "modal"} }キャンセル
+            %button.modal-btn.modal-btn-submit{:type => "submit"}
+              削除する
+
+%ul.link-item-prev-next
+  %li.nav-item-link-prev
+    = link_to "" do
+      =fa_icon "angle-left",class:"angle-left fa-1g"
+      %p 13-58つまみ細工髪飾り
+  %li.link-item-next
+    = link_to "" do
+      %p 精選現代文B
+      =fa_icon "angle-right",class:"angle-right fa-1g"
+
+
+.ssn-block
+  .ssn-block__inner
+    = link_to "", class:"ssn-block__inner__item facebook" do
+      =fa_icon "facebook-square", class:"icon-facebook fa-3x"
+    = link_to "", class:"ssn-block__inner__item twitter" do
+      =fa_icon "twitter-square",  class:"icon-twitter fa-3x"
+    = link_to "", class:"ssn-block__inner__item line" do
+      = image_tag "materials/line.png"
+    = link_to "", class:"ssn-block__inner__item pinterest" do
+      =fa_icon "pinterest-square",class:"icon-pinterest fa-3x"
+
+.related-item-box
+  .related-item-box__inner
+    %h2.related-item-box__inner__head
+      = link_to "" do
+        メルさんのその他の出品
+    .related-item-box__inner__wrapper
+      .related-item-box__inner__wrapper__items-box
+        = link_to  do
+          .related-item-box__inner__wrapper__items-box__photo
+            = image_tag "materials/m24197558712_1.jpg"
+          .related-item-box__inner__wrapper__items-box__price-label
+            ¥2,200
+          .related-item-box__inner__wrapper__items-box__body
+            %h3.related-item-box__inner__wrapper__items-box__body__name
+              ZARA BOYS ジャケット
+            .related-item-box__inner__wrapper__items-box__body__num
+              .related-item-box__inner__wrapper__items-box__body__num__price ¥2,200
+              .related-item-box__inner__wrapper__items-box__body__num__like
+                =fa_icon "heart-o",class:"icon-heart fa-lg"
+                %span.num
+                  3
+      .related-item-box__inner__wrapper__items-box
+        = link_to  do
+          .related-item-box__inner__wrapper__items-box__sold-label
+            %p SOLD
+          .related-item-box__inner__wrapper__items-box__photo
+            = image_tag "materials/m24197558712_1.jpg"
+          .related-item-box__inner__wrapper__items-box__price-label
+            ¥2,200
+          .related-item-box__inner__wrapper__items-box__body
+            %h3.related-item-box__inner__wrapper__items-box__body__name
+              ZARA BOYS ジャケット
+            .related-item-box__inner__wrapper__items-box__body__num
+              .related-item-box__inner__wrapper__items-box__body__num__price ¥2,200
+              .related-item-box__inner__wrapper__items-box__body__num__like
+                =fa_icon "heart-o",class:"icon-heart fa-lg"
+                %span.num
+                  3
+      .related-item-box__inner__wrapper__items-box
+        = link_to  do
+          .related-item-box__inner__wrapper__items-box__sold-label
+            %p SOLD
+          .related-item-box__inner__wrapper__items-box__photo
+            = image_tag "materials/m24197558712_1.jpg"
+          .related-item-box__inner__wrapper__items-box__price-label
+            ¥2,200
+          .related-item-box__inner__wrapper__items-box__body
+            %h3.related-item-box__inner__wrapper__items-box__body__name
+              ZARA BOYS ジャケット
+            .related-item-box__inner__wrapper__items-box__body__num
+              .related-item-box__inner__wrapper__items-box__body__num__price ¥2,200
+              .related-item-box__inner__wrapper__items-box__body__num__like
+                =fa_icon "heart-o",class:"icon-heart fa-lg"
+                %span.num
+                  3
+
+.related-item-box
+  .related-item-box__inner
+    %h2.related-item-box__inner__head
+      = link_to "" do
+        鉄道 （おもちゃ・ホビー・グッズ） その他の商品
+    .related-item-box__inner__wrapper
+      .related-item-box__inner__wrapper__items-box
+        = link_to  do
+          .related-item-box__inner__wrapper__items-box__photo
+            = image_tag "https://static.mercdn.net/item/detail/orig/photos/m22516094480_1.jpg?1567571355"
+          .related-item-box__inner__wrapper__items-box__price-label
+            ¥1,980
+          .related-item-box__inner__wrapper__items-box__body
+            %h3.related-item-box__inner__wrapper__items-box__body__name
+              【☆大人気商品☆ きみが運転士！ リモートコントロールトレイン 単品価格
+            .related-item-box__inner__wrapper__items-box__body__num
+              .related-item-box__inner__wrapper__items-box__body__num__price ¥2,200
+              .related-item-box__inner__wrapper__items-box__body__num__like
+                =fa_icon "heart-o",class:"icon-heart fa-lg"
+                %span.num
+                  966
+      .related-item-box__inner__wrapper__items-box
+        = link_to  do
+          .related-item-box__inner__wrapper__items-box__photo
+            = image_tag "https://static.mercdn.net/item/detail/orig/photos/m65700784829_1.jpg?1570874241"
+          .related-item-box__inner__wrapper__items-box__price-label
+            ¥2,800
+          .related-item-box__inner__wrapper__items-box__body
+            %h3.related-item-box__inner__wrapper__items-box__body__name
+              トーマス レッツゴー大冒険
+            .related-item-box__inner__wrapper__items-box__body__num
+              .related-item-box__inner__wrapper__items-box__body__num__price ¥2,200
+              .related-item-box__inner__wrapper__items-box__body__num__like
+                =fa_icon "heart-o",class:"icon-heart fa-lg"
+                %span.num
+                  3
+      .related-item-box__inner__wrapper__items-box
+        = link_to  do
+          .related-item-box__inner__wrapper__items-box__sold-label
+            %p SOLD
+          .related-item-box__inner__wrapper__items-box__photo
+            = image_tag "https://static.mercdn.net/thumb/photos/m13531330686_1.jpg?1570871154"
+          .related-item-box__inner__wrapper__items-box__price-label
+            ¥1,200
+          .related-item-box__inner__wrapper__items-box__body
+            %h3.related-item-box__inner__wrapper__items-box__body__name
+              【JR九州】缶バッジセット
+            .related-item-box__inner__wrapper__items-box__body__num
+              .related-item-box__inner__wrapper__items-box__body__num__price ¥2,200
+              .related-item-box__inner__wrapper__items-box__body__num__like
+                =fa_icon "heart-o",class:"icon-heart fa-lg"
+                %span.num
+                  5
+
+%nav.bread-crumbs-products-show
+  %ul
+    %li{itemscope:"", itemtype: ""}
+      = link_to root_path do
+        %span{itemprop: "title"} メルカリ
+      = fa_icon "angle-right",class:"angle-right fa-1g"
+    %li{itemscope: "", itemtype: ""}
+      %span{itemprop: "title"} ブリオ ローラーコースター セット 33730
+
+= render "layouts/footer"

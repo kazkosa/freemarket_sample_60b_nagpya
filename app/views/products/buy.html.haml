@@ -7,7 +7,7 @@
         .single-main__buy-container__item__inner
           .single-main__buy-container__item__inner__wrapper
             .single-main__buy-container__item__inner__wrapper__image
-              = image_tag"https://static.mercdn.net/thumb/photos/m81784685949_1.jpg?1567865587"
+              = image_tag"materials/brio.png"
             .single-main__buy-container__item__inner__wrapper__name
               ブリオ ローラーコースター セット 33730
           = form_with(model: User.new, local: true, class:"single-main__buy-container__item__inner__form") do |f| #using User instance is temp until implementing
@@ -68,7 +68,6 @@
             %br/
             TECH 太郎
           %p.single-main__buy-container__buyer-info__content__text
-          -# %a.buy-user-info-fix{:href => "https://www.mercari.com/jp/transaction/address/m81784685949/?_s=U2FsdGVkX1-aTef1BQ3cbM5ZNS8j9xVxQHJytDDXpqJTxEWJbDKXyTOVvBDZonF0aQTa5GmZABwEctnzMhDTYL1dbVWKpDvOuuU1WFF6CSc0ix3uQiWRcb8vRUWtSJJJ"}
           = link_to "",class:"single-main__buy-container__buyer-info__content__edit-link" do
             %span 変更する
             =fa_icon "angle-right",class:"fa-1g"
@@ -80,9 +79,8 @@
             %br/
             09 / 21
           %figure.single-main__buy-container__pay-method__inner__image-box
-            =image_tag "//www-mercari-jp.akamaized.net/assets/img/card/visa.svg?3466462615"
+            =image_tag "//www-mercari-jp.akamaized.net/assets/img/card/visa.svg?3466462615"            
           %p
-          %a.buy-user-info-fix{:href => "https://www.mercari.com/jp/transaction/select_card/m81784685949/?_s=U2FsdGVkX1-aTef1BQ3cbM5ZNS8j9xVxQHJytDDXpqJTxEWJbDKXyTOVvBDZonF0aQTa5GmZABwEctnzMhDTYL1dbVWKpDvOuuU1WFF6CSc0ix3uQiWRcb8vRUWtSJJJ"}
           = link_to "", class:"single-main__buy-container__pay-method__inner__edit-link"  do
             %span 変更する
             =fa_icon "angle-right",class:"fa-1g" 
