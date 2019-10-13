@@ -20,7 +20,8 @@ a {
         font-size: 14px;
         font-weight: 600;
         line-height: 36px;
-        white-space: nowrap;
+        white-space: nowrap;  
+        width: 100vw;
         .tag {
           color: red;
         }
@@ -28,7 +29,6 @@ a {
           cursor: pointer;
           height: 44px;
           position: relative;
-          z-index: 3;
           padding-right: 10px;
           text-align: center;
         }
@@ -36,27 +36,50 @@ a {
           cursor: pointer;
           height: 44px;
           position: relative;
-          z-index: 3;
           padding-left: 10px;
           align-items: center;
         }
-      }
-      .right__menu {
-        display: inline-block;
-        position: relative;
-        &__list {
-          height: 44px;
-          position: relative;
-          float: left;
-          -webkit-box-align: center;
-          align-items: center;
-          display: flex;
-          font-size: 14px;
-          padding-left:14px;
-          padding-right: 14px;
+        .right__menu {
+          margin-left: 230px;
+          &__list {
+            height: 44px;
+            position: relative;
+            float: left;
+            -webkit-box-align: center;
+            align-items: center;
+            display: flex;
+            font-size: 14px;
+            padding-left:14px;
+            padding-right: 14px;
+          }
+          &__list:hover *{
+            color:#0099e8;
+          }
         }
-        &__list:hover *{
-          color:#0099e8;
+        .right__menu__nave {
+          position: relative;
+          display: flex;
+          align-items: center;
+          font-size: 14px;
+          &__left {
+            background-color: red;
+            line-height: 30px;
+            width: 110px;
+            text-align: center;
+            &__text {
+            color: white;
+            }
+          }
+          &__right {
+            margin-left: 20px;
+            line-height: 30px;
+            width: 77px;
+            border: solid aqua;
+            text-align: center;
+            &__text {
+              color: aqua;
+            }
+          }
         }
       }
     }

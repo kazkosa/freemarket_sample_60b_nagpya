@@ -1,0 +1,32 @@
+-# サインアップ５/6 支払い方法
+= render "header"
+%main.sing__main
+  %h2.sing__main__title
+    支払い方法
+  %form{method: "post", class: "sing__main__wrapper"}
+    .sing__main__wrapper__content
+      .sing__main__wrapper__content_m
+        %label{for:"card_id"} カード番号
+        %span.form-require 必須
+        %input.input-default{name: "card_id", placeholder: "半角数字のみ", type: "text", value: ""}/
+        =image_tag("pay.png")
+      .sing__main__wrapper__content_m 
+        %label{for: "year"} 有効期限
+        %span.form-require 必須
+        .birthday-select-wrap
+          .select-wrap
+            %input.input-default.one_third{name:"year", type:"text", value:""}/
+            %span 年
+          .select-wrap.select-wrap__month
+            %input.input-default.one_third{name:"month", type:"text", value:""}/
+            %span 月 
+      .sing__main__wrapper__content_m
+        %label{for:"card_id"} セキュリティコード
+        %span.form-require 必須
+        %input.input-default{name: "card_id", placeholder: "カード背面4桁もしくは3桁の番号", type: "text", value: ""}/  
+      .sing__main__wrapper__content_m
+        =link_to root_path ,class:"m_text" do
+          カード裏面の番号とは？   
+      .sing__main__wrapper__content_m
+        %button.btn-default.btn-red{type: "submit"} 次へ進む                    
+= render "footer"

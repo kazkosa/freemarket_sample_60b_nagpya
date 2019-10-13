@@ -1,0 +1,35 @@
+
+.sing__main {
+  padding-bottom: 80px;
+  &__contents {
+    width: 700px;
+    margin: 0 auto;
+    background-color: white;
+    &__second {
+      padding-top: 40px;
+      padding-bottom: 64px;
+    }
+    &__menu {
+      text-align: center;
+      &__text {
+        padding: 32px;
+        font-size: 22px;
+      }
+      &__mail {
+        display: block;  
+        width: 330px;
+        height: 20px;
+        text-align: center;
+        background-color: #EA352D;
+        margin: 0 auto;
+        margin-top: 15px;
+        color: white;
+        padding: 15px 0;
+        &__text {
+
+        }
+
+      }
+    }
+  }
+}  

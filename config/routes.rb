@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'regulation/new'
   devise_for :users
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   root "products#index"
@@ -19,4 +20,12 @@ Rails.application.routes.draw do
     end
   end
   resources :trials, only: [:index,:create,:new]
+  resources :regulation do
+    collection do
+      get :singup1
+      get :singup2
+      get :singup3
+      get :singup4
+    end
+  end  
 end

@@ -1,0 +1,41 @@
+//ログイン画面ヘッダー用
+.login__header {
+  height: 128px;;
+  &__log {
+    padding-top: 40px;
+    width: 190px;
+    margin: 0 auto;
+  } 
+}
+
+//ログイン、サインアップ画面フッター用
+.login__footer {
+  width: 460px;
+  height: 140px;
+  margin: 0 auto;
+  padding: 40px 0;
+  text-align: center;
+  &__nav {
+    &__menu {
+      display: flex;
+      height: 20px;
+      &__list {
+      display: flex;  
+      float: left;
+      font-size: 12px;
+      margin: 0 auto;
+    }
+  }
+ } 
+  &__log {
+    display: block;
+    width: 100px;
+    height: 80px;
+    padding-top: 20px;
+    margin: 0 auto;
+  }
+  &__2019 {
+    margin-top: 8px;
+    font-size: 12px;
+  }
+} 
