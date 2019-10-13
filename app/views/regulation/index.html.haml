@@ -1,3 +1,4 @@
+-# サインアップ(2/6)
 -# サインアップのヘッダーです
 %header.sing__header
   %h1.sing__header__log
@@ -64,23 +65,26 @@
         %span.form-require 必須
         .birthday-select-wrap
           .select-wrap
-            %input.input-default.one_third{:name => "birthday", :type => "text", :value => ""}/
+            %input.input-default.one_third{name: "birthday", type: "text", alue: ""}/
             %span 年
           .select-wrap.select-wrap__month
-            %input.input-default.one_third{:name => "birthday", :type => "text", :value => ""}/
+            %input.input-default.one_third{name: "birthday", type: "text", alue: ""}/
             %span 月
           .select-wrap.select-wrap__day
-            %input.input-default.one_third{:name => "birthday", :type => "text", :value => ""}/
+            %input.input-default.one_third{name: "birthday", type: "text", alue: ""}/
             %span 日
-        %p.sing__main_wrapper__content_m_text
+        %p.sing__main__wrapper__content_m_text
           ※ 本人情報は正しく入力してください。会員登録後、修正するにはお時間を頂く場合があります。
     .sing__main__wrapper__content
+      -# 未実装のため適当
+      .sing__main__wrapper__content_m  
+        私はロボットではありません
       .sing__main__wrapper__content_m
         %p.l-single-text
           「次へ進む」のボタンを押すことにより、利用規約に同意したものとみなします
-        %button.btn-default{:type => "submit"} 次へ進む  
+        %button.btn-default.btn-red{:type => "submit"} 次へ進む  
       .sing__main__wrapper__content_m
-        =link_to do
+        =link_to root_path ,class:"m_text" do
           本人確認の登録について>
 -# サインアップのフッターです
 %footer.login__footer

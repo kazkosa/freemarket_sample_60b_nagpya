@@ -1,18 +1,21 @@
 .top-main {
+  width: 100wh;
   &__contens {
-    width: 1440px;
     &__content{
       padding-top: 60px;
-      padding-bottom: 30px;
+      padding-bottom: 30px; 
       height: 80px;
       margin: 0 auto;
-      width: 1020px;
+      width: 100%;
+      background-color: white;
     }
     &__image{
       height: 390px;
+      width: 1440px;
+      margin: 0 auto;
       .image2 {
-        width: 1440px;
         height: 390px;
+        width: 1440px;
       }
     }
     &__title {
@@ -47,6 +50,7 @@
   padding-bottom: 100px;
   width: 1440px;
   background-color: #eee;
+  margin: 0 auto;
   &__menu {
     width: 1020px;
     margin: 0 auto;

@@ -16,5 +16,12 @@ Rails.application.routes.draw do
     end
   end
   resources :trials, only: [:index,:create,:new]
-  resources :regulation
+  resources :regulation do
+    collection do
+      get :singup1
+      get :singup2
+      get :singup3
+      get :singup4
+    end
+  end  
 end

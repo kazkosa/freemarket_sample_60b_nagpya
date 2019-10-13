@@ -25,5 +25,5 @@ class UsersController < ApplicationController
   def identification
     #仮のモデル作成
     @user =User.new()
-  end  
+  end    
 end
