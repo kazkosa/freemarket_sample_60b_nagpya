@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   resources :products , only: [:index, :show] do
     collection do
       get :buy
+      get :sell
     end
   end
   resources :users do
