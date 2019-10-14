@@ -1,7 +1,7 @@
 .logoutbox
   .logbox-single
     %form.logbox-single__inner
-    = link_to"#" do
+    = link_to destroy_user_session_path, method: :delete do
       .l-single-content
         %button.btn-red
           ログアウト

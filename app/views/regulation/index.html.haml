@@ -1,92 +1,26 @@
--# サインアップ(2/6)
--# サインアップのヘッダーです
-%header.sing__header
-  %h1.sing__header__log
-    = link_to do
-      = image_tag "logo_gray.png",size: "185x49"
-  %nav.sing__header__nav
-    %ol.sing__header__nav__menu
-      %li.sing__header__nav__menu__list
-        会員情報
-        .point
-      %li.sing__header__nav__menu__list
-        電話番号認証
-        .point
-      %li.sing__header__nav__menu__list
-        お届け先住所入力
-        .point
-      %li.sing__header__nav__menu__list
-        支払い方法
-        .point
-      %li.sing__header__nav__menu__list
-        完了
-        .point
--# メインです        
+-# サインアップ 1/6 新規会員登録ページ
+%header.login__header
+  %h1.login__header__log
+    = link_to root_path do
+      %img{width: "185", src: "https://web-jp-assets.mercdn.net/_next/static/images/logo-acdd90ac4f472d5a6f7a330d33ab1225.svg"}
 %main.sing__main
-  %h2.sing__main__title
-    会員情報入力
-  %form{method: "post", class: "sing__main__wrapper"}
-    .sing__main__wrapper__content
-      .sing__main__wrapper__content_m
-        %label{for:"nickname"} ニックネーム
-        %span.form-require 必須
-        %input.input-default{name: "nickname", placeholder: "例) メルカリ太郎", type: "text", value: ""}/
-      .sing__main__wrapper__content_m
-        %label{for:"email"} メールアドレス
-        %span.form-require 必須
-        %input.input-default{name: "email", placeholder: "PC・携帯どちらでも可", type: "text", value: ""}/
-      .sing__main__wrapper__content_m
-        %label{for:"password"} パスワード
-        %span.form-require 必須
-        %input.input-default{name: "password", placeholder: "7文字以上", type: "password", value: ""}/
-      .sing__main__wrapper__content_m
-        %label{for:"password"} パスワード (確認)
-        %span.form-require 必須
-        %input.input-default{name: "password2", placeholder: "7文字以上", type: "password", value: ""}/
-      .sing__main__wrapper__content_m
-        %h3.content__title
-          本人確認
-        %p.content__text
-          安心・安全にご利用いただくために、お客さまの本人情報の登録にご協力ください。他のお客さまに公開されることはありません。
-      .sing__main__wrapper__content_m
-        .sing__main__wrapper__content_m_s
-          %labelお名前(全角)
-          %span.form-require 必須
-        %input.input-default.half{name: "family_name", placeholder: "例) 山田", type:"text", value: ""}/
-        %input.input-default.half{name: "first_name", placeholder: "例) 彩", type:"text", value: ""}/
-      .sing__main__wrapper__content_m
-        .sing__main__wrapper__content_m_s
-          %labelお名前カナ(全角)
-          %span.form-require 必須
-        %input.input-default.half{name: "family_name_kana", placeholder: "例) ヤマダ", type:"text", value: ""}/
-        %input.input-default.half{name: "first_name_kana", placeholder: "例) アヤ", type:"text", value: ""}/
-      .sing__main__wrapper__content_m 
-        %label{for: "birthday"} 生年月日
-        %span.form-require 必須
-        .birthday-select-wrap
-          .select-wrap
-            %input.input-default.one_third{name: "birthday", type: "text", alue: ""}/
-            %span 年
-          .select-wrap.select-wrap__month
-            %input.input-default.one_third{name: "birthday", type: "text", alue: ""}/
-            %span 月
-          .select-wrap.select-wrap__day
-            %input.input-default.one_third{name: "birthday", type: "text", alue: ""}/
-            %span 日
-        %p.sing__main__wrapper__content_m_text
-          ※ 本人情報は正しく入力してください。会員登録後、修正するにはお時間を頂く場合があります。
-    .sing__main__wrapper__content
-      -# 未実装のため適当
-      .sing__main__wrapper__content_m  
-        私はロボットではありません
-      .sing__main__wrapper__content_m
-        %p.l-single-text
-          「次へ進む」のボタンを押すことにより、利用規約に同意したものとみなします
-        %button.btn-default.btn-red{:type => "submit"} 次へ進む  
-      .sing__main__wrapper__content_m
-        =link_to root_path ,class:"m_text" do
-          本人確認の登録について>
--# サインアップのフッターです
+  .sing__main__contents
+    .sing__main__contents__menu
+      %h2.sing__main__contents__menu__text
+        新規会員登録
+    .sing__main__contents__second
+      = link_to new_user_registration_path, class: "sing__main__contents__menu__mail" do
+        = fa_icon 'envelope', class: 'icon fa-lg'
+        %span.sing__main__contents__menu__mail__text
+          メールアドレスで登録する
+      = link_to root_path, class: "login__main__contents__second__face" do
+        = fa_icon 'facebook', class: 'icon fa-lg'
+        %span.login__main__contents__second__face__text
+          Facebookでログイン
+      = link_to root_path, class: "login__main__contents__second__google" do
+        = fa_icon 'google', class: 'icon fa-lg'
+        %span.login__main__contents__second__google__text
+          Googleでログイン      
 %footer.login__footer
   %nav.login__footer__nav
     %ul.login__footer__nav__menu
