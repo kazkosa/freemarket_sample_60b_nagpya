@@ -7,7 +7,7 @@
         .single-main__buy-container__item__inner
           .single-main__buy-container__item__inner__wrapper
             .single-main__buy-container__item__inner__wrapper__image
-              = image_tag"materials/brio.png"
+              = image_tag asset_path("materials/brio.png")
             .single-main__buy-container__item__inner__wrapper__name
               ブリオ ローラーコースター セット 33730
           = form_with(model: User.new, local: true, class:"single-main__buy-container__item__inner__form") do |f| #using User instance is temp until implementing
