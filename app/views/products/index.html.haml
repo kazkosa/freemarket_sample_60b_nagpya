@@ -1,8 +1,9 @@
 = render "layouts/header"
+= render "layouts/exhibit__btn"
 .top-main
   .top-main__contens
     .top-main__contens__image
-      =image_tag("toppageslid", class: "image2")
+      =image_tag asset_path("toppageslid"), class: "image2"
     = render "products_category"             
     = render "products_bland"
 = render "layouts/footer"

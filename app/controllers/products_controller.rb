@@ -5,4 +5,8 @@ class ProductsController < ApplicationController
       #仮のモデル作成
       @user =User.new()    
   end  
+  def show
+  end
+  def buy
+  end
 end
