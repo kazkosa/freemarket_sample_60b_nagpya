@@ -8,16 +8,16 @@
           .item-box-container__main__photo__inner__large-box__wrapper
             .item-box-container__main__photo__inner__large-box__wrapper__item.active
               .item-box-container__main__photo__inner__large-box__wrapper__item__inner
-                = image_tag asset_path("materials/brio_a.jpg"), class:"item-box-container__main__photo__inner__large-box__wrapper__item__inner__img", data: { src: "materials/brio_a.jpg"}
+                = image_tag "https://static.mercdn.net/item/detail/orig/photos/m81784685949_1.jpg?1567865587", class:"item-box-container__main__photo__inner__large-box__wrapper__item__inner__img", data: { src: "materials/brio_a.jpg"}
             .item-box-container__main__photo__inner__large-box__wrapper__item
               .item-box-container__main__photo__inner__large-box__wrapper__item__inner
-                = image_tag asset_path("materials/brio_b.jpg"), class:"item-box-container__main__photo__inner__large-box__wrapper__item__inner__img", data: { src: "materials/brio_b.jpg"}
+                = image_tag "https://static.mercdn.net/item/detail/orig/photos/m81784685949_2.jpg?1567865587", class:"item-box-container__main__photo__inner__large-box__wrapper__item__inner__img", data: { src: "materials/brio_b.jpg"}
             .item-box-container__main__photo__inner__large-box__wrapper__item
               .item-box-container__main__photo__inner__large-box__wrapper__item__inner
-                = image_tag asset_path("materials/brio_c.jpg"), class:"item-box-container__main__photo__inner__large-box__wrapper__item__inner__img", data: { src: "materials/brio_c.jpg"}
+                = image_tag "https://static.mercdn.net/item/detail/orig/photos/m81784685949_3.jpg?1567865587", class:"item-box-container__main__photo__inner__large-box__wrapper__item__inner__img", data: { src: "materials/brio_c.jpg"}
             .item-box-container__main__photo__inner__large-box__wrapper__item
               .item-box-container__main__photo__inner__large-box__wrapper__item__inner
-                = image_tag asset_path("materials/brio_d.jpg"), class:"item-box-container__main__photo__inner__large-box__wrapper__item__inner__img", data: { src: "materials/brio_d.jpg"}
+                = image_tag "https://static.mercdn.net/item/detail/orig/photos/m81784685949_4.jpg?1567865587", class:"item-box-container__main__photo__inner__large-box__wrapper__item__inner__img", data: { src: "materials/brio_d.jpg"}
         .item-box-container__main__photo__inner__nav
           .item-box-container__main__photo__inner__nav__prev
             prev
@@ -27,19 +27,19 @@
           .item-box-container__main__photo__inner__smal-box-wrapper__item.active#image1
             %span
             .item-box-container__main__photo__inner__smal-box-wrapper__item__inner
-              = image_tag asset_path("materials/brio_a.jpg")
+              = image_tag "https://static.mercdn.net/item/detail/orig/photos/m81784685949_1.jpg?1567865587"
           .item-box-container__main__photo__inner__smal-box-wrapper__item#image2
             %span
             .item-box-container__main__photo__inner__smal-box-wrapper__item__inner
-              = image_tag asset_path("materials/brio_b.jpg")
+              = image_tag "https://static.mercdn.net/item/detail/orig/photos/m81784685949_2.jpg?1567865587"
           .item-box-container__main__photo__inner__smal-box-wrapper__item#image3
             %span
             .item-box-container__main__photo__inner__smal-box-wrapper__item__inner
-              = image_tag asset_path("materials/brio_c.jpg")
+              = image_tag "https://static.mercdn.net/item/detail/orig/photos/m81784685949_3.jpg?1567865587"
           .item-box-container__main__photo__inner__smal-box-wrapper__item#image4
             %span
             .item-box-container__main__photo__inner__smal-box-wrapper__item__inner
-              = image_tag asset_path("materials/brio_d.jpg")
+              = image_tag "https://static.mercdn.net/item/detail/orig/photos/m81784685949_4.jpg?1567865587"
     .item-box-container__main__price-box
       %span.item-box-container__main__price-box__price ¥6,300
       %span.item-box-container__main__price-box__tax (税込)
@@ -53,13 +53,13 @@
               メル
             %div
               .item-user-ratings
-                = image_tag asset_path("evaluation/good.png"), class:"evaluation-mark good"
+                %i.fas.fa-laugh.icon-laugh.evaluation-mark
                 %span 971
               .item-user-ratings
-                = image_tag asset_path("evaluation/normal.png"), class:"evaluation-mark normal"
+                %i.fas.fa-meh.icon-meh.evaluation-mark
                 %span 3
               .item-user-ratings
-                = image_tag asset_path("evaluation/bad.png"), class:"evaluation-mark bad"
+                %i.fas.fa-frown.icon-frown.evaluation-mark
                 %span 0
         %tr
           %th カテゴリー
@@ -200,8 +200,6 @@
       =fa_icon "facebook-square", class:"icon-facebook fa-3x"
     = link_to "", class:"ssn-block__inner__item twitter" do
       =fa_icon "twitter-square",  class:"icon-twitter fa-3x"
-    = link_to "", class:"ssn-block__inner__item line" do
-      = image_tag asset_path("materials/line.png")
     = link_to "", class:"ssn-block__inner__item pinterest" do
       =fa_icon "pinterest-square",class:"icon-pinterest fa-3x"
 
@@ -214,7 +212,7 @@
       .related-item-box__inner__wrapper__items-box
         = link_to  do
           .related-item-box__inner__wrapper__items-box__photo
-            = image_tag asset_path("materials/m24197558712_1.jpg")
+            = image_tag "https://static.mercdn.net/thumb/photos/m24197558712_1.jpg?1570861207"
           .related-item-box__inner__wrapper__items-box__price-label
             ¥2,200
           .related-item-box__inner__wrapper__items-box__body
@@ -231,7 +229,7 @@
           .related-item-box__inner__wrapper__items-box__sold-label
             %p SOLD
           .related-item-box__inner__wrapper__items-box__photo
-            = image_tag asset_path("materials/m24197558712_1.jpg")
+            = image_tag "https://static.mercdn.net/thumb/photos/m24197558712_1.jpg?1570861207"
           .related-item-box__inner__wrapper__items-box__price-label
             ¥2,200
           .related-item-box__inner__wrapper__items-box__body
@@ -248,7 +246,7 @@
           .related-item-box__inner__wrapper__items-box__sold-label
             %p SOLD
           .related-item-box__inner__wrapper__items-box__photo
-            = image_tag asset_path("materials/m24197558712_1.jpg")
+            = image_tag "https://static.mercdn.net/thumb/photos/m24197558712_1.jpg?1570861207"
           .related-item-box__inner__wrapper__items-box__price-label
             ¥2,200
           .related-item-box__inner__wrapper__items-box__body
@@ -314,7 +312,6 @@
                 =fa_icon "heart-o",class:"icon-heart fa-lg"
                 %span.num
                   5
-
 %nav.bread-crumbs-products-show
   %ul
     %li{itemscope:"", itemtype: ""}
