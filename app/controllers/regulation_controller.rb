@@ -1,5 +1,6 @@
 class RegulationController < ApplicationController
   def new
+    @user = User.new
   end
 
   def index
@@ -12,7 +13,6 @@ class RegulationController < ApplicationController
   end   
 
   def singup2
-    @addres= Address.new
   end   
 
   def singup3
