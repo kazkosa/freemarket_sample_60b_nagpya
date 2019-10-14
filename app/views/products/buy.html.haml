@@ -1,0 +1,57 @@
+.single-container
+  = render "layouts/single-header"
+  %main.single-main
+    %section.single-main__buy-container
+      %h2.single-main__buy-container__head 購入内容の確認
+      %section.single-main__buy-container__item
+        .single-main__buy-container__item__inner
+          .single-main__buy-container__item__inner__wrapper
+            .single-main__buy-container__item__inner__wrapper__image
+              = image_tag asset_path("materials/brio.png")
+            .single-main__buy-container__item__inner__wrapper__name
+              ブリオ ローラーコースター セット 33730
+          = form_with(model: User.new, local: true, class:"single-main__buy-container__item__inner__form") do |f| #using User instance is temp until implementing
+            %p.single-main__buy-container__item__inner__form__price-ja
+              ¥6,300
+              %span.single-main__buy-container__item__inner__form__price-ja__ship
+                送料込み
+            %ul.single-main__buy-container__item__inner__form__point.not-have
+              %li.single-main__buy-container__item__inner__form__point__list
+                .single-main__buy-container__item__inner__form__point__list__text
+                  ポイントはありません
+            %ul.single-main__buy-container__item__inner__form__price-table
+              %li.single-main__buy-container__item__inner__form__price-table__you-pay
+                .single-main__buy-container__item__inner__form__price-table__you-pay__price-cell
+                  支払い金額
+                .single-main__buy-container__item__inner__form__price-table__you-pay__price-cell
+                  %span{data:{buy:{pay:"6300"}}}
+                    ¥6,300
+            = f.submit "購入する",class:"single-main__buy-container__item__inner__form__button-red"
+      %section.single-main__buy-container__buyer-info
+        .single-main__buy-container__buyer-info__content
+          %h3 配送先
+          %address.single-main__buy-container__buyer-info__content__text
+            〒xxx-xxxx
+            %br/
+            愛知県名古屋市中区栄
+            x丁目xx-xx
+            %br/
+            TECH 太郎
+          %p.single-main__buy-container__buyer-info__content__text
+          = link_to "",class:"single-main__buy-container__buyer-info__content__edit-link" do
+            %span 変更する
+            =fa_icon "angle-right",class:"fa-1g"
+      %section.single-main__buy-container__pay-method{data: {buy: "pay-method"}}
+        .single-main__buy-container__pay-method__inner
+          %h3 支払い方法
+          %p.single-main__buy-container__pay-method__inner__text
+            ************9999
+            %br/
+            09 / 21
+          %figure.single-main__buy-container__pay-method__inner__image-box
+            =image_tag "//www-mercari-jp.akamaized.net/assets/img/card/visa.svg?3466462615"            
+          %p
+          = link_to "", class:"single-main__buy-container__pay-method__inner__edit-link"  do
+            %span 変更する
+            =fa_icon "angle-right",class:"fa-1g" 
+  = render "layouts/single-footer"

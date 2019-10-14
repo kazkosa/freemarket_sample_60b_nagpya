@@ -1,4 +1,5 @@
 @import "reset";
+@import "font-awesome";
 @import "header";
 @import "footer";
 @import "logout";
@@ -7,12 +8,17 @@
 @import "sidebar";
 @import "main";
 @import "exhibit_btn";
-@import "font-awesome";
 @import "plofile";
 @import "common_top";
 @import "card";
 @import "toppage";
 @import "identification";
+@import "sell";
+@import "single-header";
+@import "single-footer";
+@import "buy";
+@import "show";
+
 // ログイン、サインアップ関連登録用
 @import "login/header&footer";
 @import "login/main";

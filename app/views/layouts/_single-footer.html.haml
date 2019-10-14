@@ -1,0 +1,13 @@
+%footer.single-footer
+  %nav.single-footer__nav
+    %ul.single-footer__nav__list
+      %li.single-footer__nav__list__item
+        = link_to "プライバシーポリシー","", class:"single-footer__nav__list__item__link"
+      %li.single-footer__nav__list__item
+        = link_to "メルカリ利用規約","", class:"single-footer__nav__list__item__link"
+      %li.single-footer__nav__list__item
+        = link_to "特定商取引に関する表記","", class:"single-footer__nav__list__item__link"
+  = link_to root_path ,class:"single-footer__logo" do
+    = image_tag asset_path("img1_b.png")
+  %p.single-footer__copyright
+    %small © 2019 Mercari

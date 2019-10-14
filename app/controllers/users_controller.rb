@@ -26,4 +26,5 @@ class UsersController < ApplicationController
     #仮のモデル作成
     @user =User.new()
   end    
+  
 end
