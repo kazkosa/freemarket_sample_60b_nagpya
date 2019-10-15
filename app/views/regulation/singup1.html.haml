@@ -1,20 +1,102 @@
--# サインアップ3/6 携帯番号認証
-=render "header"
+-# サインアップ(1/5)
+-# サインアップのヘッダーです
+%header.sing__header
+  %h1.sing__header__log
+    = link_to do
+      = image_tag "logo_gray.png",size: "185x49"
+  %nav.sing__header__nav
+    %ol.sing__header__nav__menu
+      %li.sing__header__nav__menu__list
+        会員情報
+        .point
+      %li.sing__header__nav__menu__list
+        電話番号認証
+        .point
+      %li.sing__header__nav__menu__list
+        お届け先住所入力
+        .point
+      %li.sing__header__nav__menu__list
+        支払い方法
+        .point
+      %li.sing__header__nav__menu__list
+        完了
+        .point
+-# メインです        
 %main.sing__main
   %h2.sing__main__title
-    電話番号の確認
-  %form{method: "post", class: "sing__main__wrapper"}
+    会員情報入力
+  = form_for @user, url:singup2_regulation_index_path, method: :get do |f|
     .sing__main__wrapper__content
       .sing__main__wrapper__content_m
-        %label{for:"phone_number"} 携帯電話の番号
-        %input.input-default{name: "phone_number", placeholder: "携帯電話の番号を入力", type: "text", value: ""}/
-        %p.l-single-text
-          本人確認のため、携帯電話のSNS(ショートメッセージサービスを利用して認証を行います。)
+        %label{for:"nickname"} ニックネーム
+        %span.form-require 必須
+        = f.text_field :nickname, placeholder: "例) メルカリ太郎", type: "text", value: "", class: "input-default"
       .sing__main__wrapper__content_m
-        %button.btn-default.btn-red{type: "submit"} SNS認証を送信する    
+        %label{for:"email"} メールアドレス
+        %span.form-require 必須
+        = f.email_field :email, placeholder: "PC・携帯どちらでも可", type: "text", value: "", class: "input-default"
+      .sing__main__wrapper__content_m
+        %label{for:"password"} パスワード
+        %span.form-require 必須
+        = f.password_field :password, placeholder: "7文字以上", type: "password", value: "", class: "input-default"
+      .sing__main__wrapper__content_m
+        %label{for:"password"} パスワード (確認)
+        %span.form-require 必須
+        = f.password_field :password_confirmation, placeholder: "7文字以上", type: "password", value: "", class: "input-default"
+      .sing__main__wrapper__content_m
+        %h3.content__title
+          本人確認
+        %p.content__text
+          安心・安全にご利用いただくために、お客さまの本人情報の登録にご協力ください。他のお客さまに公開されることはありません。
+      .sing__main__wrapper__content_m
+        .sing__main__wrapper__content_m_s
+          %labelお名前(全角)
+          %span.form-require 必須
+        = f.text_field :family_name, placeholder: "例) 山田", type:"text", value: "", class: "half"  
+        = f.text_field :first_name, placeholder: "例) 彩", type:"text", value: "", class: "half"
+      .sing__main__wrapper__content_m
+        .sing__main__wrapper__content_m_s
+          %labelお名前カナ(全角)
+          %span.form-require 必須
+        = f.text_field :family_name_kana, placeholder: "例) ヤマダ", type:"text", value: "", class: "half"
+        = f.text_field :first_name_kana, placeholder: "例) アヤ", type:"text", value: "", class: "half"
+      .sing__main__wrapper__content_m 
+        %label{for: "birthday"} 生年月日
+        %span.form-require 必須
+        .birthday-select-wrap
+          = f.text_field :birthday_year, class: "birthday"
+          %span 年
+          = f.text_field :birthday_month, class: "birthday"
+          %span 月
+          = f.text_field :birthday_day, class: "birthday"
+          %span 日
+        %p.sing__main__wrapper__content_m_text
+          ※ 本人情報は正しく入力してください。会員登録後、修正するにはお時間を頂く場合があります。
+    .sing__main__wrapper__content
+      .sing__main__wrapper__content_m  
+        私はロボットではありません
+      .sing__main__wrapper__content_m
         %p.l-single-text
-          ※電話番号は本人確認や不正利用防止のため利用します。他のユーザーに公開されることはありません。
+          「次へ進む」のボタンを押すことにより、利用規約に同意したものとみなします
+        =f.submit "次へ進む" ,class: "btn-red"
       .sing__main__wrapper__content_m
         =link_to root_path ,class:"m_text" do
-          電話番号の確認が必要な理由>    
-=render "footer"
+          本人確認の登録について>
+-# サインアップのフッターです
+%footer.login__footer
+  %nav.login__footer__nav
+    %ul.login__footer__nav__menu
+      %li.login__footer__nav__menu__list
+        = link_to do
+          プライバシーポリシー
+      %li.login__footer__nav__menu__list
+        = link_to do
+          メルカリ利用規約
+      %li.login__footer__nav__menu__list
+        = link_to do
+          特定商取引に関する表記
+  = link_to root_path, class: "login__footer__log" do
+    %img{width: "80", src: "https://www-mercari-jp.akamaized.net/assets/img/common/common/logo-gray.svg?2296184308"}  
+  %p.login__footer__2019
+    %small
+      2019 Mercari  

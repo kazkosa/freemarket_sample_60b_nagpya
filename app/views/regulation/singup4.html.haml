@@ -1,13 +1,31 @@
--# サインアップ6/6 完了ページ
+-# サインアップ4/5 支払い方法
 = render "header"
 %main.sing__main
   %h2.sing__main__title
-    会員登録完了
-  %form{method: "post", class: "sing__main__wrapper"}
+    支払い方法
+  = form_for @pay, url:regulation_index_path, method: :post, class: "sing__main__wrapper" do |f|
     .sing__main__wrapper__content
-      .sing__main__wrapper__content_m.sing_pay
-        %p ありがとうございます
-        %p 会員登録が完了しました。
       .sing__main__wrapper__content_m
-        %button.btn-default.btn-red{type: "submit"} メルカリをはじめる                
+        %label{for:"card_id"} カード番号
+        %span.form-require 必須
+        =f.text_field :card_id, placeholder: "半角数字のみ", type: "password", value: "", class: "input-default"
+        =image_tag asset_path("pay.png")
+      .sing__main__wrapper__content_m 
+        %label{for: "year"} 有効期限
+        %span.form-require 必須
+        .birthday-select-wrap
+          .select-wrap
+            = f.text_field :year, class: "birthday"
+            %span 年
+          .select-wrap.select-wrap__month
+            = f.text_field :month, class: "birthday"
+            %span 月 
+      .sing__main__wrapper__content_m
+        %label{for:"card_id"} セキュリティコード
+        %span.form-require 必須
+        = f.text_field :security_number, placeholder: "カード背面4桁もしくは3桁の番号", type: "password", value: "", class: "input-default"
+      =link_to root_path ,class:"m_text" do
+        カード裏面の番号とは？   
+      .sing__main__wrapper__content_m
+        =f.submit "次へ進む" ,class: "btn-red"                 
 = render "footer"

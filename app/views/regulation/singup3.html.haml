@@ -1,32 +1,34 @@
--# サインアップ５/6 支払い方法
+-# サインアップ3/5 住所入力
 = render "header"
 %main.sing__main
   %h2.sing__main__title
-    支払い方法
-  %form{method: "post", class: "sing__main__wrapper"}
-    .sing__main__wrapper__content
+    住所情報入力
+  = form_for @address, url: singup4_regulation_index_path, method: :get do |f|  
+    .sing__main__wrapper__content   
       .sing__main__wrapper__content_m
-        %label{for:"card_id"} カード番号
+        %label{for:"post_num"} 郵便番号
         %span.form-require 必須
-        %input.input-default{name: "card_id", placeholder: "半角数字のみ", type: "text", value: ""}/
-        =image_tag asset_path("pay.png")
-      .sing__main__wrapper__content_m 
-        %label{for: "year"} 有効期限
+        =f.text_field :post_num , placeholder: "例）111-111", type: "text", value: "", class: "input-default"       
+      .sing__main__wrapper__content_m
+        %label{for:"prefectures"} 都道府県
         %span.form-require 必須
-        .birthday-select-wrap
-          .select-wrap
-            %input.input-default.one_third{name:"year", type:"text", value:""}/
-            %span 年
-          .select-wrap.select-wrap__month
-            %input.input-default.one_third{name:"month", type:"text", value:""}/
-            %span 月 
+        =f.text_field :prefectures , placeholder: "都道府県", type: "text", value: "", class: "input-default"
       .sing__main__wrapper__content_m
-        %label{for:"card_id"} セキュリティコード
+        %label{for:"municipalities"} 市町村
         %span.form-require 必須
-        %input.input-default{name: "card_id", placeholder: "カード背面4桁もしくは3桁の番号", type: "text", value: ""}/  
+        =f.text_field :municipalities , placeholder: "市町村", type: "text", value: "", class: "input-default"
       .sing__main__wrapper__content_m
-        =link_to root_path ,class:"m_text" do
-          カード裏面の番号とは？   
+        %label{for:"block_number"} 番地
+        %span.form-require 必須
+        =f.text_field :block_number , placeholder: "番地", type: "text", value: "", class: "input-default"
       .sing__main__wrapper__content_m
-        %button.btn-default.btn-red{type: "submit"} 次へ進む                    
+        %label{for:"building"} 建物名
+        %span.form-require.any 任意
+        =f.text_field :building , placeholder: "番地", type: "text", value: "", class: "input-default"
+      .sing__main__wrapper__content_m
+        %label{for:"phone_number"} 電話
+        %span.form-require.any 任意
+        =f.text_field :phone_number , placeholder: "例）08011111111", type: "text", value: "", class: "input-default"
+      .sing__main__wrapper__content_m
+        =f.submit "次へ進む" ,class: "btn-red"        
 = render "footer"
