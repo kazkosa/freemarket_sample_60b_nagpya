@@ -129,7 +129,7 @@
 |Column|Type|Options|
 |------|----|-------|
 |product|references|null: false, foreign_key: true|
-|image|text|null: false|
+|product_images|text|null: false|
 
 ##Assosiation
 - belongs_to :product
