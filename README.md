@@ -124,7 +124,7 @@
 - size
 - condeition
 
-## imagesテーブル
+## product_imagesテーブル
 
 |Column|Type|Options|
 |------|----|-------|
