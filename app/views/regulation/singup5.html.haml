@@ -3,7 +3,7 @@
 %main.sing__main
   %h2.sing__main__title
     会員登録完了
-  =form_for @pay, method: :post, url: "root_path", class: "sing__main__wrapper" do |f|
+  %form{method: "get", url: "root_path", class: "sing__main__wrapper"}
     .sing__main__wrapper__content
       .sing__main__wrapper__content_m.sing_pay
         %p ありがとうございます

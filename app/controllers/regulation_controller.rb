@@ -64,11 +64,10 @@ class RegulationController < ApplicationController
       birthday_day: session[:birthday_day] 
     )
      binding.pry
-    # @user.build_address(user_params[:address_attributes])
-    # @user.build_pay(user_params[:pay_attributes])
     if @user.save
       session[:user_id] = @user.id
       @address = Address.new(
+      user_id: session[:user_id],
       post_num: session[:post_num],
       prefectures: session[:prefectures],
       municipalities: session[:municipalities],
@@ -76,6 +75,7 @@ class RegulationController < ApplicationController
       building: session[:building],
       phone_number: session[:phone_number] 
       )
+      binding.pry
       @pay = Pay.new(
       card_id: session[:card_id],
       year: session[:year],
