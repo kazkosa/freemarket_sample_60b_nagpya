@@ -7,26 +7,37 @@
     #sell-container
       %div{"data-reactroot": ""}
         .sell-container-inner
-          %h2.single-head 商品の情報を入力
-          =form_with(model: @user ,class: "sell-form") do |f| 
-            .sell-upload-box
-              %h3.sell-upload-head
-                / react-text: 7
-                出品画像
-                / /react-text
-                %span.form-require 必須
-              %p 最大10枚までアップロードできます
-              .sell-dropbox-container
-                .sell-upload-items-container
-                  .sell-upload-items.have-item-0
-                    %ul
-                .sell-upload-drop-box.have-item-0
-                  %input.sell-upload-drop-file{multiple:"multiple", name:"image1", style:"display: none;", type:"file"}/
-                  %pre.visible-pc
+          %h2.single-head 商品の情報を入力 
+          new.html.haml
+          = form_for @product, html: {id:'new_item'} do |f|
+            .item__images__container
+              .item__images__container__preview
+                %ul
+              .item__images__container__guide
+                .have__image--0
+                  %h5 ドラッグ&ドロップ<br>でファイルをアップロード
+              .item__form__sellcontent__submit__done
+                = f.submit class: 'btn-default item__done', disable_with: "Save", value:"出品する"
+
+          -# =form_with(model: @product, class: "sell-form") do |f| 
+          -#   .sell-upload-box
+          -#     %h3.sell-upload-head
+          -#       / react-text: 7
+          -#       出品画像
+          -#       / /react-text
+          -#       %span.form-require 必須
+          -#     %p 最大10枚までアップロードできます
+          -#     .sell-dropbox-container
+          -#       .sell-upload-items-container
+          -#         .sell-upload-items.have-item-0
+          -#           %ul
+          -#       .sell-upload-drop-box.have-item-0
+          -#         %input.sell-upload-drop-file{multiple:"multiple", name:"image1", style:"display: none;", type:"file"}
+                  -# %pre.visible-pc
                     :preserve
                       ドラッグアンドドロップ
                     またはクリックしてファイルをアップロード
-                    %i.icon-camera
+                    -# %i.icon-camera
               / react-empty: 18
               / react-empty: 19
               / react-empty: 20
@@ -67,24 +78,63 @@
                     / /react-text
                     %span.form-require 必須
                   %div
-                    .select-wrap
-                      %i.icon-arrow-bottom
-                      %select.select-default
-                        %option{value:""} ---
-                        %option{value:"1"} レディース
-                        %option{value: "2"} メンズ
-                        %option{value: "3"} ベビー・キッズ
-                        %option{value: "4"} インテリア・住まい・小物
-                        %option{value:"5"} 本・音楽・ゲーム
-                        %option{value: "1328"} おもちゃ・ホビー・グッズ
-                        %option{value: "6"} コスメ・香水・美容
-                        %option{value: "7"} 家電・スマホ・カメラ
-                        %option{value: "8"} スポーツ・レジャー
-                        %option{value: "9"} ハンドメイド
-                        %option{value: "1027"} チケット
-                        %option{value:  "1318"} 自動車・オートバイ
-                        %option{value: "10"} その他
+                  .select-wrap
+                    = fa_icon  "chevron-down", class: 'tag'
+                    = f.collection_select :category_id, @parent, :id, :name,{prompt: "---"}, class: "select-default", id: "parent-form", name: 'item[category_ids][]' 
+                    = f.collection_select :category_id, @children, :id, :name,{prompt: "---"}, class: "select-default", id: "children-form", name: 'item[category_ids][]' 
+                    = f.collection_select :category_id, @grandchildren, :id, :name,{prompt: "---"}, class: "select-default", id: "grandchildren-form", name: 'item[category_ids][]' do
+                      -# %option{value:""} ---
+                      -# %option{value:"1"} レディース
+                      -# %option{value: "2"} メンズ
+                      -# %option{value: "3"} ベビー・キッズ
+                      -# %option{value: "4"} インテリア・住まい・小物
+                      -# %option{value:"5"} 本・音楽・ゲーム
+                      -# %option{value: "1328"} おもちゃ・ホビー・グッズ
+                      -# %option{value: "6"} コスメ・香水・美容
+                      -# %option{value: "7"} 家電・スマホ・カメラ
+                      -# %option{value: "8"} スポーツ・レジャー
+                      -# %option{value: "9"} ハンドメイド
+                      -# %option{value: "1027"} チケット
+                      -# %option{value:  "1318"} 自動車・オートバイ
+                      -# %option{value: "10"} その他
                   / react-empty: 55
+                -# - @parents.each do |parent|
+                -#   =parent.name
+                -#   - parent.children.each do |child|
+                -#     =child.name 
+                -#     - child.children.each do |grandchild|
+                -#       =grandchild.name   
+                .form-group
+                  %label
+                  / react-text: 260
+                  サイズ
+                  / /react-text
+                  %span.form-require 必須
+                  .select-wrap
+                  %i.icon-arrow-bottom
+                  %select.select-default
+                    %option{value: ""} ---
+                    %option{value: "153"} XXS以下
+                    %option{value: "154"} XS(SS)
+                    %option{value: "2"} S
+                    %option{value: "3"} M
+                    %option{value: "4"} L
+                    %option{value: "5"} XL(LL)
+                    %option{value: "155"} 2XL(3L)
+                    %option{value: "156"} 3XL(4L)
+                    %option{value: "157"} 4XL(5L)以上
+                    %option{value: "7"} FREE SIZE
+                    / react-empty: 276            
+                .form-group.form-suggest-container
+                  %label
+                    / react-text: 265
+                    ブランド
+                    / /react-text
+                    %span.form-arbitrary 任意
+                  %div
+                    %input.input-default{placeholder: "例）シャネル", value:""}/
+                    %div
+                  / react-empty: 270
                 .form-group
                   %label
                     / react-text: 58
@@ -102,7 +152,7 @@
                       %option{value: "5"} 傷や汚れあり
                       %option{value: "6"} 全体的に状態が悪い
                   / react-empty: 64
-            .sell-content.clearfix
+            .sell-content.clearfix1
               %h3.sell-sub-head 配送について
               %a.form-question{href:"/jp/help_center/article/68/", target:"_blank"} ?
               .sell-form-box
@@ -127,7 +177,7 @@
                     %span.form-require 必須
                   .select-wrap
                     = fa_icon  "chevron-down", class: 'tag'
-                    = f.collection_select :prefecture_id, Prefecture.all, :id, :name,{prompt:"--"},{class:"select-default "}
+                    = f.collection_select :prefecture_id, Prefecture.all, :id, :name,{prompt:"--"},{class:"select-default "} 
                     %i.icon-arrow-bottom
                   / react-empty: 86
                 .form-group
@@ -144,7 +194,7 @@
                       %option{value: "2"} 2~3日で発送
                       %option{value: "3"} 4~7日で発送
                   / react-empty: 95
-            .sell-content.clearfix
+            .sell-content.clearfix2
               %h3.sell-sub-head 販売価格(300〜9,999,999)
               %a.form-question{href: "/jp/help_center/article/64/",target: "_blank"} ?
               .sell-form-box
@@ -169,7 +219,7 @@
                       / react-text: 199
                       販売手数料 (10%)
                       / /react-text
-                    .l-right -
+                    .l-right 
                   %li.clearfix.bold
                     .l-left 販売利益
                     .l-right -
@@ -179,7 +229,7 @@
               %div
                 %p
                   = link_to"/jp/help_center/getting_started/prohibited_conduct/" do
-                    行為
+                    禁止されている行為
                   / react-text: 125
                   を必ずご確認ください。
                   / /react-text
@@ -224,4 +274,4 @@
     = image_tag"https://www-mercari-jp.akamaized.net/assets/img/common/common/logo-gray.svg?2296184308"
   %p.login__footer__2019
     %small
-      2019 Mercari 
+      2019 Mercari
