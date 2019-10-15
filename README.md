@@ -124,12 +124,12 @@
 - size
 - condeition
 
-## imagesテーブル
+## product_imagesテーブル
 
 |Column|Type|Options|
 |------|----|-------|
 |product|references|null: false, foreign_key: true|
-|product_images|text|null: false|
+|image|text|null: false|
 
 ##Assosiation
 - belongs_to :product
