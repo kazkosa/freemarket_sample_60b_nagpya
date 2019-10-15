@@ -28,14 +28,13 @@ class RegulationController < ApplicationController
   end   
 
   def singup3     #address情報
-    # binding.pry
+    
     @user = User.new
     @address = Address.new
-    # @user.build_address
   end   
 
   def singup4    #pays情報
-    # binding.pry
+    
     session[:post_num] = address_params[:post_num]
     session[:prefectures] = address_params[:prefectures]
     session[:municipalities] = address_params[:municipalities]
@@ -45,11 +44,14 @@ class RegulationController < ApplicationController
     @user = User.new
     @address = Address.new
     @pay = Pay.new
-    # @user.build_pay
   end
+
+  def singup5   #登録完了
+    sign_in User.find(session[:user_id]) unless user_signed_in?
+  end  
   
   def create
-    # binding.pry
+    
     @user = User.new(
       nickname: session[:nickname],
       email: session[:email],
@@ -63,7 +65,6 @@ class RegulationController < ApplicationController
       birthday_month: session[:birthday_month],
       birthday_day: session[:birthday_day] 
     )
-     binding.pry
     if @user.save
       session[:user_id] = @user.id
       @address = Address.new(
@@ -75,20 +76,18 @@ class RegulationController < ApplicationController
       building: session[:building],
       phone_number: session[:phone_number] 
       )
-      binding.pry
       @pay = Pay.new(
-      card_id: session[:card_id],
-      year: session[:year],
-      month: session[:month],
-      security_number: session[:security_number]
+      user_id: session[:user_id],
+      card_id: pay_params[:card_id],
+      year: pay_params[:year],
+      month: pay_params[:month],
+      security_number: pay_params[:security_number]
       )
+      session[:user_id] = @user.id
       redirect_to singup5_regulation_index_path
     else
-      redirect_to root_path
+      redirect_to singup1_regulation_index_path
     end
-  end  
-  
-  def singup5   #登録完了
   end  
 
   private
@@ -104,7 +103,7 @@ class RegulationController < ApplicationController
   end
 
   def pay_params
-    params.require(:pay).permit(:card_id, :year, :month, :security_numnber)
+    params.require(:pay).permit(:card_id, :year, :month, :security_number)
   end
 
 end
