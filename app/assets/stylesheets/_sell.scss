@@ -43,24 +43,48 @@ body {
       .sell-upload-head {
         font-size: 16px;
       }
-      .sell-upload-drop-box {
-        position: relative;
-        min-height: 162px;
-        background: #f5f5f5;
-        border: 1px dashed #ccc;
-        font-size: 0;
-        text-align: center;
-        .visible-pc{
-          position: absolute;
-          top: 50%;
-          left: 16px;
-          right: 16px;
-          color:black;
+      .item__images__container__wrapper{
+        display:flex;
+        flex-flow:row;
+        .sell-upload-drop-box {
+          position: relative;
+          width:100%;
+          min-height: 162px;
+          background: #f5f5f5;
+          border: 1px dashed #ccc;
+          font-size: 0;
           text-align: center;
-          font-size: 14px;
-          line-height: 1.5;
-          -webkit-transform: translate(0, -50%);
-          transform: translate(0, -50%);
+          .visible-pc{
+            position: absolute;
+            top: 50%;
+            left: 16px;
+            right: 16px;
+            color:black;
+            text-align: center;
+            font-size: 14px;
+            line-height: 1.5;
+            -webkit-transform: translate(0, -50%);
+            transform: translate(0, -50%);
+          }
+          
+        }
+        .item__images__container__preview{
+
+          ul{
+            display:flex;
+
+            // flex-wrap: wrap; 
+            li{
+              display:block;
+              max-width:200px;
+              max-height:140px;
+              img{
+                width:100%;
+              }
+        
+            }
+        
+          }
         }
       }
     }
