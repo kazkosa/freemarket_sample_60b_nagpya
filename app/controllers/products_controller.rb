@@ -12,7 +12,8 @@ class ProductsController < ApplicationController
   def create
     binding.pry
     # productが保存できたかどうかで、画像の保存を分岐させたいために、newです。
-    @product = Product.new(product_params)
+    # @product = Product.new(product_params)
+    @product = Product.new(title: "test", description: "test_description", category_id: 1, size:"L",  condition:"Good", shipping_charges:"500", shipping_area:1, shipping_method:"着払い", shipping_date:"2~3日", price:1500,user_id:1 )
     if @product.save
       product_image_params[:images].each do |image|
         #buildのタイミングは、newアクションでも可能かもしれません。buildすることで、saveした際にアソシエーション先のテーブルにも値を反映できるようになります。

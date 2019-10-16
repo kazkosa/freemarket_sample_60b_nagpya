@@ -29,23 +29,23 @@ $(function(){
       // 何故か、dataTransferがうまくいかなかったので、originalEventから読み込んでいます。
       // ここで、イベントによって得たファイルを配列で取り込んでいます。
     files = event.originalEvent.dataTransfer.files;
-    console.log("evnt:" + event);
-    console.log("event.originalEvent:" + event.originalEvent);
-    console.log("event.originalEvent.dataTransfer:" + event.originalEvent.dataTransfer);
-    console.log("event.originalEvent.dataTransfer.files(=files):" + files);
+    console.log("evnt =>" + event);
+    console.log("event.originalEvent =>" + event.originalEvent);
+    console.log("event.originalEvent.dataTransfer =>" + event.originalEvent.dataTransfer);
+    console.log("event.originalEvent.dataTransfer.files(=files) =>" + files);
     
       // 画像のファイルを一つづつ、先ほどの画像管理用の配列に追加する。
     for (var i=0; i<files.length; i++) {
       files_array.push(files[i]);
       var fileReader = new FileReader();
-      console.log("fileReader:"+ fileReader);
+      console.log("fileReader =>"+ fileReader);
       // ファイルが読み込まれた際に、行う動作を定義する。
       // FileReader オブジェクトを使うと、ユーザーのコンピューター内にあるファイル (もしくはバッファ上の生データ) をウェブアプリケーションから非同期的に読み込むことが出来ます。
       fileReader.onload = function( event ) {
       // 画像のurlを取得します。
       var loadedImageUri = event.target.result;
-      console.log("evnt:" + event);
-      console.log("event.target:" + event.target);
+      console.log("evnt =>" + event);
+      console.log("event.target =>" + event.target);
       // console.log("event.target.result(=loadedImageUri):" + event.target.result);
       
       // 取得したURLを利用して、ビューにHTMLを挿入する。

@@ -200,11 +200,12 @@
                     %span.form-require 必須
                   .select-wrap
                     %i.icon-arrow-bottom
-                    %select.select-default
-                      %option{value: ""} ---
-                      %option{value: "1"} 1~2日で発送
-                      %option{value: "2"} 2~3日で発送
-                      %option{value: "3"} 4~7日で発送
+                    = f.select :shipping_date, [["---",""],["1~2日で発送","1"],["2~3日で発送","2"],["4~7日で発送","3"]],{prompt: "---"}, class:"select-default"
+                    -# %select.select-default
+                    -#   %option{value: ""} ---
+                    -#   %option{value: "1"} 1~2日で発送
+                    -#   %option{value: "2"} 2~3日で発送
+                    -#   %option{value: "3"} 4~7日で発送
                   / react-empty: 95
             .sell-content.clearfix2
               %h3.sell-sub-head 販売価格(300〜9,999,999)
