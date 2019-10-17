@@ -46,6 +46,19 @@ body {
       .item__images__container__wrapper{
         display:flex;
         flex-flow:row;
+        &__preview {
+          ul{
+            display:flex;
+            li{
+              display:block;
+              max-width:200px;
+              max-height:140px;
+              img{
+                width:100%;
+              }
+            }
+          }
+        }
         .sell-upload-drop-box {
           position: relative;
           width:100%;
@@ -66,19 +79,6 @@ body {
             -webkit-transform: translate(0, -50%);
             transform: translate(0, -50%);
           } 
-        }
-        .item__images__container__preview{
-          ul{
-            display:flex;
-            li{
-              display:block;
-              max-width:200px;
-              max-height:140px;
-              img{
-                width:100%;
-              }
-            }
-          }
         }
       }
     }
