@@ -21,17 +21,16 @@
     .login__main__contents__third
       = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
         .field
-          = f.text_field :email, autofocus: true, autocomplete: "email", placeholder: " メールアドレス"
+          = f.email_field :email, autofocus: true, autocomplete: "email", placeholder: " メールアドレス"
         .field
-          = f.password_field :password, autocomplete: "current-password", placeholder: " パスワード"
+          = f.password_field :password, autocomplete: "off", placeholder: " パスワード"
         .robot
           私はロボットじゃありません  
         .actions
-          = link_to do
-            .form__mask
-              %p.form__mask__text
-                ログイン
-              = f.submit class: 'hidden'
+          -# .form__mask
+          -#   %p.form__mask__text
+          -#     ログイン
+          = f.submit "ログイン", class: 't_login'
         = link_to root_path, class: "owasure" do
           パスワードをお忘れの方    
 =render "footer"

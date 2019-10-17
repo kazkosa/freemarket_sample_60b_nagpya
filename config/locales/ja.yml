@@ -1,0 +1,37 @@
+ja:
+  activerecord:
+    errors:
+      messages:
+        record_invalid: 'バリデーションに失敗しました: %{errors}'
+        restrict_dependent_destroy:
+          has_one: "%{record}が存在しているので削除できません"
+          has_many: "%{record}が存在しているので削除できません"
+    models:
+      user: ユーザー
+    attributes:
+      user:
+        nickname: ニックネーム
+        created_at: 登録日時
+        updated_at: 更新日時
+        birthday_year: 生年
+        birthday_month: 生月
+        birthday_day: 生日
+        email: メールアドレス
+        family_name: 姓
+        first_name: 名
+        family_name_kana: 姓カナ
+        first_name_kana: 名カナ
+        password: パスワード
+        password_confirmation: パスワード (確認)
+      address:
+        post_num: 郵便番号
+        prefectures: 都道府県
+        municipalities: 市町村
+        block_number: 番地
+        building: 建屋名
+        phone_number: 電話番号
+      pay:
+        card_id: カード番号
+        year: 年
+        month: 月
+        security_number: セキュリティコード

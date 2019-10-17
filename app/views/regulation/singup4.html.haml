@@ -1,23 +1,26 @@
 -# サインアップ4/5 支払い方法
 = render "header"
 %main.sing__main
+  = render "error_message2"
   %h2.sing__main__title
     支払い方法
   = form_for @pay, url:regulation_index_path, method: :post, class: "sing__main__wrapper" do |f|
     .sing__main__wrapper__content
+      =render "error_message"
+    .sing__main__wrapper__content
       .sing__main__wrapper__content_m
         %label{for:"card_id"} カード番号
         %span.form-require 必須
-        =f.text_field :card_id, placeholder: "半角数字のみ", type: "password", value: "", class: "input-default"
+        =f.text_field :card_id, placeholder: "半角数字のみ(10文字まで)", type: "password", value: "", class: "input-default"
         =image_tag asset_path("pay.png")
       .sing__main__wrapper__content_m 
         %label{for: "year"} 有効期限
         %span.form-require 必須
         .birthday-select-wrap
-          .select-wrap
+          .select-wrap_t
             = f.text_field :year, class: "birthday"
             %span 年
-          .select-wrap.select-wrap__month
+          .select-wrap_t.select-wrap__month
             = f.text_field :month, class: "birthday"
             %span 月 
       .sing__main__wrapper__content_m

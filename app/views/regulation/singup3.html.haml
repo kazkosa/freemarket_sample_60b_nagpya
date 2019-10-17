@@ -4,7 +4,9 @@
   %h2.sing__main__title
     住所情報入力
   = form_for @address, url: singup4_regulation_index_path, method: :get do |f|  
-    .sing__main__wrapper__content   
+    .sing__main__wrapper__content
+      =render "error_message1"
+    .sing__main__wrapper__content  
       .sing__main__wrapper__content_m
         %label{for:"post_num"} 郵便番号
         %span.form-require 必須
@@ -12,7 +14,8 @@
       .sing__main__wrapper__content_m
         %label{for:"prefectures"} 都道府県
         %span.form-require 必須
-        =f.text_field :prefectures , placeholder: "都道府県", type: "text", value: "", class: "input-default"
+        = f.collection_select :prefectures , Prefecture.all, :id, :name,{prompt:"--"},{class:"input-default"}
+        -# =f.text_field :prefectures , placeholder: "都道府県", type: "text", value: "", class: "input-default"
       .sing__main__wrapper__content_m
         %label{for:"municipalities"} 市町村
         %span.form-require 必須
