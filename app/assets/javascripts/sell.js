@@ -90,7 +90,6 @@ $(function(){
     files_array.forEach(function(file){
     formData.append("image[images][]" , file)
     });
-    console.log(formData);
     $.ajax({
       url:         '/products',
       type:        "POST",
