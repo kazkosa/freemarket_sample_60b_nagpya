@@ -45,27 +45,6 @@
                     = f.collection_select :category_id, @parent, :id, :name,{prompt: "---"}, class: "select-default", id: "parent-form", name: 'product[category_id1]' 
                     = f.collection_select :category_id, @children, :id, :name,{prompt: "---"}, class: "select-default", id: "children-form", name:'product[category_id2]'   
                     = f.collection_select :category_id, @grandchildren, :id, :name,{prompt: "---"}, class: "select-default", id: "grandchildren-form", name: 'product[category_id]' 
-                    -# %option{value:""} ---
-                    -# %option{value:"1"} レディース
-                    -# %option{value: "2"} メンズ
-                    -# %option{value: "3"} ベビー・キッズ
-                    -# %option{value: "4"} インテリア・住まい・小物
-                    -# %option{value:"5"} 本・音楽・ゲーム
-                    -# %option{value: "1328"} おもちゃ・ホビー・グッズ
-                    -# %option{value: "6"} コスメ・香水・美容
-                    -# %option{value: "7"} 家電・スマホ・カメラ
-                    -# %option{value: "8"} スポーツ・レジャー
-                    -# %option{value: "9"} ハンドメイド
-                    -# %option{value: "1027"} チケット
-                    -# %option{value:  "1318"} 自動車・オートバイ
-                    -# %option{value: "10"} その他
-                  / react-empty: 55
-                -# - @parents.each do |parent|
-                -#   =parent.name
-                -#   - parent.children.each do |child|
-                -#     =child.name 
-                -#     - child.children.each do |grandchild|
-                -#       =grandchild.name   
                 .form-group
                   %label
                   サイズ
@@ -100,9 +79,7 @@
                     = f.select :shipping_charges, [["---",""],["送料込み(出品者負担)","2"],["着払い(購入者負担)","1"]],{prompt: "---"}, class:"select-default"
                 .form-group
                   %label
-                    / react-text: 215
                     配送の方法
-                    / /react-text
                     %span.form-require 必須
                   .select-wrap
                     = fa_icon  "chevron-down", class: 'tag'
