@@ -17,14 +17,12 @@ body {
 }
 .single-main{
   width: 100vw;
-  height: 2194px;
   margin: 0 auto;
   #sell-container{
     margin: 0 auto;
   }
   .sell-container-inner{
     width: 700px;
-    height: 2194px;
     background: white;
   }
   .single-head {
@@ -46,7 +44,7 @@ body {
       .item__images__container__wrapper{
         display:flex;
         flex-flow:row;
-        &__preview {
+        .item__images__container__preview {
           ul{
             display:flex;
             li{
@@ -61,6 +59,7 @@ body {
         }
         .sell-upload-drop-box {
           position: relative;
+          display:block;
           width:100%;
           min-height: 162px;
           background: #f5f5f5;
@@ -79,6 +78,9 @@ body {
             -webkit-transform: translate(0, -50%);
             transform: translate(0, -50%);
           } 
+          .file-btn{
+            display:none;
+          }   
         }
       }
     }
@@ -147,14 +149,13 @@ body {
     width: 100%;
   }
   .sell-content.clearfix{
-    height: 400px; 
+    display:flex;
+    justify-content: space-between;
     .sell-sub-head {
-      float: left;
       color: #888;
       font-size: 14px;
     }
     .sell-form-box {
-      float: right;
       width: 400px;
       margin: 0;
       .sell-price>li {
@@ -164,14 +165,13 @@ body {
     }
   }
   .sell-content.clearfix1{
-    height: 350px; 
+    display:flex;
+    justify-content: space-between;
     .sell-sub-head {
-      float: left;
       color: #888;
       font-size: 14px;
     }
     .sell-form-box {
-      float: right;
       width: 400px;
       margin: 0;
       .sell-price>li {
@@ -181,14 +181,13 @@ body {
     }
   }
   .sell-content.clearfix2{
-    height: 100px; 
+    display:flex;
+    justify-content: space-between;
     .sell-sub-head {
-      float: left;
       color: #888;
       font-size: 14px;
     }
     .sell-form-box {
-      float: right;
       width: 400px;
       margin: 0;
       .sell-price>li {
@@ -307,6 +306,7 @@ body {
   .sell-btn-box .btn-red {
     margin: 40px 0 0;
   }
+
   .sell-form-box {
     float: right;
     width: 400px;
@@ -354,6 +354,9 @@ body {
     transition: all ease-out .3s;
     cursor: pointer;
     text-align: center;
+  }
+  .btn-default:hover{
+    opacity:0.6;
   }
   p {
     display: block;

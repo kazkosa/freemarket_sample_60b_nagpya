@@ -14,12 +14,15 @@
                 出品画像
                 %span.form-require 必須
               %p 最大10枚までアップロードできます
-              .item__images__container__wrapper
-                .item__images__container__wrapper__preview
-                  %ul
-                .item__images__container__guide.sell-upload-drop-box
-                  .have__image.visible-pc
-                    %h5 ドラッグ&ドロップ<br>でファイルをアップロード
+              = f.fields_for :product_images do |ff|
+                .dropzone-container.clearfix.item__images__container__wrapper
+                  .item__images__container__preview
+                    %ul
+                  = ff.label :image, form:"image", class: "dropzone-box item__images__container__guide sell-upload-drop-box" ,for:"upload-image" do
+                    .input_area
+                      = ff.file_field :image, multiple: true, name: 'product_images[image][]', id: "upload-image", class: "upload-image file-btn", 'data-image': 0
+                      .dropzone-area.visible-pc
+                        %p ここをクリック<br>または<br>ドラッグ&ドロップして<br>画像をアップロードしてください。
             .sell-content
               .form-group
                 %label
@@ -139,7 +142,7 @@
                     加盟店規約
                   に同意したことになります。
               .item__form__sellcontent__submit__done
-                = f.submit class: 'btn-default btn-red', disable_with: "Save", value:"出品する"
+                = f.submit "出品する", class: 'btn-default btn-red', disable_with: "Save"
               = link_to "もどる",:back ,class:'btn-default btn-gray'
           .overlay
 %footer.login__footer

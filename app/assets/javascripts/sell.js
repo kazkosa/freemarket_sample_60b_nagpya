@@ -31,6 +31,23 @@ $(function(){
       fileReader.readAsDataURL(files[i]);
     }
   });
+
+  // クリック時のイベントの作成
+  $('.upload-image').on('change',function(event){
+    event.preventDefault();
+    files = $(this)[0].files;
+    for (var i=0; i<files.length; i++) {
+      files_array.push(files[i]);
+      var fileReader = new FileReader();
+      fileReader.onload = function( event ) {
+        var loadedImageUri = event.target.result;
+        $(buildImage(loadedImageUri,)).appendTo(".item__images__container__preview ul").trigger("create");
+      };
+      fileReader.readAsDataURL(files[i]);
+    }
+  });
+
+
   $(document).on('click','.item__images__container__preview a', function(){
     var index = $(".item__images__container__preview a").index(this);
     // クリックされたaタグの順番から、削除すべき画像を特定し、配列から削除する。
@@ -51,7 +68,7 @@ $(function(){
       data:        formData,
       contentType: false,
       processData: false,
-      dataType:   'json',
+      dataType:   'html',
     })
     .done(function(data){
       alert('出品に成功しました！');

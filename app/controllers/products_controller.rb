@@ -7,6 +7,7 @@ class ProductsController < ApplicationController
     @parent = Category.order("id ASC").limit(1)
     @children =@parent[0].children 
     @grandchildren = @children[0].children
+    @product.product_images.build
   end 
 
   def create
@@ -16,9 +17,9 @@ class ProductsController < ApplicationController
         @product.product_images.build
         product_image = @product.product_images.new(image: image)
         product_image.save
-    end
+      end
       respond_to do |format|
-      format.json
+        format.json
       end
     else
       render "/products/sell" unless @product.valid?
