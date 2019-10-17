@@ -10,10 +10,8 @@ class ProductsController < ApplicationController
   end 
 
   def create
-    #binding.pry
     # productが保存できたかどうかで、画像の保存を分岐させたいために、newです。
     @product = Product.new(product_params)
-    #binding.pry
     # @product = Product.new(title: "test", description: "test_description", category_id: 1, size:"L",  condition:"Good", shipping_charges:"500", shipping_area:1, shipping_method:"着払い", shipping_date:"2~3日", price:1500,user_id:1 )
     if @product.save
       product_image_params[:images].each do |image|
@@ -25,7 +23,6 @@ class ProductsController < ApplicationController
         product_image.save
       end
       #今回は、Ajaxのみの通信で実装するためHTMLへrespondする必要がないため、jsonのみです。
-      # binding.pry
       respond_to do |format|
         format.json
       end
@@ -43,8 +40,6 @@ class ProductsController < ApplicationController
     #imageのストロングパラメータの設定.js側でimagesをrequireすれば画像のみを引き出せるように設定する。
     params.require(:image).permit({:images => []})
   end
-
-
   def show
   end
   def buy
