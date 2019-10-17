@@ -10,7 +10,7 @@
           %h2.single-head 商品の情報を入力 
           = form_for @product, html: {id:'new_item', class:"sell-form"}  do |f|
             .item__images__container.sell-upload-box
-              %h3.sell-upload-head
+              %h3.sell-upload-head.block-image
                 出品画像
                 %span.form-require 必須
               %p 最大10枚までアップロードできます
@@ -22,39 +22,43 @@
                     .input_area
                       = ff.file_field :image, multiple: true, name: 'product_images[image][]', id: "upload-image", class: "upload-image file-btn", 'data-image': 0
                       .dropzone-area.visible-pc
-                        %p ここをクリック<br>または<br>ドラッグ&ドロップして<br>画像をアップロードしてください。
+                        %p ドラッグ&ドロップ<br>またはクリックファイルをアップロード
             .sell-content
               .form-group
-                %label
+                %label.block-title
                   商品名
                   %span.form-require 必須
                 %div
                   =f.text_field :title, class:"input-default", paceholder:"商品名（必須 40文字まで)"
               .form-group
-                %label
+                %label.block-description
                   商品の説明
                   %span.form-require 必須
-                = f.text_area :description, class:"textarea-default", placeholder:"商品の説明（必須 1,000文字以内）（色、素材、重さ、定価、注意点など）例）2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです。"
+                = f.text_area :description, class:"textarea-default", placeholder:"商品の説明（必須 1,000文字以内）（色、素材、重さ、定価、注意点など）\n例）2010年頃に1万円で購入したジャケットです。\nライトグレーで傷はありません。あわせやすいのでおすすめです。"
             .sell-content.clearfix
               %h3.sell-sub-head 商品の詳細
               .sell-form-box
                 .form-group
-                  %label
+                  %label.block-category
                     カテゴリー
                     %span.form-require 必須
                   %div
                   .select-wrap
                     = fa_icon  "chevron-down", class: 'tag'
                     = f.collection_select :category_id, @parent, :id, :name,{prompt: "---"}, class: "select-default", id: "parent-form", name: 'product[category_id1]' 
+                  .select-wrap
+                    = fa_icon  "chevron-down", class: 'tag'
                     = f.collection_select :category_id, @children, :id, :name,{prompt: "---"}, class: "select-default", id: "children-form", name:'product[category_id2]'   
+                  .select-wrap
+                    = fa_icon  "chevron-down", class: 'tag'
                     = f.collection_select :category_id, @grandchildren, :id, :name,{prompt: "---"}, class: "select-default", id: "grandchildren-form", name: 'product[category_id]' 
                 .form-group
-                  %label
-                  サイズ
-                  %span.form-require 必須
+                  %label.block-size
+                    サイズ
+                    %span.form-require 必須
                   .select-wrap
-                  = fa_icon  "chevron-down", class: 'tag' 
-                  = f.select :size, [["---",""],["XXS以下","153"],["XS(SS)","154"],["S","2"],["M","3"],["L","4"],["XL(LL)","5"],["2XL(3L)","155"],["3XL(4L)","156"],["4XL(5L)以上","156"],["FREE SIZE","7"] ], {prompt: "---"}, class:"select-default"
+                    = fa_icon  "chevron-down", class: 'tag' 
+                    = f.select :size, [["XXS以下","153"],["XS(SS)","154"],["S","2"],["M","3"],["L","4"],["XL(LL)","5"],["2XL(3L)","155"],["3XL(4L)","156"],["4XL(5L)以上","156"],["FREE SIZE","7"] ], {prompt: "---"}, class:"select-default"
                 .form-group.form-suggest-container
                   %label
                     ブランド
@@ -63,64 +67,62 @@
                     = f.text_field :brand_id, class:"input-default",placeholder: "例）シャネル",value:""
                     %div
                 .form-group
-                  %label
+                  %label.block-condition
                     商品の状態
                     %span.form-require 必須
                   .select-wrap
                     = fa_icon  "chevron-down", class: 'tag'
-                    = f.select :condition , [["---",""],["新品、未使用","1"],["未使用に近い","2"],["目立った傷や汚れなし","3"],["やや傷や汚れあり","4"],["傷や汚れあり","5"],["全体的に状態が悪い","6"]],{prompt: "---"}, class:"select-default"
+                    = f.select :condition , [["新品、未使用","1"],["未使用に近い","2"],["目立った傷や汚れなし","3"],["やや傷や汚れあり","4"],["傷や汚れあり","5"],["全体的に状態が悪い","6"]],{prompt: "---"}, class:"select-default"
             .sell-content.clearfix1
               %h3.sell-sub-head 配送について
               %a.form-question{href:"/jp/help_center/article/68/", target:"_blank"} ?
               .sell-form-box
                 .form-group
-                  %label
+                  %label.block-shipping_charges
                     配送料の負担
                     %span.form-require 必須
                   .select-wrap
                     = fa_icon  "chevron-down", class: 'tag'
-                    = f.select :shipping_charges, [["---",""],["送料込み(出品者負担)","2"],["着払い(購入者負担)","1"]],{prompt: "---"}, class:"select-default"
+                    = f.select :shipping_charges, [["送料込み(出品者負担)","2"],["着払い(購入者負担)","1"]],{prompt: "---"}, class:"select-default"
                 .form-group
-                  %label
+                  %label.block-shipping_method
                     配送の方法
                     %span.form-require 必須
                   .select-wrap
                     = fa_icon  "chevron-down", class: 'tag'
-                    = f.select :shipping_method, [["---",""],["未定","1"],["クロネコヤマト","3"],["ゆうパック","4"],["ゆうメール","15"]],{prompt: "---"}, class:"select-default"
+                    = f.select :shipping_method, [["未定","1"],["クロネコヤマト","3"],["ゆうパック","4"],["ゆうメール","15"]],{prompt: "---"}, class:"select-default"
                 .form-group
-                  %label
+                  %label.block-shipping_area
                     発送元の地域
                     %span.form-require 必須
                   .select-wrap
                     = fa_icon  "chevron-down", class: 'tag'
                     = f.collection_select :shipping_area, Prefecture.all, :id, :name,{prompt:"--"},{class:"select-default "} 
-                    %i.icon-arrow-bottom
                 .form-group
-                  %label
+                  %label.block-shipping_date
                     発送までの日数
                     %span.form-require 必須
                   .select-wrap
                     = fa_icon  "chevron-down", class: 'tag'
-                    = f.select :shipping_date, [["---",""],["1~2日で発送","1"],["2~3日で発送","2"],["4~7日で発送","3"]],{prompt: "---"}, class:"select-default"
+                    = f.select :shipping_date, [["1~2日で発送","1"],["2~3日で発送","2"],["4~7日で発送","3"]],{prompt: "---"}, class:"select-default"
             .sell-content.clearfix2
               %h3.sell-sub-head 販売価格(300〜9,999,999)
               %a.form-question{href: "/jp/help_center/article/64/",target: "_blank"} ?
               .sell-form-box
                 %ul.sell-price
                   %li.form-group
-                    .clearfix
-                      %label.l-left
+                    .clearfix.sell-price_wrapper
+                      %label.l-left.block-price
                         価格
                         %span.form-require 必須
                       .l-right.sell-price-input
                         ¥
-                        %div
-                          = f.text_field :price, class:"money_box",placeholder: "例）300",value:""
-                  %li.clearfix
+                        = f.text_field :price, class:"money_box",placeholder: "例）300",value:""
+                  %li.clearfix.sell-price_wrapper
                     .l-left
                       販売手数料 (10%)
                     .l-right 
-                  %li.clearfix.bold
+                  %li.clearfix.bold.sell-price_wrapper
                     .l-left 販売利益
                     .l-right -
             .modal{role:"dialog", tabindex: "-1"}
@@ -142,9 +144,9 @@
                     加盟店規約
                   に同意したことになります。
               .item__form__sellcontent__submit__done
-                = f.submit "出品する", class: 'btn-default btn-red', disable_with: "Save"
+                = f.submit "出品する", class: 'btn-submit btn-default btn-red', disable_with: "Save"
               = link_to "もどる",:back ,class:'btn-default btn-gray'
-          .overlay
+
 %footer.login__footer
   %nav.login__footer__nav
     %ul.login__footer__nav__menu
@@ -162,3 +164,15 @@
   %p.login__footer__2019
     %small
       2019 Mercari
+.overlay
+.modal_exhibit-comp
+  %h2.modal_exhibit-comp__head
+    出品が完了しました
+  .modal_exhibit-comp__main
+    .modal_exhibit-comp__main__content
+      %h3
+        あなたが出品した商品は「出品した商品一覧」からいつでも見ることができます。
+    .modal_exhibit-comp__main__link.continue
+      = link_to "続けて出品する", sell_products_path ,class: "btn-default btn-red"
+    .modal_exhibit-comp__main__link.show
+      = link_to "商品ページへ行ってシェアする", "" ,class: "link_to_product"

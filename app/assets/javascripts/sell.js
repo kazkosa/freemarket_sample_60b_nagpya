@@ -4,9 +4,6 @@ $(function(){
     `<li>
       <img src=${loadedImageUri}>
       <div class="item__images__container__preview__box">
-        <div class="item__images__container__preview__box__edit" >
-          編集
-        </div>
         <div>
           <a class="item__images__container__preview__box__delete">削除</a>
         </div>
@@ -68,13 +65,62 @@ $(function(){
       data:        formData,
       contentType: false,
       processData: false,
-      dataType:   'html',
+      dataType:   'json',
     })
     .done(function(data){
-      alert('出品に成功しました！');
+      var error_null    =`<span style="color:red;" class="error-message"> 入力してください </span>`;
+      var error_sellect =`<span style="color:red;" class="error-message"> 選択してください </span>`;
+      var error_forbit  =`<span style="color:red;" class="error-message"> 300以上9999999以下で入力してください </span>`;
+      
+      $(".error-message").remove();
+      
+      if (data.product_id){
+        $(".overlay").fadeIn(200);
+        $(".modal_exhibit-comp").fadeIn(200);
+        var path="/products/" + data.product_id;
+        $(".link_to_product").attr("href",path);
+      }
+      else{
+        alert('入力違反!! 再度入力内容を確認してください。');
+        if(data.product_image_errors_image){
+          $(".block-image").append(error_null);
+        }
+        if(data.product_errors_title){
+          $(".block-title").append(error_null);
+        }
+        if(data.product_errors_description){
+          $(".block-description").append(error_null);
+        }
+        if(data.product_errors_category_id){
+          $(".block-category").append(error_sellect);
+        }
+        if(data.product_errors_size){
+          $(".block-size").append(error_sellect);
+        }
+        if(data.product_errors_condition){
+          $(".block-condition").append(error_sellect);
+        }
+        if(data.product_errors_shipping_charges){
+          $(".block-shipping_charges").append(error_sellect);
+        }
+        if(data.product_errors_shipping_method){
+          $(".block-shipping_method").append(error_sellect);
+        }
+        if(data.product_errors_shipping_area){
+          $(".block-shipping_area").append(error_sellect);
+        }
+        if(data.product_errors_shipping_date){
+          $(".block-shipping_date").append(error_sellect);
+        }
+        if(data.product_errors_price){
+          $(".block-price").append(error_forbit);
+        }
+        $(".btn-submit").removeAttr("disabled");
+      }
     })
     .fail(function(XMLHttpRequest, textStatus, errorThrown){
       alert('出品に失敗しました！');
+      $(".btn-submit").removeAttr("disabled");
     });
   });
 });

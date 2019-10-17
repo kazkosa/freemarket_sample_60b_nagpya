@@ -12,17 +12,15 @@ class ProductsController < ApplicationController
 
   def create
     @product = Product.new(product_params)
-    if @product.save
+    if params[:product_images].present? && @product.save
       product_image_params[:images].each do |image|
         @product.product_images.build
         product_image = @product.product_images.new(image: image)
         product_image.save
       end
-      respond_to do |format|
-        format.json
-      end
-    else
-      render "/products/sell" unless @product.valid?
+    end
+    respond_to do |format|
+      format.json
     end
   end
   
