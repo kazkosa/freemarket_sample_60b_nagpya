@@ -27,6 +27,10 @@ Rails.application.routes.draw do
       get :singup2
       get :singup3
       get :singup4
+      get :singup5
+    end
+    collection do
+      post :create
     end
   end  
 end

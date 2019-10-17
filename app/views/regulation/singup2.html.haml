@@ -1,34 +1,21 @@
--# サインアップ4/6 住所入力
-= render "header"
+-# サインアップ3/6 携帯番号認証
+=render "header"
 %main.sing__main
   %h2.sing__main__title
-    会員情報入力
-  %form{method: "post", class: "sing__main__wrapper"}
+    電話番号の確認
+  =form_for @user, method: :get, url: singup3_regulation_index_path, class: "sing__main__wrapper" do|f|
     .sing__main__wrapper__content
       .sing__main__wrapper__content_m
-        %label{for:"post_num"} 郵便番号
-        %span.form-require 必須
-        %input.input-default{name: "post_num", placeholder: "例）111-111", type: "text", value: ""}/
+        %label{for:"phone_number"} 携帯電話の番号
+        %input.input-default{name: "phone_number", placeholder: "携帯電話の番号を入力", type: "text", value: ""}/
+        %p.l-single-text
+          本人確認のため、携帯電話のSNS(ショートメッセージサービスを利用して認証を行います。)
       .sing__main__wrapper__content_m
-        %label{for:"prefectures"} 都道府県
-        %span.form-require 必須
-        %input.input-default{name: "prefectures", placeholder: "", type: "text", value: ""}/
+        =link_to singup3_regulation_index_path , class:"div"  do
+          =f.submit "SNS認証を送信する" ,class: "btn-red" 
+        %p.l-single-text
+          ※電話番号は本人確認や不正利用防止のため利用します。他のユーザーに公開されることはありません。
       .sing__main__wrapper__content_m
-        %label{for:"municipalities"} 市町村
-        %span.form-require 必須
-        %input.input-default{name: "municipalities", placeholder: "例）横浜市港区", type: "text", value: ""}/
-      .sing__main__wrapper__content_m
-        %label{for:"block_number"} 番地
-        %span.form-require 必須
-        %input.input-default{name: "block_number", placeholder: "例）青山3-2-2", type: "text", value: ""}/
-      .sing__main__wrapper__content_m
-        %label{for:"building"} 建物名
-        %span.form-require.any 任意
-        %input.input-default{name: "building", placeholder: "例）青山ビル", type: "text", value: ""}/
-      .sing__main__wrapper__content_m
-        %label{for:"phone_number"} 電話
-        %span.form-require.any 任意
-        %input.input-default{name: "phone_number", placeholder: "例）08011111111", type: "text", value: ""}/
-      .sing__main__wrapper__content_m
-        %button.btn-default.btn-red{type: "submit"} 次へ進む             
-= render "footer"
+        =link_to root_path ,class:"m_text" do
+          電話番号の確認が必要な理由>    
+=render "footer"

@@ -96,11 +96,20 @@
         .birthday-select-wrap {
           width: 400px;
           height: 70px;
+          display: flex;
+          margin-top: 2px;
+          .select-wrap_t {
+            width: 100px;
+          }
+          .s_text {
+            margin-top: 34px;
+          }
           .birthday {
-            width: 15%;
+            width: 25%;
             height: 48px;
             padding: 0 10px;
-
+            border-radius: 4px;
+            margin: 0 auto;
           }  
         }
         .l-single-text {
@@ -122,6 +131,8 @@
         .m_text {
           color: #0099E8;
           font-size: 14px;
+          margin-top: 3px;
+          display: inline-block;
         }
       }
       &_m.sing_pay {

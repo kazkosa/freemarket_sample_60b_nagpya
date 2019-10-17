@@ -1,13 +1,34 @@
--# サインアップ6/6 完了ページ
+-# サインアップ4/5 支払い方法
 = render "header"
 %main.sing__main
+  = render "error_message2"
   %h2.sing__main__title
-    会員登録完了
-  %form{method: "post", class: "sing__main__wrapper"}
+    支払い方法
+  = form_for @pay, url:regulation_index_path, method: :post, class: "sing__main__wrapper" do |f|
     .sing__main__wrapper__content
-      .sing__main__wrapper__content_m.sing_pay
-        %p ありがとうございます
-        %p 会員登録が完了しました。
+      =render "error_message"
+    .sing__main__wrapper__content
       .sing__main__wrapper__content_m
-        %button.btn-default.btn-red{type: "submit"} メルカリをはじめる                
+        %label{for:"card_id"} カード番号
+        %span.form-require 必須
+        =f.text_field :card_id, placeholder: "半角数字のみ(10文字まで)", type: "password", value: "", class: "input-default"
+        =image_tag "https://www-mercari-jp.akamaized.net/assets/img/card/visa.svg?3466462615", size: "185x39" 
+      .sing__main__wrapper__content_m 
+        %label{for: "year"} 有効期限
+        %span.form-require 必須
+        .birthday-select-wrap
+          .select-wrap_t
+            = f.text_field :year, class: "birthday"
+            %span 年
+          .select-wrap_t.select-wrap__month
+            = f.text_field :month, class: "birthday"
+            %span 月 
+      .sing__main__wrapper__content_m
+        %label{for:"card_id"} セキュリティコード
+        %span.form-require 必須
+        = f.text_field :security_number, placeholder: "カード背面4桁もしくは3桁の番号", type: "password", value: "", class: "input-default"
+      =link_to root_path ,class:"m_text" do
+        カード裏面の番号とは？   
+      .sing__main__wrapper__content_m
+        =f.submit "次へ進む" ,class: "btn-red"                 
 = render "footer"

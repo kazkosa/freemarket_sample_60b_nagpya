@@ -96,3 +96,6 @@ end
 gem 'fog-aws'
 gem 'rake'
 #gem 'rake', '<11.0'
+
+# エラーメッセージの日本語化
+gem 'rails-i18n'
