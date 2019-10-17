@@ -15,7 +15,6 @@
         %label{for:"prefectures"} 都道府県
         %span.form-require 必須
         = f.collection_select :prefectures , Prefecture.all, :id, :name,{prompt:"--"},{class:"input-default"}
-        -# =f.text_field :prefectures , placeholder: "都道府県", type: "text", value: "", class: "input-default"
       .sing__main__wrapper__content_m
         %label{for:"municipalities"} 市町村
         %span.form-require 必須

@@ -171,11 +171,21 @@
             
                 .evaluation-mark{
                   display:inline-block;
-                  height:100%;
+                  margin-top:3px;
+                  font-size:20px;
                 }
                 span{
-                  margin:auto 0 auto 4px;
+                  margin:auto 0  auto 4px;
                   display:inline-block;
+                }
+                .icon-laugh{
+                  color:#ef5185;
+                }
+                .icon-meh{
+                  color:#fba933;
+                }
+                .icon-frown{
+                  color:#6ab5d8;
                 }
               }
             }
