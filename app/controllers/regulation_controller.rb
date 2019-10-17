@@ -127,7 +127,6 @@ class RegulationController < ApplicationController
       building: session[:building],
       phone_number: session[:phone_number] 
       )
-      binding.pry
       @pay = Pay.new(
       user_id: session[:user_id],
       card_id: pay_params[:card_id],
@@ -135,7 +134,6 @@ class RegulationController < ApplicationController
       month: pay_params[:month],
       security_number: pay_params[:security_number]
       )
-      binding.pry
       redirect_to singup5_regulation_index_path 
     else
       redirect_to singup4_regulation_index_path
