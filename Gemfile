@@ -71,8 +71,7 @@ gem 'jquery-ui-rails'
 gem 'bootstrap', '~> 4.3.1'
 gem 'haml-rails'
 gem 'active_hash'
-# gem "font-awesome-rails"
-gem 'font-awesome-sass'
+gem "font-awesome-rails"
 gem 'ancestry'
 
 group :development, :test do
