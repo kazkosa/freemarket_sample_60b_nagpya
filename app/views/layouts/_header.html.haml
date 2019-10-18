@@ -2,42 +2,42 @@
   .header__contents
     .header__contents__top
       .header__contents__top__log
-        = link_to root_path do 
+        = link_to root_path do
           %img{width: "134", src: "https://web-jp-assets.mercdn.net/_next/static/images/logo-acdd90ac4f472d5a6f7a330d33ab1225.svg"}
       .form
         %input#box1{placeholder: "何かお探しですか？", type: "text"}
         %button#button1{type: 'submit'}
           = link_to do
-            = fa_icon 'search'         
+            = icon("fas", "search")
     .header__contents__bottom
       .header__contents__bottom__left
         .left__content
           = link_to do
             .left__content__bar  
-            = fa_icon  "bars", class: 'tag'
+            = icon("fas", "bars tag")
             カテゴリーから探す
         .right__content
           = link_to do
             .left__content__tag
-            = fa_icon  "tag", class: 'tag'
+            = icon("fas", "tag tag")
             ブランドから探す 
       -if user_signed_in?        
         %ul.right__menu
           %li.right__menu__list.heart
             = link_to like_users_path do
-              = fa_icon  "heart-o"
+              = icon("far", "heart")
               いいね！一覧
           %li.right__menu__list.bell
             = link_to notification_users_path do
-              = fa_icon  "bell-o"
+              = icon("far", "bell")
               お知らせ
           %li.right__menu__list.bell
             = link_to todo_users_path do
-              = fa_icon  "check"
+              = icon("fas", "check")
               やることリスト
           %li.right__menu__list.user
             = link_to users_path do
-              = fa_icon  "user-o"
+              = icon("far", "user")
               マイページ
       -else        
         .right__menu__nave
