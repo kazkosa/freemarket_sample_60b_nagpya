@@ -28,7 +28,7 @@
         %span.form-require 必須
         = f.text_field :cvc, placeholder: "カード背面4桁もしくは3桁の番号", type: "password", value: "", class: "input-default", maxlength: "4"
       =link_to root_path ,class:"m_text" do
-        カード裏面の番号とは？   
+        カード裏面の番号とは？  
       .sing__main__wrapper__content_m
         =f.submit "次へ進む" ,class: "btn-red"                 
 = render "footer"

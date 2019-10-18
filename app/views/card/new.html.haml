@@ -24,6 +24,8 @@
         = f.label :セキュリティコード, class: 'label'
         %span.form-require 必須
         = f.text_field :cvc, type: 'text', class: 'input-default', placeholder: 'カード背面4桁もしくは3桁の番号', maxlength: "4"
+      =link_to root_path ,class:"m_text" do
+        カード裏面の番号とは？   
       .sing__main__wrapper__content_m#card_token
         = f.submit '追加する', class: 'btn-red', id: 'token_submit'
 = render "regulation/footer"      
