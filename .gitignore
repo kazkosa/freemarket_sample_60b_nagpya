@@ -28,3 +28,5 @@
 public/uploads/*
 /config/credentials.yml.enc
 
+# .envはgithubには上げない
+.env/

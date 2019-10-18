@@ -1,6 +1,5 @@
 Rails.application.routes.draw do
-  get 'card/new'
-  get 'card/show'
+  resources :card
   get 'regulation/new'
   devise_for :users
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
@@ -31,8 +30,6 @@ Rails.application.routes.draw do
       get :singup4
       get :singup5
     end
-    collection do
-      post :create
-    end
-  end  
-end
+  end 
+end  
+

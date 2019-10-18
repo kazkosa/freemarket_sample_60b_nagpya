@@ -3,7 +3,7 @@
 %main.sing__main
   %h2.sing__main__title
     住所情報入力
-  = form_for @address, url: singup4_regulation_index_path, method: :get do |f|  
+  = form_for @address,url:regulation_index_path, method: :post do |f|  
     .sing__main__wrapper__content
       =render "error_message1"
     .sing__main__wrapper__content  
