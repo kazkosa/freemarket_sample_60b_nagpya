@@ -11,11 +11,11 @@
           新規会員登録
     .login__main__contents__second
       = link_to root_path, class: "login__main__contents__second__face" do
-        = fa_icon 'facebook', class: 'icon fa-lg'
+        = icon("fab", "facebook icon fa-lg")
         %span.login__main__contents__second__face__text
           Facebookでログイン
       = link_to root_path, class: "login__main__contents__second__google" do
-        = fa_icon 'google', class: 'icon fa-lg'
+        = icon("fab", "google icon fa-lg")
         %span.login__main__contents__second__google__text
           Googleでログイン
     .login__main__contents__third
@@ -27,9 +27,6 @@
         .robot
           私はロボットじゃありません  
         .actions
-          -# .form__mask
-          -#   %p.form__mask__text
-          -#     ログイン
           = f.submit "ログイン", class: 't_login'
         = link_to root_path, class: "owasure" do
           パスワードをお忘れの方    

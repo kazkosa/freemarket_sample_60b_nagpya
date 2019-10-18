@@ -18,10 +18,10 @@
             .mypage-item__list-info__link__item-body
               .mypage-item__list-info__link__item-body__text
                 TECHさんから「20歳の自分に受けさせたい文章講義」の取引メッセージがあります。返信をお願いします。
-              %time.mypage-item__list-info__link__item-body__time
-                = fa_icon "time",class:"icon-time fa-lg"
+              %time.icon-left-time
+                = icon("far", "clock icon-time fa-lg")
                 %span 26 分前
-            =fa_icon "angle-right",class:"side-box__mypage-nav__list__inner__item__icon fa-1g"
+            = icon("fas", "angle-right side-box__mypage-nav__list__inner__item__icon fa-1g")
         %li.mypage-item__list-info
           = link_to "", class:"mypage-item__list-info__link" do
             .mypage-item__list-info__link__mark
@@ -29,10 +29,10 @@
             .mypage-item__list-info__link__item-body
               .mypage-item__list-info__link__item-body__text
                 EXPERTさんが「ダッフィーぬいぐるみ Sサイズ ディズニー 備品」を購入しました。。コンビニ/ATM払いを選択しています。支払いが済んだらやることリストに表示されます。
-              %time.mypage-item__list-info__link__item-body__time
-                = fa_icon "time",class:"icon-time fa-lg"
+              %time.icon-left-time
+                = icon("far", "clock icon-time fa-lg")
                 %span 4 ヵ月前
-            =fa_icon "angle-right",class:"side-box__mypage-nav__list__inner__item__icon fa-1g"
+            = icon("fas", "angle-right side-box__mypage-nav__list__inner__item__icon fa-1g")
     - else
       %li.mypage-item__list-info__not
         お知らせの商品がありません
