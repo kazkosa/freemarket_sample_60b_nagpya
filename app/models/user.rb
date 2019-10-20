@@ -3,7 +3,9 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
-
+  has_many :products
+  has_many :likes, dependent: :delete_all
+  has_many :comments, dependent: :delete_all
   has_one :address
   accepts_nested_attributes_for :address 
   has_many :cards

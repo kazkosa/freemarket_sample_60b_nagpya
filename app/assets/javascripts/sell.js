@@ -123,5 +123,17 @@ $(function(){
       $(".btn-submit").removeAttr("disabled");
     });
   });
+  var money_l = 300;
+  var money_h =9999999;
+  var fee_rate = 0.1;
+  $(".money_box").on("keyup", function(){
+    var input_money = $(".money_box").val();
+    if(input_money >= money_l && input_money <= money_h){
+      var fee     = input_money*fee_rate;
+      var profit  = input_money - fee;
+      $(".l-right.fee").html("¥"+fee.toString().replace(/(\d)(?=(\d{3})+$)/g , '$1,'));
+      $(".l-right.profit").html("¥"+profit.toString().replace(/(\d)(?=(\d{3})+$)/g , '$1,')); 
+    }
+  });
 });
 

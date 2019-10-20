@@ -2,48 +2,48 @@
   .header__contents
     .header__contents__top
       .header__contents__top__log
-        = link_to root_path do 
+        = link_to root_path do
           %img{width: "134", src: "https://web-jp-assets.mercdn.net/_next/static/images/logo-acdd90ac4f472d5a6f7a330d33ab1225.svg"}
       .form
         %input#box1{placeholder: "何かお探しですか？", type: "text"}
         %button#button1{type: 'submit'}
           = link_to do
-            = fa_icon 'search'         
+            = icon("fas", "search")
     .header__contents__bottom
       .header__contents__bottom__left
         .left__content
           = link_to do
             .left__content__bar  
-            = fa_icon  "bars", class: 'tag'
+            = icon("fas", "bars tag")
             カテゴリーから探す
         .right__content
           = link_to do
             .left__content__tag
-            = fa_icon  "tag", class: 'tag'
+            = icon("fas", "tag tag")
             ブランドから探す 
-      -if user_signed_in?        
-        %ul.right__menu
-          %li.right__menu__list.heart
-            = link_to like_users_path do
-              = fa_icon  "heart-o"
-              いいね！一覧
-          %li.right__menu__list.bell
-            = link_to notification_users_path do
-              = fa_icon  "bell-o"
-              お知らせ
-          %li.right__menu__list.bell
-            = link_to todo_users_path do
-              = fa_icon  "check"
-              やることリスト
-          %li.right__menu__list.user
-            = link_to users_path do
-              = fa_icon  "user-o"
-              マイページ
-      -else        
-        .right__menu__nave
-          .right__menu__nave__left
-            = link_to regulation_index_path, class: "right__menu__nave__left__text" do
-              新規会員登録
-          .right__menu__nave__right
-            = link_to new_user_session_path, class: "right__menu__nave__right__text" do
-              ログイン             
+        -if user_signed_in?        
+          %ul.right__menu
+            %li.right__menu__list.heart
+              = link_to like_user_path(current_user) do
+                = icon("far", "heart")
+                いいね！一覧
+            %li.right__menu__list.bell
+              = link_to notification_user_path(current_user) do
+                = icon("far", "bell")
+                お知らせ
+            %li.right__menu__list.bell
+              = link_to todo_user_path(current_user) do
+                = icon("fas", "check")
+                やることリスト
+            %li.right__menu__list.user
+              = link_to user_path(current_user) do
+                = icon("far", "user")
+                マイページ
+        -else        
+          .right__menu__nave
+            .right__menu__nave__left
+              = link_to regulation_index_path, class: "right__menu__nave__left__text" do
+                新規会員登録
+            .right__menu__nave__right
+              = link_to new_user_session_path, class: "right__menu__nave__right__text" do
+                ログイン             

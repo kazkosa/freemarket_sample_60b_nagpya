@@ -12,7 +12,7 @@ class ProductsController < ApplicationController
 
   def create
     @product = Product.new(product_params)
-    if params[:product_images].present? && @product.save
+    if params[:image].present? && @product.save
       product_image_params[:images].each do |image|
         @product.product_images.build
         product_image = @product.product_images.new(image: image)
@@ -23,7 +23,21 @@ class ProductsController < ApplicationController
       format.json
     end
   end
-  
+
+  def show
+    @product  = Product.find(params[:id])
+    @products_this_seller = @product.user.products.order('id DESC').where.not(id: params[:id]).limit(6)
+    @category = @product.category
+    @products_this_category = @category.products.order('id DESC').where.not(user_id:@product.user).limit(6)
+    @likes = @product.likes
+    @like  = @likes.find_by(user_id: current_user.id)
+    @comment = Comment.new()
+  end
+  def buy
+
+  end
+
+
   private
 
   def product_params
@@ -35,10 +49,6 @@ class ProductsController < ApplicationController
     params.require(:image).permit({images:[]})
   end
 
-  def show
-  end
 
-  def buy
-  end
   
 end

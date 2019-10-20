@@ -12,19 +12,38 @@ $(function(){
   
   $(".item-box-container__main__photo__inner__smal-box-wrapper__item").removeClass("active");
   var current_hover_id = $(this).addClass("active");
-  if ( current_hover_id.is("#image1")){
-   $(".item-box-container__main__photo__inner__large-box__wrapper").css("left",unit_img_latest*0); 
-
-  }else if( current_hover_id.is("#image2")  ){
-   $(".item-box-container__main__photo__inner__large-box__wrapper").css("left",-unit_img_latest*1);
-  }else if( current_hover_id.is("#image3")  ){
-   $(".item-box-container__main__photo__inner__large-box__wrapper").css("left",-unit_img_latest*2);
-  }else if( current_hover_id.is("#image4")  ){
-   $(".item-box-container__main__photo__inner__large-box__wrapper").css("left",-unit_img_latest*3);
-  }else if( current_hover_id.is("#image5")  ){
-   $(".item-box-container__main__photo__inner__large-box__wrapper").css("left",-unit_img_latest*4);
-  }else{
-   alert.log("Error: Selected irregular image!");
+  if ( current_hover_id.is("#image0")){
+    $(".item-box-container__main__photo__inner__large-box__wrapper").css("left",unit_img_latest*0); 
+  }
+  else if( current_hover_id.is("#image1")  ){
+    $(".item-box-container__main__photo__inner__large-box__wrapper").css("left",-unit_img_latest*1);
+  }
+  else if( current_hover_id.is("#image2")  ){
+    $(".item-box-container__main__photo__inner__large-box__wrapper").css("left",-unit_img_latest*2);
+  }
+  else if( current_hover_id.is("#image3")  ){
+    $(".item-box-container__main__photo__inner__large-box__wrapper").css("left",-unit_img_latest*3);
+  }
+  else if( current_hover_id.is("#image4")  ){
+    $(".item-box-container__main__photo__inner__large-box__wrapper").css("left",-unit_img_latest*4);
+  }
+  else if( current_hover_id.is("#image5")  ){
+    $(".item-box-container__main__photo__inner__large-box__wrapper").css("left",-unit_img_latest*5);
+  }
+  else if( current_hover_id.is("#image6")  ){
+    $(".item-box-container__main__photo__inner__large-box__wrapper").css("left",-unit_img_latest*6);
+  }
+  else if( current_hover_id.is("#image7")  ){
+    $(".item-box-container__main__photo__inner__large-box__wrapper").css("left",-unit_img_latest*7);
+  }
+  else if( current_hover_id.is("#image8")  ){
+    $(".item-box-container__main__photo__inner__large-box__wrapper").css("left",-unit_img_latest*8);
+  }
+  else if( current_hover_id.is("#image9")  ){
+    $(".item-box-container__main__photo__inner__large-box__wrapper").css("left",-unit_img_latest*9);
+  }
+  else{
+    alert("Error: Selected irregular image!");
   }
  
  })
