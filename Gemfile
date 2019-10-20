@@ -89,6 +89,9 @@ group :development, :test do
   gem 'capistrano-bundler'
   gem 'capistrano-rails'
   gem 'capistrano3-unicorn'
+  
+  # 環境変数を簡単に
+  gem 'dotenv-rails'
 end
 gem 'dotenv-rails'
 
@@ -101,3 +104,5 @@ gem 'rake'
 
 # エラーメッセージの日本語化
 gem 'rails-i18n'
+# クレジットカードを簡単に
+gem 'payjp'

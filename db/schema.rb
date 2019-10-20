@@ -31,6 +31,15 @@ ActiveRecord::Schema.define(version: 2019_10_19_182201) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "cards", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "customer_id"
+    t.string "card_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.bigint "user_id"
+    t.index ["user_id"], name: "index_cards_on_user_id"
+  end
+
   create_table "categories", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
     t.string "path"
@@ -144,6 +153,7 @@ ActiveRecord::Schema.define(version: 2019_10_19_182201) do
   end
 
   add_foreign_key "addresses", "users"
+  add_foreign_key "cards", "users"
   add_foreign_key "comments", "products"
   add_foreign_key "comments", "users"
   add_foreign_key "likes", "products"
