@@ -58,7 +58,7 @@
                     %span.form-require 必須
                   .select-wrap
                     = icon("fas", "chevron-down tag fa-1g")
-                    = f.select :size, [["XXS以下","153"],["XS(SS)","154"],["S","2"],["M","3"],["L","4"],["XL(LL)","5"],["2XL(3L)","155"],["3XL(4L)","156"],["4XL(5L)以上","156"],["FREE SIZE","7"] ], {prompt: "---"}, class:"select-default"
+                    = f.select :size, Product.sizes.keys.to_a, {prompt: "---"}, class:"select-default"
                 .form-group.form-suggest-container
                   %label
                     ブランド
@@ -72,7 +72,7 @@
                     %span.form-require 必須
                   .select-wrap
                     = icon("fas", "chevron-down tag fa-1g")
-                    = f.select :condition , [["新品、未使用","1"],["未使用に近い","2"],["目立った傷や汚れなし","3"],["やや傷や汚れあり","4"],["傷や汚れあり","5"],["全体的に状態が悪い","6"]],{prompt: "---"}, class:"select-default"
+                    = f.select :condition , Product.conditions.keys.to_a ,{prompt: "---"}, class:"select-default"
             .sell-content.clearfix1
               %h3.sell-sub-head 配送について
               %a.form-question{href:"/jp/help_center/article/68/", target:"_blank"} ?
@@ -83,14 +83,14 @@
                     %span.form-require 必須
                   .select-wrap
                     = icon("fas", "chevron-down tag fa-1g")
-                    = f.select :shipping_charges, [["送料込み(出品者負担)","2"],["着払い(購入者負担)","1"]],{prompt: "---"}, class:"select-default"
+                    = f.select :shipping_charges, Product.shipping_charges.keys.to_a,{prompt: "---"}, class:"select-default"
                 .form-group
                   %label.block-shipping_method
                     配送の方法
                     %span.form-require 必須
                   .select-wrap
                     = icon("fas", "chevron-down tag fa-1g")
-                    = f.select :shipping_method, [["未定","1"],["クロネコヤマト","3"],["ゆうパック","4"],["ゆうメール","15"]],{prompt: "---"}, class:"select-default"
+                    = f.select :shipping_method, Product.shipping_methods.keys.to_a,{prompt: "---"}, class:"select-default"
                 .form-group
                   %label.block-shipping_area
                     発送元の地域
@@ -104,7 +104,7 @@
                     %span.form-require 必須
                   .select-wrap
                     = icon("fas", "chevron-down tag fa-1g")
-                    = f.select :shipping_date, [["1~2日で発送","1"],["2~3日で発送","2"],["4~7日で発送","3"]],{prompt: "---"}, class:"select-default"
+                    = f.select :shipping_date, Product.shipping_dates.keys.to_a, {prompt: "---"}, class:"select-default"
             .sell-content.clearfix2
               %h3.sell-sub-head 販売価格(300〜9,999,999)
               %a.form-question{href: "/jp/help_center/article/64/",target: "_blank"} ?
