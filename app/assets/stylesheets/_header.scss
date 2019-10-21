@@ -7,9 +7,11 @@ a {
   box-shadow: rgba(0, 0, 0, 0.18) 0px 2px 4px;
   position: relative;
   z-index: 3;
+  width: 100%;
   &__contents {
-    width: 1020px;
+    
     margin: 0 auto;
+    max-width:1020px;
     &__bottom {
       display: flex;
       -webkit-box-pack: justify;
@@ -41,6 +43,7 @@ a {
         }
         .right__menu {
           margin-left: 230px;
+          display:flex;
           &__list {
             height: 44px;
             position: relative;
@@ -103,7 +106,6 @@ a {
           font-size: 16px;
           height: 40px;
           line-height: 1.4em;
-          position: relative;
           width: 100%;
           -webkit-appearance: none;
           border-width: 1px;

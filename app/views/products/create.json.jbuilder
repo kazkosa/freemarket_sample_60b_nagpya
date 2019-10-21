@@ -1,5 +1,5 @@
 json.product_id                       @product.id                                           if @product.id.present?
-json.product_image_errors_image       !@product.product_images.present?                     unless params[:product_images].present?
+json.product_image_errors_image       !@product.product_images.present?                     unless params[:image].present?
 json.product_errors_title             @product.errors.messages[:title].present?             unless @product.valid?
 json.product_errors_description       @product.errors.messages[:description].present?       unless @product.valid?
 json.product_errors_category_id       @product.errors.messages[:category_id].present?       unless @product.valid?

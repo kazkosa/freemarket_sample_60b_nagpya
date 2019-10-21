@@ -16,7 +16,6 @@
     &__photo{
       position: relative;
       width: 280px;
-      height: 360px;
       margin: 0 auto;
       background: #fafafa;
 
@@ -29,7 +28,7 @@
 
           &__wrapper{
             left: 0px;
-            width: 1152px;
+            width: 2880px;
             position: relative;
             display:flex;
             transition:0.25s;
@@ -47,8 +46,10 @@
 
                 &__img{
                   opacity: 1;
+                  position:absolute;
                   transition: opacity 400ms ease;
-                  width: 100%;
+                  max-width: 100%;
+                  max-height: 100%;
                   vertical-align: bottom;
                 }
               }
@@ -67,17 +68,17 @@
           border-width: 0;
           display:flex;
           justify-content: flex-start;
+          flex-wrap: wrap;
           
           &__item{
             position: relative;
             overflow: hidden;
             width: 20%;
-            max-height: 120px;
+            max-height: 60px;
             margin: 0;
             padding: 0;
             opacity: 0.4;
             cursor: pointer;
-            background:red;
             
             span{
               margin: 0;
@@ -251,7 +252,7 @@
     text-decoration: none;
   }
   &__description{
-    padding: 24px 0 0;
+    padding: 24px 0 24px 0;
     line-height: 1.5;
     font-size: 14px;
 
@@ -264,16 +265,20 @@
     font-size: 0;
 
     &__left{
+      display:flex;
       &__like{
         color: #333;
         border: 1px solid #f5f5f5;
         background: #f5f5f5;
-        display: inline-block;
+        display: flex;
         padding: 8px 16px;
         border-radius: 40px;
         
+        .on-to-off .icon-like-border{
+          color:lightcoral;
+        }
         .icon-like-border{
-          font-size: 14px;
+          font-size: 12px;
           vertical-align: middle;
         }
         span{
@@ -301,6 +306,9 @@
         .icon-flag{
           font-size: 14px;
           vertical-align: middle;
+        }
+        .icon-flag:hover{
+          cursor:pointer;
         }
         span{
           display: inline-block;
@@ -375,6 +383,8 @@
   &__container{
     &__content{
       &__list{
+        overflow-y:scroll;
+        max-height:400px;
         &__message-box{
           width:100%;
           display:flex;
@@ -382,7 +392,6 @@
           
           &__lunchar{
             position: relative;
-            top: -20px;
             display: inline-block;
             color: #333;
             touch-action: manipulation;
@@ -426,6 +435,7 @@
             }
           }
           &__body{
+            margin:20px 0 20px 0;
             font-size:14px;
             float: right;
             position: relative;
@@ -448,6 +458,7 @@
                 }
                 span{
                   vertical-align: middle;
+                  color: #aaa;
                 }
               }
 
@@ -466,7 +477,10 @@
                       background: #eef0f4;
                       pointer-events: none;
                       .icon-flag{     
-                      }  
+                      }
+                    }
+                    .btn-flag:hover{
+                      cursor:pointer;
                     }
                   }   
                 }
@@ -524,7 +538,6 @@
           min-height: 50px;
           width: 100%;
           margin: 8px 0 0;
-          font-size: 0;
           text-align: center;
           background: #aaa;
           border: 1px solid #aaa;
@@ -533,10 +546,6 @@
           transition: all ease-out .3s;
           cursor: pointer;
 
-          span{
-            font-size: 14px;
-            vertical-align: middle;
-          }
         }
       }
     }
@@ -694,12 +703,14 @@
     &__wrapper{
       width:100%;
       display:flex;
-      justify-content: space-around;
-
+      justify-content: flex-start;
+      flex-wrap: wrap;
+      
       &__items-box{
         width:30%;
         position:relative;
         overflow: hidden;
+        margin:0 3% 20px 0;
 
         &__sold-label{
           position:absolute;
@@ -819,6 +830,21 @@
   }
 }
 
+
+.icon-left-time{
+  .icon-time{
+    margin:5px 4px 0 0;
+    display: block;
+    color: #aaa;
+    float: left;
+  }
+  span{
+    margin:4px;
+    vertical-align: middle;
+    display:block;
+  }
+}
+
 @media screen and (min-width: 768px){
   .item-box-container{
     padding: 24px 40px 40px;
@@ -827,13 +853,13 @@
     margin: 40px auto 0;
     
     &__main{
+      display:flex;
+      
       &__photo{
-        float: left;
-        min-width: 300px;
-        max-width: 300px;
-        min-height: 375px;
+        width:300px;
 
         &__inner{
+          display:block;
 
           &__large-box{
             position: relative;
@@ -841,13 +867,15 @@
 
             &__wrapper{
               left: 0px;
-              width: 1200px;
+              width: 3000px;
               position: relative;
               display:flex;
+              justify-content:start;
 
               &__item{
                 min-height: 1px;
                 width:300px;
+                height:300px;
                 user-select: none;
 
                 &__inner{
@@ -857,9 +885,11 @@
                   padding: 0 0 100%;
                   
                   &__img{
+                    position:absolute;
                     opacity: 1;
                     transition: opacity 400ms ease;
-                    width: 100%;
+                    max-width: 100%;
+                    max-height:100%;
                     vertical-align: bottom;
                   }
                 }

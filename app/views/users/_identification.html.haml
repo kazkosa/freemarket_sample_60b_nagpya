@@ -29,7 +29,7 @@
       %span.arbitrary 任意
       %br 
       .select-wrap
-        = fa_icon  "chevron-down", class: 'tag'
+        = icon("fas", "chevron-down tag fa-1g")
         = f.collection_select :prefecture_id, Prefecture.all, :id, :name,{prompt:"都道府県を選んでください"},{class:"select-default "}
     .form-group
       =f.label :city ,"市区町村"

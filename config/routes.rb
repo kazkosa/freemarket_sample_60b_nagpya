@@ -5,13 +5,15 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   root "products#index"
   resources :products , only: [:index, :show, :create] do
+    resources :likes,     only: [:create,:destroy]
+    resources :comments,  only: [:new, :create]
     collection do
       get :buy
       get :sell
     end
   end
   resources :users do
-    collection do
+    member do
       get :plofile
       get :identification
       get :card
