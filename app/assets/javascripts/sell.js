@@ -1,4 +1,4 @@
-$(function(){
+1 $(function(){
   function buildImage(loadedImageUri){
     var html =
     `<li>
@@ -43,7 +43,6 @@ $(function(){
       fileReader.readAsDataURL(files[i]);
     }
   });
-
 
   $(document).on('click','.item__images__container__preview a', function(){
     var index = $(".item__images__container__preview a").index(this);
@@ -123,6 +122,80 @@ $(function(){
       $(".btn-submit").removeAttr("disabled");
     });
   });
+  $('#edit_item').on('submit', function(e){
+    e.preventDefault();
+    var product_id = $(".editblock").data("productid");
+    var url ="/products/"+product_id;
+    // そのほかのform情報を以下の記述でformDataに追加
+    var formData = new FormData($(this).get(0));
+    // ドラッグアンドドロップで、取得したファイルをformDataに入れる。
+    files_array.forEach(function(file){
+    formData.append("image[images][]" , file)
+    });
+    $.ajax({
+      url:         url,
+      type:        "PATCH",
+      data:        formData,
+      contentType: false,
+      processData: false,
+      dataType:   'json',
+    })
+    .done(function(data){
+      var error_null    =`<span style="color:red;" class="error-message"> 入力してください </span>`;
+      var error_sellect =`<span style="color:red;" class="error-message"> 選択してください </span>`;
+      var error_forbit  =`<span style="color:red;" class="error-message"> 300以上9999999以下で入力してください </span>`;
+      
+      $(".error-message").remove();
+      
+      if (data.product_id){
+        $(".overlay").fadeIn(200);
+        $(".modal_exhibit-comp").fadeIn(200);
+        var path="/products/" + data.product_id;
+        $(".link_to_product").attr("href",path);
+      }
+      else{
+        alert('入力違反!! 再度入力内容を確認してください。');
+        if(data.product_image_errors_image){
+          $(".block-image").append(error_null);
+        }
+        if(data.product_errors_title){
+          $(".block-title").append(error_null);
+        }
+        if(data.product_errors_description){
+          $(".block-description").append(error_null);
+        }
+        if(data.product_errors_category_id){
+          $(".block-category").append(error_sellect);
+        }
+        if(data.product_errors_size){
+          $(".block-size").append(error_sellect);
+        }
+        if(data.product_errors_condition){
+          $(".block-condition").append(error_sellect);
+        }
+        if(data.product_errors_shipping_charges){
+          $(".block-shipping_charges").append(error_sellect);
+        }
+        if(data.product_errors_shipping_method){
+          $(".block-shipping_method").append(error_sellect);
+        }
+        if(data.product_errors_shipping_area){
+          $(".block-shipping_area").append(error_sellect);
+        }
+        if(data.product_errors_shipping_date){
+          $(".block-shipping_date").append(error_sellect);
+        }
+        if(data.product_errors_price){
+          $(".block-price").append(error_forbit);
+        }
+        $(".btn-submit").removeAttr("disabled");
+      }
+    })
+    .fail(function(XMLHttpRequest, textStatus, errorThrown){
+      alert('出品に失敗しました！');
+      $(".btn-submit").removeAttr("disabled");
+    });
+  });
   var money_l = 300;
   var money_h =9999999;
   var fee_rate = 0.1;
@@ -136,4 +209,3 @@ $(function(){
     }
   });
 });
-

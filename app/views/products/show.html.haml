@@ -245,7 +245,7 @@
           .related-item-box__inner__wrapper__items-box
             = link_to product_path(product) do
               .related-item-box__inner__wrapper__items-box__photo
-                = image_tag product.product_images[0].image.url
+                -# = image_tag product.product_images[0].image.url
               .related-item-box__inner__wrapper__items-box__price-label
                 = product.title
               .related-item-box__inner__wrapper__items-box__body
