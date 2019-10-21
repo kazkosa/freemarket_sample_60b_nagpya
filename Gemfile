@@ -104,5 +104,11 @@ gem 'rake'
 
 # エラーメッセージの日本語化
 gem 'rails-i18n'
+
 # クレジットカードを簡単に
 gem 'payjp'
+
+# ominauthの実装
+gem 'omniauth'
+gem 'omniauth-facebook'
+gem 'omniauth-google-oauth2'
