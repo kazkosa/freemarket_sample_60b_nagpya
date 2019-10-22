@@ -1,4 +1,5 @@
 class ProductsController < ApplicationController
+  before_action :set_product, only:[:edit, :update, :show, :pay,:buy]
   def index 
   end
 
@@ -11,7 +12,6 @@ class ProductsController < ApplicationController
   end 
 
   def create
-    binding.pry
     @product = Product.new(product_params)
     if params[:image].present? && @product.save
       product_image_params[:images].each do |image|
@@ -26,7 +26,6 @@ class ProductsController < ApplicationController
   end
 
   def edit
-    @product  = Product.find(params[:id])
     @parent = Category.order("id ASC").limit(1)
     @children =@parent[0].children 
     @grandchildren = @children[0].children
@@ -36,7 +35,6 @@ class ProductsController < ApplicationController
     end
   end
   def update
-    @product  = Product.find(params[:id])
     if @product.update(product_params)
       @product_images = @product.product_images
       delete_product_image_ids = []
@@ -64,7 +62,6 @@ class ProductsController < ApplicationController
   end
 
   def show
-    @product= Product.find(params[:id])
     @products_this_seller = @product.user.products.order('id DESC').where.not(id: params[:id]).limit(6)
     @category = @product.category
     @products_this_category = @category.products.order('id DESC').where.not(user_id:@product.user).limit(6)
@@ -72,9 +69,9 @@ class ProductsController < ApplicationController
     @like  = @likes.find_by(user_id: current_user.id)
     @comment = Comment.new()
   end
+
   def buy
-    @product  = Product.find(params[:id])
-    @card = Card.where(user_id: current_user.id).first
+    @card = Card.find_by(user_id: current_user.id)
     unless @card.blank?
       Payjp.api_key = ENV["PAYJP_SECRET_KEY"]
       customer = Payjp::Customer.retrieve(@card.customer_id)
@@ -82,7 +79,6 @@ class ProductsController < ApplicationController
     end
   end
   def pay
-    @product  = Product.find(params[:id])
     card = Card.where(user_id: current_user.id).first
 
   #   実装中。動作未確認のため一旦コメントアウト。  
@@ -102,13 +98,14 @@ class ProductsController < ApplicationController
   end
 
   def product_image_params
-    #imageのストロングパラメータの設定.js側でimagesをrequireすれば画像のみを引き出せるように設定する。
     params.require(:image).permit({images:[]})
-    # params.require(:product)
   end
+
   def delete_product_image_params
     params.require(:product).permit({delete_request_index:[]})
   end
 
-  
+  def set_product
+    @product = Product.find(params[:id])
+  end
 end
