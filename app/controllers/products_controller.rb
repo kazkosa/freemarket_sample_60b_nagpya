@@ -38,14 +38,19 @@ class ProductsController < ApplicationController
     @product  = Product.find(params[:id])
     if @product.update(product_params)
       @product_images = @product.product_images
+      delete_product_image_ids = []
       if delete_product_image_params.present?
         delete_product_image_params[:delete_request_index].each do |index|
-          @product_images[index.to_i].destroy
+          delete_product_image_ids << @product_images[index.to_i].id
+        end
+        delete_product_image_ids.each do |id|
+          product_image = @product_images.find(id)
+          product_image.destroy
         end
       end
       if params[:image].present?
-        @product_images.build
         product_image_params[:images].each do |image|
+          @product_images.build
           product_image = @product_images.new(image: image)
           product_image.save
         end

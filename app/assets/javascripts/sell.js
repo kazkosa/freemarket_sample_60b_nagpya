@@ -20,7 +20,7 @@ $(function(){
     var error_forbit  =`<span style="color:red;" class="error-message"> 300以上9999999以下で入力してください </span>`;
     
     $(".error-message").remove();
-    
+    console.log(data.product_id);
     if (data.product_id){
       $(".overlay").fadeIn(200);
       $(".modal_exhibit-comp").fadeIn(200);
