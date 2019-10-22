@@ -8,8 +8,7 @@ class CardController < ApplicationController
   end
 
   def create #PayjpとCardのデータベースを作成
-    # Payjp.api_key = ENV['CARD_SEECRET_KEY']
-    Payjp.api_key = ENV["PAYJP_SECRET_KEY"]
+    Payjp.api_key = ENV['CARD_SEECRET_KEY']
     if params['payjp-token'].blank?
       redirect_to action: "new"
     else

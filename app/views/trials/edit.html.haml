@@ -8,8 +8,6 @@
   = f.submit "Send", class: "new__message__submit-btn"
 .image_box_inner
 
-  -# - if @trial.image.url
-  -#   = image_tag @trial.image.url
 :javascript
   //Display the image When a user select one
   $(function(){    
@@ -46,18 +44,9 @@
     $('#current_image_for_edit').remove();
     $('.dummy_post_box').remove();
 
-    console.log("load");
-    console.log($(".image_cache"));
-    console.log($(".image_cache")[0]);
-    console.log($(".image_cache").val());
     
     var img_file = $(".image_cache").val();
     var html =`<img id="current_image_for_edit" src="/tmp/${img_file}" hight="100px" width="100px" ></img>`;
     console.log(html);
-    //$(".image_box_inner").append(html);
-
-
-    //readURL($(".image_cache"));
-
       
   });

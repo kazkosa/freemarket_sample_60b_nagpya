@@ -8,14 +8,10 @@ class TrialsController < ApplicationController
   end
   def create
     @trial=Trial.new(trial_params)
-    binding.pry
-    # @trial.save
-
     redirect_to "/trials"
   end
 
   def edit
-    # binding.pry
     @trial=Trial.find(params[:id])
     @trial.image.cache!
   end
@@ -23,13 +19,10 @@ class TrialsController < ApplicationController
     binding.pry
     @trial=Trial.find(params[:id])
     @trial.update(trial_params)
-
     redirect_to "/trials"
- 
   end
   private
   def trial_params
    params.require(:trial).permit(:image,:image_cache)
-    # params.permit(:image)
   end
 end
