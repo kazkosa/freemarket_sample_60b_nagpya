@@ -1,4 +1,4 @@
-$(function(){
+1 $(function(){
   function buildImage(loadedImageUri){
     var html =
     `<li>
@@ -188,11 +188,4 @@ $(function(){
       $(".btn-submit").removeAttr("disabled");
     });
   });
-
-
-
-
-
-
 });
-

@@ -152,7 +152,7 @@
                   = link_to"/jp/seller_terms/" do
                     加盟店規約
                   に同意したことになります。
-              .item__form__sellcontent__submit__done{data:{productid: @product.id, age:30}}
+              .item__form__sellcontent__submit__done{data:{productid: @product.id}}
                 = f.submit "変更する", class: 'btn-submit btn-default btn-red', disable_with: "Save"
               = link_to "もどる",:back ,class:'btn-default btn-gray'
 

@@ -10,17 +10,14 @@
         新規会員登録
     .sing__main__contents__second
       = link_to singup1_regulation_index_path, class: "sing__main__contents__menu__mail" do
-        -# = fa_icon 'envelope', class: 'icon fa-lg'
         = icon("far", "envelope icon fa-lg")
         %span.sing__main__contents__menu__mail__text
           メールアドレスで登録する
       = link_to root_path, class: "login__main__contents__second__face" do
-        -# = fa_icon 'facebook', class: 'icon fa-lg'
         = icon("fab", "facebook icon fa-lg")
         %span.login__main__contents__second__face__text
           Facebookでログイン
       = link_to root_path, class: "login__main__contents__second__google" do
-        -# = fa_icon 'google', class: 'icon fa-lg'
         = icon("fab", "google icon fa-lg")
         %span.login__main__contents__second__google__text
           Googleでログイン      
