@@ -21,6 +21,7 @@
         reader.readAsDataURL(input.files[0]);
       }
     }
+
     $(".new-image").on("change",function(e){
       e.preventDefault();
       $('#current_image_for_edit').remove();
@@ -28,3 +29,11 @@
       readURL(this);
     });
   })
+  $(window).on('load', function(e) {
+    e.preventDefault();
+    $('#current_image_for_edit').remove();
+    $('.dummy_post_box').remove();
+    var img_file = $(".image_cache").val();
+    var html =`<img id="current_image_for_edit" src="/tmp/${img_file}" hight="100px" width="100px" ></img>`;
+      
+  });

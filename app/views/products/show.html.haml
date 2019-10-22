@@ -35,7 +35,11 @@
       %span.item-box-container__main__price-box__price 
         = "¥#{@product.price.to_s(:delimited)}"
       %span.item-box-container__main__price-box__tax (税込)
-      %span.item-box-container__main__price-box__shipping-fee 送料込み
+      %span.item-box-container__main__price-box__shipping-fee
+        - if @product.shipping_charges_before_type_cast == 0
+          送料込み
+        - else
+          着払い
     %table.item-box-container__main__detail-table
       %tbody
         %tr
@@ -103,7 +107,7 @@
         送料込み
       - else
         着払い
-  = link_to "/products/buy" , class:"item-buy-btn" do
+  = link_to buy_product_path(@product), class:"item-buy-btn" do
     購入画面に進む
   = link_to "" , class:"item-action-text", data:{action:"item/openDetail",adjust:{url:""},key:"id=m81784685949",play:{id:"com.kouzoh.mercari" } } do
     アプリで購入
@@ -245,7 +249,7 @@
           .related-item-box__inner__wrapper__items-box
             = link_to product_path(product) do
               .related-item-box__inner__wrapper__items-box__photo
-                -# = image_tag product.product_images[0].image.url
+                = image_tag product.product_images[0].image.url if product.product_images[0]
               .related-item-box__inner__wrapper__items-box__price-label
                 = product.title
               .related-item-box__inner__wrapper__items-box__body
@@ -263,7 +267,7 @@
     %li{itemscope:"", itemtype: ""}
       = link_to root_path do
         %span{itemprop: "title"} メルカリ
-      = icon("fas", "angle-right fa-1g")
+      = icon("fas", "angle-right fa-lg")
     %li{itemscope: "", itemtype: ""}
       %span{itemprop: "title"}
         = @product.title
