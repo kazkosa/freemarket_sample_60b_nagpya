@@ -1,4 +1,4 @@
-1 $(function(){
+$(function(){
   function buildImage(loadedImageUri){
     var html =
     `<li>
