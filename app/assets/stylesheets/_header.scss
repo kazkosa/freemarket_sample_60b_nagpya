@@ -133,3 +133,21 @@ a {
     }
   }
 }
+// パンクズのcss
+.gretel {
+  height: 49px;
+  background-color: #FFFFFF;
+  box-shadow: rgba(0, 0, 0, 0.18) 0px 1px 4px;
+  .breadcrumbs {
+    width: 1020px;
+    margin: 0 auto;
+    padding: 16px 0;
+    a {
+      margin: 0 8px;
+    }
+    .current {
+      font-weight: 600;
+      margin: 0 8px;
+    }
+  }
+}

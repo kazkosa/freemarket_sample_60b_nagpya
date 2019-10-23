@@ -6,8 +6,7 @@ class CreateAddresses < ActiveRecord::Migration[5.2]
       t.string      :municipalities,  null:false
       t.string      :block_number,    null:false
       t.string      :building
-      t.string      :phone_number
-      
+      t.string      :phone_number      
       t.timestamps
     end
   end
