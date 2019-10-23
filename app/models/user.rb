@@ -10,7 +10,11 @@ class User < ApplicationRecord
   accepts_nested_attributes_for :address 
   has_many :cards
   has_one :pay
-  accepts_nested_attributes_for :pay   
+  accepts_nested_attributes_for :pay
+
+  has_many :buyed_products,                                         foreign_key: "buyer_id", class_name: "Product"
+  has_many :selling_products,  -> { where("buyer_id is NULL") },    foreign_key: "user_id", class_name: "Product"
+  has_many :sold_products,     -> { where("buyer_id is not NULL")}, foreign_key: "user_id", class_name: "Product"
   
   # user情報入力バリデーション
     # 値が空ではない
