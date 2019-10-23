@@ -4,7 +4,7 @@ class Product < ApplicationRecord
   has_many :likes,          dependent: :delete_all
   has_many :comments,       dependent: :delete_all
   belongs_to :user
-  belongs_to :buyer, class_name: "User"
+  belongs_to :buyer, class_name: "User", optional: true
   accepts_nested_attributes_for :product_images
   validates :title,:category_id,:shipping_charges,:shipping_area,:shipping_date,
             :shipping_method,:price,:size,:description,:condition,presence: true
