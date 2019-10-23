@@ -11,7 +11,6 @@ class ProductsController < ApplicationController
   end 
 
   def create
-    binding.pry
     @product = Product.new(product_params)
     if params[:image].present? && @product.save
       product_image_params[:images].each do |image|
@@ -30,8 +29,8 @@ class ProductsController < ApplicationController
     @products_this_seller = @product.user.products.order('id DESC').where.not(id: params[:id]).limit(6)
     @category = @product.category
     @products_this_category = @category.products.order('id DESC').where.not(user_id:@product.user).limit(6)
-    @likes = @product.likes
-    @like  = @likes.find_by(user_id: current_user.id)
+    # @likes = @product.likes
+    # @like  = @likes.find_by(user_id: current_user.id)
     @comment = Comment.new()
   end
 
@@ -67,6 +66,16 @@ class ProductsController < ApplicationController
   end 
   
   def buy
+  end
+
+  def showmain
+    @product= Product.find(params[:id])
+    @products_this_seller = @product.user.products.order('id DESC').where.not(id: params[:id]).limit(6)
+    @category = @product.category
+    @products_this_category = @category.products.order('id DESC').where.not(user_id:@product.user).limit(6)
+    # @likes = @product.likes
+    # @like  = @likes.find_by(user_id: current_user.id)
+    @comment = Comment.new()
   end
 
   private
