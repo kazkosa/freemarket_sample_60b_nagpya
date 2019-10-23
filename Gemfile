@@ -74,6 +74,7 @@ gem 'active_hash'
 # gem "font-awesome-rails"
 gem 'font-awesome-sass'
 gem 'ancestry'
+gem 'gon'
 
 group :development, :test do
 	gem 'byebug', platform: :mri
