@@ -65,8 +65,8 @@ class ProductsController < ApplicationController
     @products_this_seller = @product.user.products.order('id DESC').where.not(id: params[:id]).limit(6)
     @category = @product.category
     @products_this_category = @category.products.order('id DESC').where.not(user_id:@product.user).limit(6)
-    @likes = @product.likes
-    @like  = @likes.find_by(user_id: current_user.id)
+    # @likes = @product.likes
+    # @like  = @likes.find_by(user_id: current_user.id)
     @comment = Comment.new()
   end
 
@@ -90,6 +90,16 @@ class ProductsController < ApplicationController
       currency: 'jpy',            #日本円
     )
     @product.update(buyer_id: current_user.id)
+  end
+
+  def showmain
+    @product= Product.find(params[:id])
+    @products_this_seller = @product.user.products.order('id DESC').where.not(id: params[:id]).limit(6)
+    @category = @product.category
+    @products_this_category = @category.products.order('id DESC').where.not(user_id:@product.user).limit(6)
+    # @likes = @product.likes
+    # @like  = @likes.find_by(user_id: current_user.id)
+    @comment = Comment.new()
   end
 
   private

@@ -1,0 +1,92 @@
+.l-content {
+    float: right;
+    width: 700px;
+    background: #fff;
+    height: 200px;
+}
+.mypage-tab-head {
+    padding: 0 4%;
+    background: #fafafa;
+    font-size: 16px;
+    font-weight:bold;
+    line-height: 72px;
+    padding: 0 16px;
+}
+.listing-tabs {
+  border: 0;
+  background: #eee;
+  font-size: 0; 
+}
+.listing-tabs li {
+  width: 33.3%;
+}
+.listing-tabs li.active, .review-history-tabs li.active {
+  background: #fff;
+}
+.mypage-tabs li, .listing-tabs li, .review-history-tabs li {
+  display: inline-block;
+  text-align: center;
+  vertical-align: top;
+}
+.listing-tabs li.active a{
+  border-top: 2px solid #ea352d;
+}
+.mypage-tabs a, .listing-tabs a, .review-history-tabs a {
+  position: relative;
+  display: block;
+  color: #333;
+  font-size: 16px;
+  line-height: 72px;
+  font-weight: bold;
+}
+
+.mypage-item__link {
+  display: block;
+  min-height: 80px;
+  padding: 16px;
+  font-color: gray;
+  &__figure {
+    position: relative;
+    overflow: hidden;
+    float: left;
+    width: 48px;
+    height: 48px;
+  }
+}
+
+.mypage-item-list img.is-higher-width {
+  width: auto;
+  left: 50%;
+  right: auto;
+  height: 100%;
+  -webkit-transform: translate(-50%, 0);
+  transform: translate(-50%, 0);
+}
+.mypage-item-text{
+  margin: 0 5px 0 70px;
+}
+
+.is-higher-width {
+  position: absolute;
+  width: auto;
+  left: 50%;
+  right: auto;
+  height: 100%;
+  -webkit-transform: translate(-50%, 0);
+  transform: translate(-50%, 0);
+  width: 100%;
+}
+
+.listing-item-count {
+  vertical-align: 2px;
+  margin: 0 5px 0 10px;
+}
+.mypage-item-status.awaiting {
+  background: #0099e8;
+  display: inline-block;
+  margin: 8px 0 0 0;
+  padding: 5px 6px;
+  border-radius: 2px;
+  font-size: 12px;
+  color: #fff;
+}
