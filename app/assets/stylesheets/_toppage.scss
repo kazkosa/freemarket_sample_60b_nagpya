@@ -10,7 +10,7 @@
       width: 100%;
       background-color: white;
     }
-    &__image{
+    #top-main__contens__image{
       height: 390px;
       width: 100%;
       margin: 0 auto;
@@ -80,7 +80,19 @@
         display: flex;
         &__product {
           background-color: white;
-          margin-left: 14px;                    
+          margin-left: 14px;
+          position: relative;
+          &__price {
+            background: rgba(0,0,0,.4);
+            border-radius: 0 14px 14px 0;
+            position: absolute;
+            bottom: 80px;
+            z-index: 2;
+            font-size: 17px;
+            color: #FFFFFF;
+            align-items: center;
+            padding: 0 12px;
+          }                    
           &__text {
             height: 60px;
         }

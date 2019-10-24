@@ -19,33 +19,16 @@
     .category__item
       .category__item__top
         .category__item__top__title
-          ナイキ新着アイテム
+          hige新着アイテム
         = link_to do
           %h2.category__item__top__refe
             もっと見る＞
       .category__item__bottom
-        .category__item__bottom__product
-          = link_to "/products/show" do
-            =image_tag "materials/brio_a.jpg", class: "image3"
-            .category__item__bottom__product__text
-              ブリオ ローラーコースター セット 33730           
-        .category__item__bottom__product
-          = link_to do
-            =image_tag("https://www.pakutaso.com/shared/img/thumb/AME619nakayoku_TP_V.jpg", class: "image3")
-            .category__item__bottom__product__text
-              のーと      
-        .category__item__bottom__product
-          = link_to do
-            =image_tag("https://www.pakutaso.com/shared/img/thumb/AME619nakayoku_TP_V.jpg", class: "image3")
-            .category__item__bottom__product__text
-              のーと  
-        .category__item__bottom__product
-          = link_to do
-            =image_tag("https://www.pakutaso.com/shared/img/thumb/AME619nakayoku_TP_V.jpg", class: "image3")
-            .category__item__bottom__product__text
-              のーと  
-        .category__item__bottom__product
-          = link_to do
-            =image_tag("https://www.pakutaso.com/shared/img/thumb/AME619nakayoku_TP_V.jpg", class: "image3")
-            .category__item__bottom__product__text
-              のーと
+        - @products.each do |product|
+          .category__item__bottom__product
+            = link_to product_path(product) do
+              %span.category__item__bottom__product__price
+                = "¥#{product.price.to_s(:delimited)}"
+              = image_tag(product.product_images[0].image.url, class: "image3" ) 
+              %h3.category__item__bottom__product__text
+                = product.title
