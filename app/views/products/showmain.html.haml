@@ -119,7 +119,7 @@
       %div 本当に削除しますか？
     #modal-close-btn キャンセル
     #delete-comformation-btn
-      = link_to "削除する","/products/#{@product.id}", method: :DELETE 
+      = link_to "削除する",product_path(@product), method: :DELETE 
 .item-box-message
   .item-box-message__container
     .item-box-message__container__content
