@@ -24,7 +24,7 @@
           出品する
           = icon("fas", "angle-right side-box__mypage-nav__list__inner__item__icon fa-1g")
       %li.side-box__mypage-nav__list__inner
-        =link_to" /users/#{current_user.id}/showedit", class:"side-box__mypage-nav__list__inner__item side-listings-listing" do
+        =link_to showedit_user_path(current_user), class:"side-box__mypage-nav__list__inner__item side-listings-listing" do
           出品した商品 - 出品中
           = icon("fas", "angle-right side-box__mypage-nav__list__inner__item__icon fa-1g")
       %li.side-box__mypage-nav__list__inner
