@@ -105,15 +105,21 @@
 .item-box-message
   .listing-item-change-box
   %a.btn-default.btn-red
-  = link_to"#" ,class: "btn-default btn-red"do
+  = link_to edit_product_path(@product) ,class: "btn-default btn-red"do
     商品の編集
   %p.text-center or
-  %form{:action => "/jp/items/deactivate/m26459943793/", :method => "POST", :novalidate => "novalidate"}
-    %input{:name => "__csrf_value", :type => "hidden", :value => "9f2cdcb16b89689a643d7fd14268e54caee487cbe07354bd77091c7228237f42d14ca9943290716f016cfe6e4bc598bc79137570ab1b9c5428b3d96b50eb72bca"}/
-    %button.btn-default.btn-gray{:type => "submit"} 
-      = link_to "出品を一旦停止する" 
-  %button.btn-default.btn-gray{"data-modal" => "delete-item", "data-open" => "modal"}
-    = link_to "この商品を削除する"       
+  %button.btn-default.btn-gray
+    = link_to "出品を一旦停止する",""   
+  %button#modal-open-btn.btn-gray
+    = link_to "この商品を削除する", ""
+#overlay.hidden
+  #modalWindow
+    .modal-message-box
+      %div 確認
+      %div 本当に削除しますか？
+    #modal-close-btn キャンセル
+    #delete-comformation-btn
+      = link_to "削除する","/products/#{@product.id}", method: :DELETE 
 .item-box-message
   .item-box-message__container
     .item-box-message__container__content

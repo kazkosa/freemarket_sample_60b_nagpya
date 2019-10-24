@@ -32,6 +32,6 @@ class UsersController < ApplicationController
   end 
 
   def showedit
-    @user =User.new()
+    @products=current_user.selling_products
   end 
 end

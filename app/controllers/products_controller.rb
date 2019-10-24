@@ -97,10 +97,16 @@ class ProductsController < ApplicationController
     @products_this_seller = @product.user.products.order('id DESC').where.not(id: params[:id]).limit(6)
     @category = @product.category
     @products_this_category = @category.products.order('id DESC').where.not(user_id:@product.user).limit(6)
-    # @likes = @product.likes
-    # @like  = @likes.find_by(user_id: current_user.id)
     @comment = Comment.new()
   end
+
+  def destroy
+    @product= Product.find(params[:id])
+    @product.destroy
+    redirect_to showedit_user_path(current_user)
+
+  end
+
 
   private
 
