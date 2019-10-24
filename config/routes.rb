@@ -10,10 +10,12 @@ Rails.application.routes.draw do
     collection do
       get :sell
     end
-    member do
+    member do 
+      get :showmain
       get :buy
       get :pay
     end
+
   end
   resources :users do
     member do
@@ -24,6 +26,7 @@ Rails.application.routes.draw do
       get :notification
       get :todo
       get :like
+      get :showedit
     end
   end
   resources :trials, only: [:index,:create,:new, :edit, :update]

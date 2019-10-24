@@ -36,7 +36,7 @@
         .user-credit-card__inner__settings-not-regist
           = link_to "", class:"user-credit-card__inner__settings-not-regist__remarks-link" do
             %span.user-credit-card__inner__settings-not-regist__remarks-link__text 支払い方法について
-            -# =fa_icon "angle-right",class:"icon-arrow-right fa-1g"            
+            = icon("fas", "angle-right icon-arrow-right fa-lg")
       - else
         = render 'add-card' 
 = render "layouts/footer"

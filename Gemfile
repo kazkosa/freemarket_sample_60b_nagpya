@@ -75,6 +75,7 @@ gem 'active_hash'
 gem 'font-awesome-sass'
 gem 'ancestry'
 gem 'gon'
+gem 'gretel'
 
 group :development, :test do
 	gem 'byebug', platform: :mri
