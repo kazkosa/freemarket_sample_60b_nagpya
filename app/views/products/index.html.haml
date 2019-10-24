@@ -1,9 +1,12 @@
 = render "layouts/header"
 = render "layouts/exhibit__btn"
 .top-main
-  .top-main__contens
-    .top-main__contens__image
-      =image_tag "https://www-mercari-jp.akamaized.net/assets/img/featured/camp/index/index_keyvisual.png?3466462615", class: "image2"
-    = render "products_category"             
-    = render "products_bland"
+  #top-main__contens__image
+    =image_tag "https://www-mercari-jp.akamaized.net/assets/img/featured/camp/index/index_keyvisual.png?3466462615", class: "image2"
+    =image_tag "https://www.pakutaso.com/shared/img/thumb/028ELLY18420_TP_V.jpg", class: "image2"
+    =image_tag "https://www.pakutaso.com/shared/img/thumb/YM_DSC8669_TP_V.jpg", class: "image2"
+  = render "products_category"             
+  = render "products_bland"
 = render "layouts/footer"
+
+

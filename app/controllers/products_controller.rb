@@ -1,8 +1,8 @@
 class ProductsController < ApplicationController
   before_action :set_product, only:[:edit, :update, :show, :pay,:buy]
   def index 
+    @products = Product.order("id ASC").limit(5)
   end
-
   def sell
     @product= Product.new()
     @parent = Category.order("id ASC").limit(1)
