@@ -4,16 +4,18 @@ Rails.application.routes.draw do
   devise_for :users
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   root "products#index"
-  resources :products , only: [:index, :show, :create ,:edit,:update] do
+  resources :products , only: [:index, :show, :create, :edit, :update] do
     resources :likes,     only: [:create,:destroy]
     resources :comments,  only: [:new, :create]
     collection do
-      get :buy
       get :sell
     end
-    member do
+    member do 
       get :showmain
-    end  
+      get :buy
+      get :pay
+    end
+
   end
   resources :users do
     member do
@@ -27,7 +29,7 @@ Rails.application.routes.draw do
       get :showedit
     end
   end
-  resources :trials, only: [:index,:create,:new]
+  resources :trials, only: [:index,:create,:new, :edit, :update]
   resources :regulation do
     collection do
       get :singup1

@@ -8,19 +8,28 @@
       %div{"data-reactroot": ""}
         .sell-container-inner
           %h2.single-head 商品の情報を入力 
-          = form_for @product, html: {id:'new_item', class:"sell-form"}  do |f|
+          = form_for @product, html: {id:'edit_item', class:"sell-form"}  do |f|
             .item__images__container.sell-upload-box
               %h3.sell-upload-head.block-image
-                出品画像１ １
+                出品画像
                 %span.form-require 必須
               %p 最大10枚までアップロードできます
               = f.fields_for :product_images do |ff|
                 .dropzone-container.clearfix.item__images__container__wrapper
                   .item__images__container__preview
                     %ul
+                      - @product.product_images.first(@product.product_images.length-1).each.with_index do |product_image,i|
+                        %li{data:{alreadysaved: i}}
+                          .img-box
+                            =image_tag product_image.image.url if product_image.image.url.present?
+                          .item__images__container__preview__box
+                            %div.delete_btn_box
+                              .item__images__container__preview__box__delete
+                                削除
                   = ff.label :image, form:"image", class: "dropzone-box item__images__container__guide sell-upload-drop-box" ,for:"upload-image" do
                     .input_area
                       = ff.file_field :image, multiple: true, name: 'product_images[image][]', id: "upload-image", class: "upload-image file-btn", 'data-image': 0
+                      = ff.hidden_field :image_cache, class:"image_cache"
                       .dropzone-area.visible-pc
                         %p ドラッグ&ドロップ<br>またはクリックファイルをアップロード
             .sell-content
@@ -117,7 +126,7 @@
                         %span.form-require 必須
                       .l-right.sell-price-input
                         ¥
-                        = f.text_field :price, class:"money_box",placeholder: "例）300",value:""
+                        = f.text_field :price, class:"money_box",placeholder: "例）300"
                   %li.clearfix.sell-price_wrapper
                     .l-left
                       販売手数料 (10%)
@@ -143,9 +152,10 @@
                   = link_to"/jp/seller_terms/" do
                     加盟店規約
                   に同意したことになります。
-              .item__form__sellcontent__submit__done    
-                = f.submit "変更する", class: 'btn-submit btn-default btn-red ', disable_with: "Save"
-              = link_to "キャンセル",:back ,class:'btn-default btn-gray'
+              .item__form__sellcontent__submit__done{data:{productid: @product.id}}
+                = f.submit "変更する", class: 'btn-submit btn-default btn-red', disable_with: "Save"
+              = link_to "もどる",:back ,class:'btn-default btn-gray'
+
 %footer.login__footer
   %nav.login__footer__nav
     %ul.login__footer__nav__menu
@@ -166,12 +176,7 @@
 .overlay
 .modal_exhibit-comp
   %h2.modal_exhibit-comp__head
-    出品が完了しました
+    編集が完了しました
   .modal_exhibit-comp__main
-    .modal_exhibit-comp__main__content
-      %h3
-        あなたが出品した商品は「出品した商品一覧」からいつでも見ることができます。
-    .modal_exhibit-comp__main__link.continue
-      = link_to "続けて出品する", sell_products_path ,class: "btn-default btn-red"
     .modal_exhibit-comp__main__link.show
-      = link_to "商品ページへ行ってシェアする", "" ,class: "link_to_product"
+      = link_to "OK", "" ,class: "btn-default btn-red link_to_product"

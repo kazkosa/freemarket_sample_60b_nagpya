@@ -75,11 +75,11 @@
               }
             }
           }
-          &__button-red{
+          a {
             margin: 8px 0 0;
-            border: 1px solid #ea352d;
             background:red;
-            color: #fff;
+            color: white;
+            font-weight:bold;
             display: block;
             width: 100%;
             line-height: 48px;
@@ -87,6 +87,8 @@
             transition: all ease-out .3s;
             cursor: pointer;
             text-align: center;
+            text-decoration:none;
+            
           }
         }
       }   
@@ -171,7 +173,6 @@
   }
 }
 
-
 @media screen and (min-width: 768px){
   .single-main{
     &__buy-container{
@@ -186,4 +187,7 @@
       }
     }
   }
+}
+.process-cancel{
+  color: #0099e8;
 }

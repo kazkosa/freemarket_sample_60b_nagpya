@@ -7,14 +7,17 @@
         .single-main__buy-container__item__inner
           .single-main__buy-container__item__inner__wrapper
             .single-main__buy-container__item__inner__wrapper__image
-              = image_tag "https://static.mercdn.net/thumb/photos/m81784685949_1.jpg?1567865587"
+              = image_tag  @product.product_images[0].image.url
             .single-main__buy-container__item__inner__wrapper__name
-              ブリオ ローラーコースター セット 33730
-          = form_with(model: User.new, local: true, class:"single-main__buy-container__item__inner__form") do |f| #using User instance is temp until implementing
+              = @product.title
+          .single-main__buy-container__item__inner__form
             %p.single-main__buy-container__item__inner__form__price-ja
-              ¥6,300
+              = "¥#{@product.price.to_s(:delimited)}"
               %span.single-main__buy-container__item__inner__form__price-ja__ship
-                送料込み
+                - if @product.shipping_charges_before_type_cast == 0
+                  送料込み
+                - else
+                  着払い
             %ul.single-main__buy-container__item__inner__form__point.not-have
               %li.single-main__buy-container__item__inner__form__point__list
                 .single-main__buy-container__item__inner__form__point__list__text
@@ -24,34 +27,68 @@
                 .single-main__buy-container__item__inner__form__price-table__you-pay__price-cell
                   支払い金額
                 .single-main__buy-container__item__inner__form__price-table__you-pay__price-cell
-                  %span{data:{buy:{pay:"6300"}}}
-                    ¥6,300
-            = f.submit "購入する",class:"single-main__buy-container__item__inner__form__button-red"
+                  %span{data:{buy:{pay:@product.price}}}
+                    = "¥#{@product.price.to_s(:delimited)}"
+            = link_to "", class:"to-confirmation-of-buy-action"  do
+              購入する
       %section.single-main__buy-container__buyer-info
         .single-main__buy-container__buyer-info__content
           %h3 配送先
           %address.single-main__buy-container__buyer-info__content__text
-            〒xxx-xxxx
+            ="〒#{current_user.address.post_num.to_s.insert(3, '-')}"
             %br/
-            愛知県名古屋市中区栄
-            x丁目xx-xx
+            %span>= Prefecture.find_by(id:@address.prefectures).name
+            %span>=@address.municipalities
+            %span>=@address.block_number
+            -if @address.building
+              = @address.building 
             %br/
-            TECH 太郎
+            %span>= current_user.family_name
+            = current_user.first_name
           %p.single-main__buy-container__buyer-info__content__text
           = link_to "",class:"single-main__buy-container__buyer-info__content__edit-link" do
             %span 変更する
-            =fa_icon "angle-right",class:"fa-1g"
+            = icon("fas", "angle-right fa-lg")
       %section.single-main__buy-container__pay-method{data: {buy: "pay-method"}}
         .single-main__buy-container__pay-method__inner
           %h3 支払い方法
-          %p.single-main__buy-container__pay-method__inner__text
-            ************9999
-            %br/
-            09 / 21
-          %figure.single-main__buy-container__pay-method__inner__image-box
-            =image_tag "//www-mercari-jp.akamaized.net/assets/img/card/visa.svg?3466462615"            
-          %p
-          = link_to "", class:"single-main__buy-container__pay-method__inner__edit-link"  do
-            %span 変更する
-            =fa_icon "angle-right",class:"fa-1g" 
+          %p クレジットカードによる支払いとなります。
+          - unless @card.blank?
+            %label.card_nav 登録クレジットカード情報
+            %p.single-main__buy-container__pay-method__inner__text
+              = "**** **** **** " + @default_card_information.last4
+              %br/
+              - exp_month = @default_card_information.exp_month.to_s
+              - exp_year = @default_card_information.exp_year.to_s.slice(2,3)
+              = exp_month + " / " + exp_year
+            %figure.single-main__buy-container__pay-method__inner__image-box
+              =image_tag "//www-mercari-jp.akamaized.net/assets/img/card/visa.svg?3466462615"            
+            %p
+            = link_to "", class:"single-main__buy-container__pay-method__inner__edit-link"  do
+              %span 変更する
+              = icon("fas", "angle-right fa-lg")
+          - else
+            = link_to card_index_path, class:"single-main__buy-container__pay-method__inner__edit-link"  do
+              %span クレジットカード情報を登録する
+              = icon("fas", "angle-right fa-lg")
   = render "layouts/single-footer"
+
+.overlay
+.modal_exhibit-comp
+  - unless @card.blank?
+    %h2.modal_exhibit-comp__head
+      = @product.title
+      %br の購入を確定しますか?
+    .modal_exhibit-comp__main
+      .modal_exhibit-comp__main__content
+        .modal_exhibit-comp__main__link.continue
+          = link_to "購入する", pay_product_path(@product) ,class: "btn-default btn-red"
+        .modal_exhibit-comp__main__link.process-cancel-bock
+          = link_to "キャンセル", "" ,class: "process-cancel"
+  - else
+    %h2.modal_exhibit-comp__head
+      クレジットカード情報を登録してください。
+    .modal_exhibit-comp__main
+      .modal_exhibit-comp__main__content
+        .modal_exhibit-comp__main__link.process-cancel-bock
+          = link_to "戻る", "" ,class: "process-cancel"

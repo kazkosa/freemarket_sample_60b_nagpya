@@ -101,7 +101,7 @@ class RegulationController < ApplicationController
       building: address_params[:building],
       phone_number: address_params[:phone_number] 
       )
-      
+      @address.save
       sign_in User.find(session[:user_id]) unless user_signed_in?
       redirect_to new_card_path 
     else

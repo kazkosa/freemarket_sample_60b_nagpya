@@ -1,4 +1,7 @@
 = render "layouts/header"
+%nav.gretel
+  - breadcrumb :mypage
+  = breadcrumbs separator: "＞"
 = render "layouts/exhibit__btn"
 %section.mypage-wrapper
   .left-content
