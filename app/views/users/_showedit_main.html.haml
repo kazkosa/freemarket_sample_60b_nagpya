@@ -16,10 +16,11 @@
             売却済み
     .tab-content
       %ul.mypage-item
-        %li
-          .mypage-item__link
-            -if @products
-              -@products.each do | product |
+        -if @products
+          -@products.each do | product |
+            %li
+              .mypage-item__link
+
                 = link_to showmain_product_path(product), class: "mypage-item-link"  do
                   .mypage-item__link__figure
                     =image_tag product.product_images[0].image.url , class: "is-higher-width" 
@@ -37,5 +38,5 @@
                         %span 0
                       .mypage-item-status.bold.awaiting
                         出品中
-            -else
-            %h3.gazou "出品中の商品は現在ありません”
+        -else
+          %h3.gazou "出品中の商品は現在ありません”
