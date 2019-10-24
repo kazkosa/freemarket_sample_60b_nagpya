@@ -18,28 +18,24 @@
       %ul.mypage-item
         %li
           .mypage-item__link
-            = link_to "#" , class: "mypage-item-link" , data:{toggle:"tab"} do
-              .mypage-item__link__figure
-                %img.is-higher-width{alt:"", "data-src" => "//static.mercdn.net/thumb/photos/m92219058918_1.jpg?1571369039", src:"//static.mercdn.net/thumb/photos/m92219058918_1.jpg?1571369039"}/
-              .mypage-item-body
-                .mypage-item-text
-                  hdghg
-                %div
-                  %span.listing-item-count
-                    %i.icon
-                      = icon("far", "heart")
-                    %span 0
-                  %span.listing-item-count
-                    %i.icon
-                      = icon("far", "comment")
-                    %span 0
-                  .mypage-item-status.bold.awaiting
-                    出品中
-              %i.icon-arrow-right
-  %ul.mypage-history.pager
-    %li.pager-prev.pager-cell
-      = link_to "/jp/mypage/listings/listing/?min_pager_id=5134573100" , class: "" , data:{toggle:"tab"} do
-        %i.icon-arrow-left
-    %li.pager-next.pager-cell
-      = link_to "/jp/mypage/listings/listing/?max_pager_id=513457310" , class: "" , data:{toggle:"tab"} do
-        %i.icon-arrow-right
+            -if @products
+              -@products.each do | product |
+                = link_to showmain_product_path(product), class: "mypage-item-link"  do
+                  .mypage-item__link__figure
+                    =image_tag product.product_images[0].image.url , class: "is-higher-width" 
+                  .mypage-item-body
+                    .mypage-item-text
+                      hdghg
+                    %div
+                      %span.listing-item-count
+                        %i.icon
+                          = icon("far", "heart")
+                        %span 0
+                      %span.listing-item-count
+                        %i.icon
+                          = icon("far", "comment")
+                        %span 0
+                      .mypage-item-status.bold.awaiting
+                        出品中
+            -else
+            %h3.gazou "出品中の商品は現在ありません”
