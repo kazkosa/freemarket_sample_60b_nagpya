@@ -11,6 +11,9 @@ Rails.application.routes.draw do
       get :buy
       get :sell
     end
+    member do
+      get :showmain
+    end  
   end
   resources :users do
     member do
@@ -21,6 +24,7 @@ Rails.application.routes.draw do
       get :notification
       get :todo
       get :like
+      get :showedit
     end
   end
   resources :trials, only: [:index,:create,:new]

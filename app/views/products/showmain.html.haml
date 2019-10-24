@@ -25,7 +25,6 @@
                   %span
                   .item-box-container__main__photo__inner__smal-box-wrapper__item__inner
                     = image_tag product_image.image.url
-
               - else
                 .item-box-container__main__photo__inner__smal-box-wrapper__item{id: "image#{i}"}
                   %span
@@ -103,40 +102,18 @@
         送料込み
       - else
         着払い
-  = link_to "/products/buy" , class:"item-buy-btn" do
-    購入画面に進む
-  = link_to "" , class:"item-action-text", data:{action:"item/openDetail",adjust:{url:""},key:"id=m81784685949",play:{id:"com.kouzoh.mercari" } } do
-    アプリで購入
-  .item-box-container__description
-    %p.item-box-container__description__inner
-      = @product.description
-  .item-box-container__evaluation-btn
-    .item-box-container__evaluation-btn__left
-      %button.item-box-container__evaluation-btn__left__like.like_btn{data: { like: @like  } }
-        .off-to-on{style:"display:none;"}
-          .like_link
-            = link_to product_likes_path(@product),  {method:"post", remote: true} do
-              = icon("far", "heart icon-like-border fa-lg")
-        .on-to-off{style:"display:none;"}
-          .like_link
-            = link_to product_like_path(@product), {method:"delete", remote: true} do
-              = icon("fas", "heart icon-like-border fa-lg" )
-        %span いいね!
-        %span.fade-in-down{data:{num:"like"}}
-          -# = @likes.count
-      = link_to "" , class:"item-button item-button-report", data: { modal:"report-item", open: "modal"} do
-        = icon("far", "flag icon-flag fa-lg")
-        %span 不適切な商品の報告
-    .item-box-container__evaluation-btn__right
-      = link_to ""  do
-        = icon("fas", "lock icon-lock fa-lg")
-        %span あんしん・あんぜんへの取り組み
-
-.float-item-buy-btn
-  .float-item-buy-btn__box
-    = link_to "/products/buy", class:"item-buy-btn" do
-      購入画面に進む
-
+.item-box-message
+  .listing-item-change-box
+  %a.btn-default.btn-red
+  = link_to"#" ,class: "btn-default btn-red"do
+    商品の編集
+  %p.text-center or
+  %form{:action => "/jp/items/deactivate/m26459943793/", :method => "POST", :novalidate => "novalidate"}
+    %input{:name => "__csrf_value", :type => "hidden", :value => "9f2cdcb16b89689a643d7fd14268e54caee487cbe07354bd77091c7228237f42d14ca9943290716f016cfe6e4bc598bc79137570ab1b9c5428b3d96b50eb72bca"}/
+    %button.btn-default.btn-gray{:type => "submit"} 
+      = link_to "出品を一旦停止する" 
+  %button.btn-default.btn-gray{"data-modal" => "delete-item", "data-open" => "modal"}
+    = link_to "この商品を削除する"       
 .item-box-message
   .item-box-message__container
     .item-box-message__container__content
@@ -167,25 +144,25 @@
                         = f.button  type: 'submit', class: 'btn-flag' do
                           = icon("far", "flag icon-flag fa-lg")
                   .item-box-message__container__content__list__message-box__body__balloon
-    .item-box-message__container__notice
-      = form_for [@product,@comment] ,method: :post, html: {class: "item-box-message__container__notice__form"} do |f|
-        %p 相手のことを考え丁寧なコメントを心がけましょう。不快な言葉遣いなどは利用制限や退会処分となることがあります。
-        = f.text_area :body , class:"textarea-default"
-        = f.submit value:"コメントする", class:"item-box-message__container__notice__form__submit"
-    %aside.item-box-message__container__modal
-      .item-box-message__container__modal__banner
-        .item-box-message__container__modal__banner__body
-          .item-box-message__container__modal__banner__body__head 確認
-          %div{"data-comment" => "body"}
-          %br/
-          本当にこのコメントを削除してよろしいですか？
-        = form_with url:"", class:"item-box-message__container__modal__banner__form" do |f|
-          .item-box-message__container__modal__banner__form__wrapper
-            .item-box-message__container__modal__banner__form__wrapper__btn-block
-            .item-box-message__container__modal__banner__form__wrapper__btn-cancel{data:{close: "modal"} }キャンセル
-            %button.modal-btn.modal-btn-submit{type: "submit"}
-              削除する
-
+    .message__container              
+      .item-box-message__container__notice
+        = form_for [@product,@comment] ,method: :post, html: {class: "item-box-message__container__notice__form"} do |f|
+          %p 相手のことを考え丁寧なコメントを心がけましょう。不快な言葉遣いなどは利用制限や退会処分となることがあります。
+          = f.text_area :body , class:"textarea-default"
+          = f.submit value:"コメントする", class:"item-box-message__container__notice__form__submit"
+      %aside.item-box-message__container__modal
+        .item-box-message__container__modal__banner
+          .item-box-message__container__modal__banner__body
+            .item-box-message__container__modal__banner__body__head 確認
+            %div{"data-comment" => "body"}
+            %br/
+            本当にこのコメントを削除してよろしいですか？
+          = form_with url:"", class:"item-box-message__container__modal__banner__form" do |f|
+            .item-box-message__container__modal__banner__form__wrapper
+              .item-box-message__container__modal__banner__form__wrapper__btn-block
+              .item-box-message__container__modal__banner__form__wrapper__btn-cancel{data:{close: "modal"} }キャンセル
+              %button.modal-btn.modal-btn-submit{type: "submit"}
+                削除する
 %ul.link-item-prev-next
   %li.nav-item-link-prev
     -if  Product.where(id: @product.id + 1).present?
@@ -199,72 +176,4 @@
         %p
           = Product.where(id: @product.id - 1)[0].title
         = icon("fas", "chevron-right angle-right fa-lg")
-        
-.ssn-block
-  .ssn-block__inner
-    = link_to "", class:"ssn-block__inner__item facebook" do
-      = icon("fab", "facebook-square icon-facebook fa-3x")
-    = link_to "", class:"ssn-block__inner__item twitter" do
-      = icon("fab", "twitter-square icon-twitter fa-3x")
-    = link_to "", class:"ssn-block__inner__item pinterest" do
-      = icon("fab", "pinterest-square icon-pinterest fa-3x")
-
-- if @products_this_seller
-  .related-item-box
-    .related-item-box__inner
-      %h2.related-item-box__inner__head
-        = link_to "" do
-          = "#{@product.user.nickname}さんのその他の出品"
-      .related-item-box__inner__wrapper
-        - @products_this_seller.each do |product|
-          .related-item-box__inner__wrapper__items-box
-            = link_to  product_path(product) do
-              .related-item-box__inner__wrapper__items-box__photo
-                - if product.product_images[0]
-                  = image_tag product.product_images[0].image.url
-              .related-item-box__inner__wrapper__items-box__price-label
-                = "¥#{product.price.to_s(:delimited)}"
-              .related-item-box__inner__wrapper__items-box__body
-                %h3.related-item-box__inner__wrapper__items-box__body__name
-                  = product.title
-                .related-item-box__inner__wrapper__items-box__body__num
-                  .related-item-box__inner__wrapper__items-box__body__num__price
-                    = "¥#{product.price.to_s(:delimited)}"
-                  .related-item-box__inner__wrapper__items-box__body__num__like
-                    = icon("far", "heart icon-heart fa-lg")
-                    %span.num
-                      = product.likes.count
-- if @products_this_category
-  .related-item-box
-    .related-item-box__inner
-      %h2.related-item-box__inner__head
-        = link_to "" do
-          = "#{@product.category.name} その他の出品"
-      .related-item-box__inner__wrapper
-        - @products_this_category.each do |product|
-          .related-item-box__inner__wrapper__items-box
-            = link_to product_path(product) do
-              .related-item-box__inner__wrapper__items-box__photo
-                -# = image_tag product.product_images[0].image.url
-              .related-item-box__inner__wrapper__items-box__price-label
-                = product.title
-              .related-item-box__inner__wrapper__items-box__body
-                %h3.related-item-box__inner__wrapper__items-box__body__name
-                  = product.title
-                .related-item-box__inner__wrapper__items-box__body__num
-                  .related-item-box__inner__wrapper__items-box__body__num__price
-                    = "¥#{product.price.to_s(:delimited)}"
-                  .related-item-box__inner__wrapper__items-box__body__num__like
-                    = icon("far", "heart icon-heart fa-lg")
-                    %span.num
-                      = product.likes.count
-%nav.bread-crumbs-products-show
-  %ul
-    %li{itemscope:"", itemtype: ""}
-      = link_to root_path do
-        %span{itemprop: "title"} メルカリ
-      = icon("fas", "angle-right fa-1g")
-    %li{itemscope: "", itemtype: ""}
-      %span{itemprop: "title"}
-        = @product.title
 = render "layouts/footer"

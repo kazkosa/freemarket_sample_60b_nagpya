@@ -1,8 +1,10 @@
 class UsersController < ApplicationController
   def index
   end
+
   def show
   end
+
   def card
     @user = User.new() #temporaly 
   end
@@ -27,6 +29,9 @@ class UsersController < ApplicationController
   def identification
     #仮のモデル作成
     @user =User.new()
-  end    
-  
+  end 
+
+  def showedit
+    @user =User.new()
+  end 
 end
