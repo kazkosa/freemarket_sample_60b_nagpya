@@ -32,6 +32,6 @@ class UsersController < ApplicationController
   end 
 
   def showedit
-    @products=current_user.selling_products
+    @products=current_user.selling_products.order("id DESC")
   end 
 end

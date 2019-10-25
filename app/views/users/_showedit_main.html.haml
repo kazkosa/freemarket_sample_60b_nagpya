@@ -26,16 +26,18 @@
                     =image_tag product.product_images[0].image.url , class: "is-higher-width" 
                   .mypage-item-body
                     .mypage-item-text
-                      hdghg
+                      = product.title
                     %div
                       %span.listing-item-count
                         %i.icon
                           = icon("far", "heart")
-                        %span 0
+                        %span
+                          = product.likes.count
                       %span.listing-item-count
                         %i.icon
                           = icon("far", "comment")
-                        %span 0
+                        %span
+                          = product.comments.count
                       .mypage-item-status.bold.awaiting
                         出品中
         -else

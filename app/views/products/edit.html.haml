@@ -10,7 +10,7 @@
           %h2.single-head 商品の情報を入力 
           = form_for @product, html: {id:'edit_item', class:"sell-form"}  do |f|
             .item__images__container.sell-upload-box
-              %h3.sell-upload-head.block-image
+              %h3.sell-upload-head.block-image{data:{alreadysavedtotal:@product.product_images.length-1}}
                 出品画像
                 %span.form-require 必須
               %p 最大10枚までアップロードできます
@@ -23,7 +23,7 @@
                           .img-box
                             =image_tag product_image.image.url if product_image.image.url.present?
                           .item__images__container__preview__box
-                            %div.delete_btn_box
+                            %div.delete_btn_box2
                               .item__images__container__preview__box__delete
                                 削除
                   = ff.label :image, form:"image", class: "dropzone-box item__images__container__guide sell-upload-drop-box" ,for:"upload-image" do

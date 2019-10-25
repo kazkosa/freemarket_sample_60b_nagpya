@@ -24,6 +24,7 @@ $(function(){
       $(".overlay").fadeIn(200);
       $(".modal_exhibit-comp").fadeIn(200);
       var path="/products/" + data.product_id;
+      var path="/users/" + data.current_user_id + "/showedit";
       $(".link_to_product").attr("href",path);
     }
     else{
@@ -66,7 +67,7 @@ $(function(){
   }
 
   var files_array = []
-
+  var total_image_max = 10;
   //ドラッグドロップによる画像取得
   $('.item__images__container__guide').on('dragover',function(e){
       e.preventDefault();
@@ -74,29 +75,40 @@ $(function(){
   $('.item__images__container__guide').on('drop',function(event){
     event.preventDefault();
     files = event.originalEvent.dataTransfer.files;
-    for (var i=0; i<files.length; i++) {
-      files_array.push(files[i]);
-      var fileReader = new FileReader();
-      fileReader.onload = function( event ) {
-      var loadedImageUri = event.target.result;      
-      $(buildImage(loadedImageUri,)).appendTo(".item__images__container__preview ul");
-      };
-      fileReader.readAsDataURL(files[i]);
+
+    if( files_array.length + files.length + alreadysavedtotal - delete_request_index.length <= total_image_max){
+      for (var i=0; i<files.length; i++) {
+        files_array.push(files[i]);
+        var fileReader = new FileReader();
+        fileReader.onload = function( event ) {
+          var loadedImageUri = event.target.result;      
+          $(buildImage(loadedImageUri,)).appendTo(".item__images__container__wrapper:last-child .item__images__container__preview ul");
+        };
+        fileReader.readAsDataURL(files[i]);
+      }
+    }
+    else{
+      alert("登録可能な最大数を超えているためアップロードできません。");
     }
   });
-
+  
   // クリック時のイベントの作成
   $('.upload-image').on('change',function(event){
     event.preventDefault();
     files = $(this)[0].files;
-    for (var i=0; i<files.length; i++) {
-      files_array.push(files[i]);
-      var fileReader = new FileReader();
-      fileReader.onload = function( event ) {
-        var loadedImageUri = event.target.result;
-        $(buildImage(loadedImageUri,)).appendTo(".item__images__container__preview ul").trigger("create");
-      };
-      fileReader.readAsDataURL(files[i]);
+    if( files_array.length + files.length + alreadysavedtotal - delete_request_index.length <= total_image_max){
+      for (var i=0; i<files.length; i++) {
+        files_array.push(files[i]);
+        var fileReader = new FileReader();
+        fileReader.onload = function( event ) {
+          var loadedImageUri = event.target.result;
+          $(buildImage(loadedImageUri,)).appendTo(".item__images__container__wrapper:last-child .item__images__container__preview ul").trigger("create").trigger("create");
+        };
+        fileReader.readAsDataURL(files[i]);
+      }
+    }
+    else{
+      alert("登録可能な最大数を超えているためアップロードできません。");
     }
   });
 
@@ -137,19 +149,43 @@ $(function(){
   var money_l = 300;
   var money_h =9999999;
   var fee_rate = 0.1;
-  $(".money_box").on("keyup", function(){
+  if($(".money_box").val()){
     var input_money = $(".money_box").val();
     if(input_money >= money_l && input_money <= money_h){
-      var fee     = input_money*fee_rate;
+      var fee     = Math.floor(input_money*fee_rate);
       var profit  = input_money - fee;
       $(".l-right.fee").html("¥"+fee.toString().replace(/(\d)(?=(\d{3})+$)/g , '$1,'));
       $(".l-right.profit").html("¥"+profit.toString().replace(/(\d)(?=(\d{3})+$)/g , '$1,')); 
     }
+    else{
+      $(".l-right.fee").html("");
+      $(".l-right.profit").html(""); 
+    }
+  }
+  $(".money_box").on("keyup", function(){
+    var input_money = $(".money_box").val();
+    if(input_money >= money_l && input_money <= money_h){
+      var fee     = Math.floor(input_money*fee_rate);
+      var profit  = input_money - fee;
+      $(".l-right.fee").html("¥"+fee.toString().replace(/(\d)(?=(\d{3})+$)/g , '$1,'));
+      $(".l-right.profit").html("¥"+profit.toString().replace(/(\d)(?=(\d{3})+$)/g , '$1,')); 
+    }
+    else{
+      $(".l-right.fee").html("");
+      $(".l-right.profit").html(""); 
+    }
   });
 
+  var alreadysavedtotal = 0;
+  if ( $(".block-image").data("alreadysavedtotal") ){
+    alreadysavedtotal = $(".block-image").data("alreadysavedtotal");
+  }
+  
+  
+
   var delete_request_index = [];
-  $(document).on("click",".delete_btn_box", function(){
-    var index = $(".delete_btn_box").index(this);
+  $(document).on("click",".delete_btn_box2", function(){
+    var index = $(".delete_btn_box2").index(this);
     // クリックされたaタグの順番から、削除すべき画像を特定し、配列から削除する。
     // files_array.splice(index - 1, 1);
     delete_request_index.push($(this).parent().parent().data("alreadysaved"));
