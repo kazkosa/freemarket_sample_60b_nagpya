@@ -3,29 +3,47 @@
   height: 128px;
   text-align: center;
   border: 0;
+  position: relative;
   &__log {
     margin-top: 40px;
     display: inline-block;
     height: 50px;
+    position: absolute;
+    top: 0%;
+    left: 26%;
   }
   &__nav {
     display: inline-block;
     padding: 0 0 0 44px;
-  
+    position: absolute;
+    top: 31%;
+    left: 38%;
     &__menu {
       display: flex;
+      &__list.active {
+        color: red;
+        .point.active {
+        background: red;
+        }
+      }
       &__list {
         position: relative;
         z-index: 1;
         display: inline-block;
         font-size: 12px;
         margin-right: 40px;
+        .boder {
+          height: 1px;
+          border: none;
+          border-top: 1px #000000 solid;
+        }
         .point {
           width: 12px;
           height: 12px;
           margin: 8px auto 0;
           background: #ccc;
           border-radius: 50%;
+
         }
       }
     }
