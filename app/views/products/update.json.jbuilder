@@ -7,7 +7,7 @@ json.product_errors_size              @product.errors.messages[:size].present?  
 json.product_errors_condition         @product.errors.messages[:condition].present?         unless @product.valid?
 json.product_errors_shipping_charges  @product.errors.messages[:shipping_charges].present?  unless @product.valid?
 json.product_errors_shipping_method   @product.errors.messages[:shipping_method].present?   unless @product.valid?
-json.product_errors_shipping_area     @product.errors.messages[:shipping_area].present?      unless @product.valid?
+json.product_errors_shipping_area     @product.errors.messages[:shipping_area].present?     unless @product.valid?
 json.product_errors_shipping_date     @product.errors.messages[:shipping_date].present?     unless @product.valid?
 json.product_errors_price             @product.errors.messages[:price].present?             unless @product.valid?
-
+json.current_user_id                  @product.user.id                                      unless @product.valid?
