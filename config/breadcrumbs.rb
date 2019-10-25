@@ -27,6 +27,11 @@ crumb :plofile do
   parent :mypage
 end
 
+crumb :showedit do
+  link "出品した商品 - 出品中", showedit_user_path
+  parent :mypage
+end
+
 # crumb :パンくず名 do
 #   link "ビューに表示させるリンク名", リンク先のパス
 #   parent 
