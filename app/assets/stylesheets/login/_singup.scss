@@ -97,12 +97,13 @@
           width: 400px;
           height: 70px;
           display: flex;
-          margin-top: 2px;
+          margin-top: 5px;
           .select-wrap_t {
             width: 100px;
           }
           .s_text {
-            margin-top: 34px;
+            margin-top: 20px;
+            margin: 17px 10px 0 10px;
           }
           .birthday {
             width: 55%;
@@ -110,7 +111,14 @@
             padding: 0 10px;
             border-radius: 4px;
             margin: 0 auto;
-          }  
+          }
+          .birthday_sing1 {
+            width: 35px;
+            height: 40px;
+            padding: 0 10px;
+            border-radius: 4px;
+            
+          }
         }
         .l-single-text {
           display: inline-block;
