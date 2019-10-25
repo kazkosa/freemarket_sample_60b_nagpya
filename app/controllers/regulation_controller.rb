@@ -72,7 +72,7 @@ class RegulationController < ApplicationController
       phone_number: address_params[:phone_number]  
     )
     
-    render '/card/new' unless @address.valid?
+    render '/regulation/singup3' unless @address.valid?
   end
 
   def create   
