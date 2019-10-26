@@ -65,8 +65,10 @@ class ProductsController < ApplicationController
     @products_this_seller = @product.user.products.order('id DESC').where.not(id: params[:id]).limit(6)
     @category = @product.category
     @products_this_category = @category.products.order('id DESC').where.not(user_id:@product.user).limit(6)
-    @likes = @product.likes
-    @like  = @likes.find_by(user_id: current_user.id)
+    if user_signed_in? 
+      @likes = @product.likes
+      @like  = @likes.find_by(user_id: current_user.id)
+    end  
     @comment = Comment.new()
   end
 
@@ -102,12 +104,8 @@ class ProductsController < ApplicationController
 
   def destroy
     @product= Product.find(params[:id])
-    
     if @product.destroy
-      
       redirect_to showedit_user_path(current_user)
-    else
-      redirect_to showmain_product_path(current_user) 
     end
   
   end

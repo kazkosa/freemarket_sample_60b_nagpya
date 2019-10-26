@@ -75,7 +75,7 @@ body {
                 }
               }
               .item__images__container__preview__box{
-                display:none;
+                display:block;
                 box-sizing: border-box;
                 margin: 0 auto;
                 height:20px;
@@ -550,6 +550,29 @@ li.sortable-placeholder {
     }
     &__link:hover{
       opacity:0.6;
+    }
+  }
+}
+
+@media screen and (min-width: 768px){
+  .single-main{
+    .sell-form{
+      .sell-upload-box{
+        .item__images__container__wrapper:last-child{
+          .item__images__container__preview ul li{
+            .item__images__container__preview__box{
+              display:none;
+              div{
+                cursor:pointer;
+              }
+              div:hover{
+                cursor:pointer;
+                color:red;
+              }
+            }
+          }
+        }
+      }
     }
   }
 }

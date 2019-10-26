@@ -1,4 +1,24 @@
-= render "regulation/header"
+%header.sing__header
+  %h1.sing__header__log
+    = link_to do
+      = image_tag "https://web-jp-assets.mercdn.net/_next/static/images/logo-acdd90ac4f472d5a6f7a330d33ab1225.svg",size: "185x49"
+  %nav.sing__header__nav
+    %ol.sing__header__nav__menu
+      %li.sing__header__nav__menu__list
+        会員情報
+        .point
+      %li.sing__header__nav__menu__list
+        電話番号認証
+        .point
+      %li.sing__header__nav__menu__list
+        お届け先住所入力
+        .point
+      %li.sing__header__nav__menu__list.active
+        支払い方法
+        .point.active
+      %li.sing__header__nav__menu__list
+        完了
+        .point
 %main.sing__main      
   %h2.sing__main__title
     支払い方法
@@ -27,7 +47,7 @@
       =link_to root_path ,class:"m_text" do
         カード裏面の番号とは？   
       .sing__main__wrapper__content_m#card_token
-        = f.submit '追加する', class: 'btn-red', id: 'token_submit'
+        = f.submit '追加する', class: 'btn-red', id: 'token_submit'     
 = render "regulation/footer"      
 :javascript
   document.addEventListener(

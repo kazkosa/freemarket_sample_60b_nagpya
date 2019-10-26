@@ -6,9 +6,9 @@
       = image_tag "https://web-jp-assets.mercdn.net/_next/static/images/logo-acdd90ac4f472d5a6f7a330d33ab1225.svg",size: "185x49"
   %nav.sing__header__nav
     %ol.sing__header__nav__menu
-      %li.sing__header__nav__menu__list
+      %li.sing__header__nav__menu__list.active
         会員情報
-        .point
+        .point.active
       %li.sing__header__nav__menu__list
         電話番号認証
         .point
@@ -20,7 +20,7 @@
         .point
       %li.sing__header__nav__menu__list
         完了
-        .point           
+        .point     
 -# メインです        
 %main.sing__main
   %h2.sing__main__title
@@ -66,11 +66,11 @@
         %label{for: "birthday"} 生年月日
         %span.form-require 必須
         .birthday-select-wrap
-          = f.text_field :birthday_year, class: "birthday"
+          = f.text_field :birthday_year, class: "birthday_sing1"
           %span.s_text 年
-          = f.text_field :birthday_month, class: "birthday"
+          = f.text_field :birthday_month, class: "birthday_sing1"
           %span.s_text 月
-          = f.text_field :birthday_day, class: "birthday"
+          = f.text_field :birthday_day, class: "birthday_sing1"
           %span.s_text 日
         %p.sing__main__wrapper__content_m_text
           ※ 本人情報は正しく入力してください。会員登録後、修正するにはお時間を頂く場合があります。
@@ -101,4 +101,4 @@
     %img{width: "80", src: "https://www-mercari-jp.akamaized.net/assets/img/common/common/logo-gray.svg?2296184308"}  
   %p.login__footer__2019
     %small
-      2019 Mercari  
+      2019 Mercari      
