@@ -37,6 +37,7 @@
           border: none;
           border-top: 1px #000000 solid;
         }
+  // サインアップページの道しるべに色をつける  
         .point {
           width: 12px;
           height: 12px;
@@ -45,6 +46,9 @@
           border-radius: 50%;
         }
         .point_first.active {
+          background-color: red;
+        }
+        .point_first.active2 {
           background-color: red;
         }
         .point_first {
@@ -78,7 +82,13 @@
         .point.active {
           background: red;
         }
-        .point.active::after {
+        .point.active2 {
+          background: red;
+        }
+        .point.active2::after {
+          background: red;
+        }
+        .point.active2::before {
           background: red;
         }
         .point.active::before {
@@ -95,7 +105,7 @@
           background: #ccc;
           left: 50%;
         }
-        .point_first.active::after {
+        .point_first.active2::after {
           background: red;
         }
         .point::before {
