@@ -43,7 +43,82 @@
           margin: 8px auto 0;
           background: #ccc;
           border-radius: 50%;
-
+        }
+        .point_first.active {
+          background-color: red;
+        }
+        .point_first {
+          width: 12px;
+          height: 12px;
+          margin: 8px auto 0;
+          background: #ccc;
+          border-radius: 50%;
+        }
+        .point_last.active {
+          background-color: red;
+        }
+        .point_last {
+          width: 12px;
+          height: 12px;
+          margin: 8px auto 0;
+          background: #ccc;
+          border-radius: 50%;
+        }
+        .point::after {
+          position: absolute;
+          bottom: 5px;
+          z-index: -1;
+          display: block;
+          content: '';
+          width: 100%;
+          height: 2px;
+          background: #ccc;
+          left: 50%;
+        }
+        .point.active {
+          background: red;
+        }
+        .point.active::after {
+          background: red;
+        }
+        .point.active::before {
+          background: red;
+        }
+        .point_first::after {
+          position: absolute;
+          bottom: 5px;
+          z-index: -1;
+          display: block;
+          content: '';
+          width: 100%;
+          height: 2px;
+          background: #ccc;
+          left: 50%;
+        }
+        .point_first.active::after {
+          background: red;
+        }
+        .point::before {
+          right: 50%;
+          position: absolute;
+          bottom: 5px;
+          z-index: -1;
+          display: block;
+          content: '';
+          width: 100%;
+          height: 2px;
+          background: #ccc;
+        }
+        .point_last::before {
+          right: 50%;
+          position: absolute;
+          bottom: 5px;
+          z-index: -1;
+          display: block;
+          content: '';
+          width: 100%;
+          height: 2px;
+          background: #ccc;
         }
       }
     }
@@ -113,7 +188,7 @@
         }
         .birthday-select-wrap {
           width: 400px;
-          height: 70px;
+          height: 55px;
           display: flex;
           margin-top: 5px;
           .select-wrap_t {
@@ -166,4 +241,8 @@
       }
     }
   }
+}
+
+.error {
+  color: red;
 }

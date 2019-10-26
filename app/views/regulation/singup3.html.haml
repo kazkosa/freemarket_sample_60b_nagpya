@@ -7,10 +7,10 @@
     %ol.sing__header__nav__menu
       %li.sing__header__nav__menu__list
         会員情報
-        .point
+        .point_first.active
       %li.sing__header__nav__menu__list
         電話番号認証
-        .point
+        .point.active
       %li.sing__header__nav__menu__list.active
         お届け先住所入力
         .point.active
@@ -19,42 +19,61 @@
         .point
       %li.sing__header__nav__menu__list
         完了
-        .point  
+        .point_last 
 %main.sing__main
   %h2.sing__main__title
     住所情報入力
-  = form_for @address,url:regulation_index_path, method: :post do |f|  
-    .sing__main__wrapper__content
-      - if @address.errors.any?
-        .alert.alert-warning
-          %ul
-            - @address.errors.full_messages.each do |message|
-              %li= message
+  = form_for @address,url:regulation_index_path, method: :post do |f|     
     .sing__main__wrapper__content  
       .sing__main__wrapper__content_m
-        %label{for:"post_num"} 郵便番号
+        %label{for:"post_num"} 郵便番号(半角)
         %span.form-require 必須
-        =f.text_field :post_num , placeholder: "ハイフン抜きでお願いします", type: "text", value: "", class: "input-default"       
+        =f.text_field :post_num , placeholder: "ハイフン抜きでお願いします", type: "text", value: "", class: "input-default"
+        - if @address.errors.any?
+          .alert.alert-warning
+            %ul
+              - @address.errors.full_messages_for(:post_num).each do |message|
+                %li.error= message       
       .sing__main__wrapper__content_m
         %label{for:"prefectures"} 都道府県
         %span.form-require 必須
-        = f.collection_select :prefectures , Prefecture.all, :id, :name,{prompt:"--"},{class:"input-default"}
+        = f.collection_select :prefectures , Prefecture.all, :id, :name,{prompt:"--"},{class:"input-default"}  
       .sing__main__wrapper__content_m
         %label{for:"municipalities"} 市町村
         %span.form-require 必須
         =f.text_field :municipalities , placeholder: "例) 佐世保市黒髪町", type: "text", value: "", class: "input-default"
+        - if @address.errors.any?
+          .alert.alert-warning
+            %ul
+              - @address.errors.full_messages_for(:municipalities).each do |message|
+                %li.error= message
       .sing__main__wrapper__content_m
         %label{for:"block_number"} 番地
         %span.form-require 必須
         =f.text_field :block_number , placeholder: "例) 12-21", type: "text", value: "", class: "input-default"
+        - if @address.errors.any?
+          .alert.alert-warning
+            %ul
+              - @address.errors.full_messages_for(:block_number).each do |message|
+                %li.error= message
       .sing__main__wrapper__content_m
         %label{for:"building"} 建物名
         %span.form-require.any 任意
         =f.text_field :building , placeholder: "例) 第2宮脇ビル", type: "text", value: "", class: "input-default"
+        - if @address.errors.any?
+          .alert.alert-warning
+            %ul
+              - @address.errors.full_messages_for(:building).each do |message|
+                %li.error= message
       .sing__main__wrapper__content_m
         %label{for:"phone_number"} 電話
         %span.form-require.any 任意
         =f.text_field :phone_number , placeholder: "例）08034545567", type: "text", value: "", class: "input-default"
+        - if @address.errors.any?
+          .alert.alert-warning
+            %ul
+              - @address.errors.full_messages_for(:phone_number).each do |message|
+                %li.error= message
       .sing__main__wrapper__content_m
         =f.submit "次へ進む" ,class: "btn-red"        
 = render "footer"

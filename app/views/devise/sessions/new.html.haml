@@ -17,8 +17,9 @@
       = link_to root_path, class: "login__main__contents__second__google" do
         = icon("fab", "google icon fa-lg")
         %span.login__main__contents__second__google__text
-          Googleでログイン
+          Googleでログイン        
     .login__main__contents__third
+      = alert
       = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
         .field
           = f.email_field :email, autofocus: true, autocomplete: "email", placeholder: " メールアドレス"
