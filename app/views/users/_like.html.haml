@@ -1,34 +1,39 @@
-%section.user-credit-card
-  %h2.user-credit-card__head
-    いいね！一覧
-  %ul.mypage-item
-    - if @likes
-      - @likes.each do | like |
-        %li.mypage-item__list-info
-          = link_to "", class:"mypage-item__list-info__link" do
-            .mypage-item__list-info__link__mark
-              = image_tag "https://www.mercari.com/jp/assets/img/common/common/logo-gray-icon.svg?39597161", class:"mark_m"
-            .mypage-item__list-info__link__item-body
-              .mypage-item__list-info__link__item-body__text
-                値下げ☆美品　ジススチャートサングラス
-                %br
-                ¥2,900
-        %li.mypage-item__list-info
-          = link_to "", class:"mypage-item__list-info__link" do
-            .mypage-item__list-info__link__mark
-              = image_tag "https://www.mercari.com/jp/assets/img/common/common/logo-gray-icon.svg?39597161", class:"mark_m"
-            .mypage-item__list-info__link__item-body
-              .mypage-item__list-info__link__item-body__text
-                ANAPコート
-                %br
-                ¥2,480
-    - else
-      %li.mypage-item__list-info__not
-        いいね<!DOCTYPE html>
-        %html(lang="en")
-          %head
-            %meta(charset="UTF-8")/
-            %meta(name="viewport" content="width=device-width, initial-scale=1.0")/
-            %meta(http-equiv="X-UA-Compatible" content="ie=edge")/
-            %title Document
-          %bodyがありません
+%section.mypage-tab-container
+  %h2.mypage-tab-head_white いいね！一覧
+  .tab-content
+    %ul.mypage-item
+      - if @likes.present? && !@state_pending
+        -@likes.each do | like |
+          %li
+            .mypage-item__link
+              = link_to product_path(like.product), class: "mypage-item__link__link"  do
+                .mypage-item__link__link__wrapper
+                  .mypage-item__link__link__wrapper__main
+                    .mypage-item__link__link__wrapper__main__figure
+                      =image_tag like.product.product_images[0].image.url , class: "is-higher-width" 
+                    .mypage-item-body
+                      .mypage-item-text
+                        = like.product.title
+                      %div
+                        %span.listing-item-count
+                          %i.icon
+                            = icon("far", "heart")
+                          %span
+                            = like.product.likes.count
+                        %span.listing-item-count
+                          %i.icon
+                            = icon("far", "comment")
+                          %span
+                            = like.product.comments.count
+                        - if like.product.state == "in_sale"
+                          .mypage-item-status.bold.awaiting
+                            出品中
+                        - else
+                          .mypage-item-status.bold.pending
+                            Sold out
+                  .mypage-item__link__link__wrapper__icon
+                    = icon("fas", "angle-right fa-2x")
+      - else
+        %li.notpresent
+          %h3.gazou
+            いいね！がありません  
