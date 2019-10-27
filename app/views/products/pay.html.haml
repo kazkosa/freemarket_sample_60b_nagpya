@@ -25,6 +25,6 @@
       - else
         着払い   
   .item-box-container__link
-    = link_to "", class:"item-buy-btn" do
+    = link_to purchase_user_path(current_user), class:"item-buy-btn" do
       購入した商品のステータスを確認する
 = render "layouts/footer"

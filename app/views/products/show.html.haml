@@ -135,7 +135,8 @@
               = icon("fas", "heart icon-like-border fa-lg" )
               %span いいね!
         %span.fade-in-down{data:{num:"like"}}
-          -# = @likes.count
+          -if user_signed_in?
+            = @likes.count
       = link_to "" , class:"item-button item-button-report", data: { modal:"report-item", open: "modal"} do
         = icon("far", "flag icon-flag fa-lg")
         %span 不適切な商品の報告

@@ -12,8 +12,17 @@ Rails.application.routes.draw do
     end
     member do 
       get :showmain
+      get :show_transaction_main
+      get :show_completed_main
+      get :purchase_transaction
+      get :purchase_completed
       get :buy
       get :pay
+      get :ship
+      get :recieve
+      get :pend
+      get :resell
+      get :close
     end
 
   end
@@ -27,6 +36,10 @@ Rails.application.routes.draw do
       get :todo
       get :like
       get :showedit
+      get :show_transaction
+      get :show_completed
+      get :purchase
+      get :purchased
     end
   end
   resources :trials, only: [:index,:create,:new, :edit, :update]

@@ -6,6 +6,12 @@
     .item-box-container__main__photo
       .item-box-container__main__photo__inner
         .item-box-container__main__photo__inner__large-box
+          - if @product.state == "pending"
+            .item-box-container__main__photo__inner__large-box__pending-label
+              %p 公開停止中
+          - elsif @product.buyer
+            .item-box-container__main__photo__inner__large-box__sold-label
+              %p SOLD
           .item-box-container__main__photo__inner__large-box__wrapper
             - if @product 
               - @product.product_images.each do | product_image |
@@ -108,10 +114,16 @@
   = link_to edit_product_path(@product) ,class: "btn-default btn-red"do
     商品の編集
   %p.text-center or
-  %button.btn-default.btn-gray
-    = link_to "出品を一旦停止する",""   
+  -if @product.state == "in_sale" 
+    %button.btn-default.btn-gray
+      = link_to "出品を一旦停止する",pend_product_path(@product)
+  -elsif @product.state == "pending"
+    %button.btn-default.btn-red
+      = link_to "出品を再開する",resell_product_path(@product)   
   %button#modal-open-btn.btn-gray
     = link_to "この商品を削除する", ""
+
+
 #overlay.hidden
   #modalWindow
     .modal-message-box
@@ -120,6 +132,7 @@
     #modal-close-btn キャンセル
     #delete-comformation-btn
       = link_to "削除する",product_path(@product), method: :DELETE 
+
 .item-box-message
   .item-box-message__container
     .item-box-message__container__content

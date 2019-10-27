@@ -1,0 +1,81 @@
+= render "layouts/header"
+%section.item-box-container
+  - if @product.state == "waiting_for_shipping"
+    .message-box_after-pay
+      .message-box_after-pay__inner
+        .message-box_after-pay__inner__head
+          = icon("far", "clock icon-time fa-lg")
+          %span.message-text
+            発送をお待ちください
+        .message-box_after-pay__inner__description
+          出品者からの発送通知をお待ちください
+    %h1.item-box-container__item-state
+      購入が完了しました
+    .item-box-container__photo-box
+      .item-box-container__photo-box__inner
+        = image_tag @product.product_images[0].image.url, class:"image_photo_pay"
+    %h1.item-box-container__item-name
+      = @product.title
+    .item-box-container__price-box
+      %span.item-box-container__price-box__price
+        = "¥#{@product.price.to_s(:delimited)}"
+      %span.item-box-container__price-box__tax (税込)
+      %span.item-box-container__price-box__shipping-fee
+        - if @product.shipping_charges_before_type_cast == 0
+          送料込み
+        - else
+          着払い   
+    .item-box-container__link
+      = link_to purchase_user_path(current_user), class:"item-buy-btn" do
+        購入した商品のステータスを確認する
+
+  - elsif @product.state == "on_delivery"
+    .message-box_after-pay
+      .message-box_after-pay__inner
+        .message-box_after-pay__inner__head
+          %i.fas.fa-laugh.icon-laugh.evaluation-mark
+          %span.message-text
+            商品が発送されました。
+        .message-box_after-pay__inner__description
+          %p.p3 商品が発送されました。商品が到着したら、
+          %p.p4 出品者の評価をしてください。
+    %h1.item-box-container__item-state
+      評価
+    .item-box-container__photo-box
+      .item-box-container__photo-box__inner
+        = image_tag @product.product_images[0].image.url, class:"image_photo_pay"
+    %h1.item-box-container__item-name
+      = @product.title
+    %button#modal-open-btn.btn-default.btn-red
+      = link_to "商品の受領したので、受取通知をする", ""
+
+  - elsif @product.state == "arrived"
+    .message-box_after-pay
+      .message-box_after-pay__inner
+        .message-box_after-pay__inner__head
+          %i.fas.fa-laugh.icon-laugh.evaluation-mark
+          %span.message-text
+            購入者へ商品の受取を通知しました
+        .message-box_after-pay__inner__description
+          %p.p5 最後に、出品者による取引完了処理を持って
+          %p.p6 取引は完了となります。
+    %h1.item-box-container__item-state
+      取引完了待ち
+    .item-box-container__photo-box
+      .item-box-container__photo-box__inner
+        = image_tag @product.product_images[0].image.url, class:"image_photo_pay"
+    %h1.item-box-container__item-name
+      = @product.title
+    .item-box-container__link
+      = link_to purchase_user_path(current_user), class:"item-buy-btn" do
+        取引のステータスを確認する
+= render "layouts/footer"
+
+
+#overlay.hidden
+  #modalWindow
+    .modal-message-box
+      %div 受取処理を完了させる
+    #modal-close-btn キャンセル
+    #delete-comformation-btn
+      = link_to "OK", recieve_product_path(@product)

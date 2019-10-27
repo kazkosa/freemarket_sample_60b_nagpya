@@ -1,7 +1,7 @@
 .item-box-container{
   background: #fff;
   margin: 40px auto 20px;
-  padding: 24px 16px 55px 16px;
+  padding: 24px 40px 40px;
 
   &__item-name{
     font-size: 24px;
@@ -44,6 +44,30 @@
               text-align:center;
               position:absolute;
               left:24%;
+              bottom:10px;
+              font-weight:bold;
+            }
+
+          }
+          &__pending-label{
+            position:absolute;
+            left:-66px;
+            top: -40px;
+            width:80%;
+            height:80px;
+            margin:auto auto 0 auto;
+            background:#888;
+            color:white;
+            font-size:18px;
+            text-align:center;
+            overflow: hidden;
+            transform: rotate(-45deg);
+            z-index:2;
+            p{
+              vertical-align : bottom;
+              text-align:center;
+              position:absolute;
+              left:15%;
               bottom:10px;
               font-weight:bold;
             }
@@ -375,32 +399,6 @@
     }
   }
   
-  .message-box_after-pay{
-    background:#ffffe0;
-    border-radius:4px;
-    width:100%;
-    padding:10px;
-    margin-bottom:10px;
-    &__inner{
-      width:60%;
-      margin:0 auto;
-      padding:10px 10px 0 10px;
-      // padding:
-      text-align:center;
-      &__head{
-        display:inline-block;
-        font-size:22px;
-        color:red;
-        .message-text{
-          font-weight:bold;
-
-        }
-      }
-      &__description{
-        padding:20px;
-      }
-    }
-  }
   &__item-state{
     font-size: 24px;
     text-align: center;
@@ -945,7 +943,8 @@
 
 @media screen and (min-width: 768px){
   .item-box-container{
-    padding: 24px 40px 24px 40px;
+    // padding: 24px 40px 24px 40px;
+    padding: 24px 40px 40px;
     width: 700px;
     background: #fff;
     margin: 40px auto 40px;

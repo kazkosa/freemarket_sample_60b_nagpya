@@ -1,0 +1,11 @@
+= render "layouts/header"
+%nav.gretel
+  - breadcrumb :showedit
+  = breadcrumbs separator: "＞"
+= render "layouts/exhibit__btn"
+%section.mypage-wrapper
+  .left-content
+    = render "layouts/sidebar"
+  .right-content
+    = render "purchase_main"
+= render "layouts/footer"
