@@ -1,5 +1,6 @@
 class ProductsController < ApplicationController
-  before_action :set_product, only:[:edit, :update, :show, :pay,:buy]
+  before_action :set_product, only:[:edit, :update, :show, :pay, :buy, :destroy, :pend, :resell, :ship, :recieve, :close, :showmain, :show_transaction_main, :show_completed_main, :purchase_transaction, :purchase_completed]
+
   def index 
     @products = Product.order("id DESC").limit(5)
   end
@@ -92,10 +93,10 @@ class ProductsController < ApplicationController
       currency: 'jpy',            #日本円
     )
     @product.update(buyer_id: current_user.id)
+    @product.state_transition("waiting_for_shipping")
   end
 
   def showmain
-    @product= Product.find(params[:id])
     @products_this_seller = @product.user.products.order('id DESC').where.not(id: params[:id]).limit(6)
     @category = @product.category
     @products_this_category = @category.products.order('id DESC').where.not(user_id:@product.user).limit(6)
@@ -103,11 +104,38 @@ class ProductsController < ApplicationController
   end
 
   def destroy
-    @product= Product.find(params[:id])
     if @product.destroy
       redirect_to showedit_user_path(current_user)
     end
-  
+  end
+  def pend
+    @product.state_transition("pending")
+    redirect_to showmain_product_path(@product)
+  end
+  def resell
+    @product.state_transition("in_sale")
+    redirect_to showmain_product_path(@product)
+  end
+  def ship
+    @product.state_transition("on_delivery")
+    redirect_to show_transaction_main_product_path(@product)
+  end
+  def recieve
+    @product.state_transition("arrived")
+    redirect_to purchase_transaction_product_path(@product)
+  end
+  def close
+    @product.state_transition("completed")
+    redirect_to show_completed_main_product_path(@product)
+  end
+
+  def show_transaction_main
+  end
+  def show_completed_main
+  end
+  def purchase_transaction
+  end
+  def purchase_completed
   end
 
 

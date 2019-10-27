@@ -1,0 +1,14 @@
+= render "layouts/header"
+%section.item-box-container
+  - if @product.state == "completed"
+    .message-box_after-pay
+      .message-box_after-pay__inner
+        .message-box_after-pay__inner__head
+          = icon("fas", "fa-check icon-time fa-lg")
+          %span.message-text
+            取引完了
+        .message-box_after-pay__inner__description
+          %p.p1 この商品の取引はクローズしました。
+    = link_to show_completed_user_path(current_user), class:"to_complete_list" do
+      出品した商品 - 売却済みへ
+= render "layouts/footer"

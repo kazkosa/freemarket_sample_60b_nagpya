@@ -2,11 +2,11 @@
   %ul.mypage-tabs__do
     %li
       %h3
-        = link_to notification_users_path , class: "oshirase-tag" , data:{toggle:"tab"} do
+        = link_to notification_user_path(current_user) , class: "oshirase-tag" , data:{toggle:"tab"} do
           お知らせ
     %li.active
       %h3
-        = link_to todo_users_path , class: "todo-tag" , data:{toggle:"tab"} do
+        = link_to todo_user_path(current_user) , class: "todo-tag" , data:{toggle:"tab"} do
           やることリスト
   %ul.mypage-item
     - if @todos

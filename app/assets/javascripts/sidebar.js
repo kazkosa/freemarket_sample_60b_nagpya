@@ -8,31 +8,31 @@ $(function(){
     pushed_sidebar($(".side-mypage"));
   }
 
-  if(document.URL.match(/.+\/users\/notification/)){
+  if(document.URL.match(/.+\/users\/.+\/notification/)){
     pushed_sidebar($(".side-notification"));
   }
-  if(document.URL.match(/.+\/users\/todo/)){
+  if(document.URL.match(/.+\/users\/.+\/todo/)){
     pushed_sidebar($(".side-todo"));
   }
-  if(document.URL.match(/.+\/users\/like/)){
+  if(document.URL.match(/.+\/users\/.+\/like/)){
     pushed_sidebar($(".side-like"));
   }
-  if(document.URL.match(/.+\/users\/side-sell/)){
+  if(document.URL.match(/.+\/users\/.+\/side-sell/)){
     pushed_sidebar($(".side-sell"));
   }
-  if(document.URL.match(/.+\/users\/side-listings-listing/)){
+  if(document.URL.match(/.+\/users\/.+\/showedit/)){
     pushed_sidebar($(".side-listings-listing"));
   }
-  if(document.URL.match(/.+\/users\/side-listings-inprogress/)){
+  if(document.URL.match(/.+\/users\/.+\/show_transaction/)){
     pushed_sidebar($(".side-listings-inprogress"));
   }
-  if(document.URL.match(/.+\/users\/side-listings-complete/)){
+  if(document.URL.match(/.+\/users\/.+\/show_completed/)){
     pushed_sidebar($(".side-listings-complete"));
   }
-  if(document.URL.match(/.+\/users\/side-purchase/)){
+  if(document.URL.match(/.+\/users\/.+\/purchase/)){
     pushed_sidebar($(".side-purchase"));
   }
-  if(document.URL.match(/.+\/users\/side-purchased/)){
+  if(document.URL.match(/.+\/users\/.+\/purchased/)){
     pushed_sidebar($(".side-purchased"));
   }
   if(document.URL.match(/.+\/users\/side-news/)){

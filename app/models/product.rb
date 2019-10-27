@@ -15,4 +15,9 @@ class Product < ApplicationRecord
   enum shipping_date:     ["1~2日で発送","2~3日で発送","4~7日で発送"]
   enum shipping_method:   ["未定","クロネコヤマト","ゆうパック","ゆうメール"]
   enum size:              ["XXS以下","XS(SS)","S","M","L","XL(LL)","2XL(3L)","3XL(4L)","4XL(5L)以上","FREE SIZE"]
+  enum state:              { in_sale: 0, waiting_for_shipping: 1, on_delivery: 2, arrived: 3, completed: 10, pending: 99 }
+
+  def state_transition(state)
+    self.update(state: state)
+  end
 end

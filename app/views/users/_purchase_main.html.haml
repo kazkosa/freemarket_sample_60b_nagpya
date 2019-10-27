@@ -1,0 +1,77 @@
+%section.mypage-tab-container
+  %h2.mypage-tab-head 購入した商品
+  %ul.listing-tabs
+    %li.listing-tabs__tab.purchaselist.tab_purchase_transaction
+      %h3
+        = link_to   purchase_user_path(current_user), data:{toggle:"tab"} do
+          取引中
+    %li.listing-tabs__tab.purchaselist.tab_purchased_completed
+      %h3
+        = link_to   purchased_user_path(current_user),   data:{toggle:"tab"} do
+          過去の取引
+  .tab-content
+    %ul.mypage-item
+      - if @products.present?
+        -@products.each do | product |
+          %li
+            .mypage-item__link
+              - if product.state == "waiting_for_shipping" || product.state == "on_delivery" || product.state == "arrived" 
+                = link_to purchase_transaction_product_path(product), class: "mypage-item__link__link"  do
+                  .mypage-item__link__link__wrapper
+                    .mypage-item__link__link__wrapper__main
+                      .mypage-item__link__link__wrapper__main__figure
+                        =image_tag product.product_images[0].image.url , class: "is-higher-width" 
+                      .mypage-item-body
+                        .mypage-item-text
+                          = product.title
+                        %div
+                          %span.listing-item-count
+                            %i.icon
+                              = icon("far", "heart")
+                            %span
+                              = product.likes.count
+                          %span.listing-item-count
+                            %i.icon
+                              = icon("far", "comment")
+                            %span
+                              = product.comments.count
+                          - if product.state == "waiting_for_shipping"
+                            .mypage-item-status.bold.blueblock
+                              発送待ち
+                          - elsif product.state == "on_delivery"
+                            .mypage-item-status.bold.redblock
+                              配達中
+                          - elsif product.state == "arrived"
+                            .mypage-item-status.bold.blueblock
+                              出品者による完了処置中
+                    .mypage-item__link__link__wrapper__icon
+                      = icon("fas", "angle-right fa-2x")
+              - elsif product.state == "completed"
+                = link_to purchase_completed_product_path(product), class: "mypage-item__link__link"  do
+                  .mypage-item__link__link__wrapper
+                    .mypage-item__link__link__wrapper__main
+                      .mypage-item__link__link__wrapper__main__figure
+                        =image_tag product.product_images[0].image.url , class: "is-higher-width" 
+                      .mypage-item-body
+                        .mypage-item-text
+                          = product.title
+                        %div
+                          %span.listing-item-count
+                            %i.icon
+                              = icon("far", "heart")
+                            %span
+                              = product.likes.count
+                          %span.listing-item-count
+                            %i.icon
+                              = icon("far", "comment")
+                            %span
+                              = product.comments.count
+                          - if  product.state == "completed"
+                            .mypage-item-status.bold.blueblock
+                              取引完了
+                    .mypage-item__link__link__wrapper__icon
+                      = icon("fas", "angle-right fa-2x")
+      -else
+        %li.notpresent
+          %h3.gazou
+            出品中の商品は現在ありません

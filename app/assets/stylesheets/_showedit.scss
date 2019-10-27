@@ -2,7 +2,6 @@
     float: right;
     width: 700px;
     background: #fff;
-    height: 200px;
 }
 .mypage-tab-head {
     padding: 0 4%;
@@ -19,6 +18,9 @@
 }
 .listing-tabs li {
   width: 33.3%;
+}
+.listing-tabs .purchaselist {
+  width: 50%;
 }
 .listing-tabs li.active, .review-history-tabs li.active {
   background: #fff;
@@ -41,17 +43,37 @@
 }
 
 .mypage-item__link {
-  display: block;
   min-height: 80px;
-  padding: 16px;
-  color: gray;
-  &__figure {
-    position: relative;
-    overflow: hidden;
-    float: left;
-    width: 48px;
-    height: 48px;
+
+  .mypage-item__link__link{
+    display: block;
+    padding: 16px;
+    color: gray;
+    border-bottom:1px solid #eee;
+
+    &__wrapper{
+      display:flex;
+      justify-content: space-between;
+
+      &__main{
+        display:flex;
+
+        &__figure {
+          position: relative;
+          overflow: hidden;
+          width: 48px;
+          height: 48px;
+        }
+      }
+      &__icon{
+        display:block;
+        margin:auto 0;
+      }
+    }
   }
+}
+.mypage-item__link:hover{
+  background:#fafafa;
 }
 
 .mypage-item-list img.is-higher-width {
@@ -63,7 +85,8 @@
   transform: translate(-50%, 0);
 }
 .mypage-item-text{
-  margin: 0 5px 0 70px;
+  margin: 0 5px 4px 10px;
+  color:#333;
 }
 
 .is-higher-width {
@@ -81,8 +104,7 @@
   vertical-align: 2px;
   margin: 0 5px 0 10px;
 }
-.mypage-item-status.awaiting {
-  background: #0099e8;
+.mypage-item-status{
   display: inline-block;
   margin: 8px 0 0 0;
   padding: 5px 6px;
@@ -90,13 +112,31 @@
   font-size: 12px;
   color: #fff;
 }
-.gazou{
-  padding: 160px 0 60px;
-  background: url(img1.png);
-  background-repeat: no-repeat;
-  background-position: center 40px;
-  background-size: 100px 100px;
-  text-align: center;
-  font-size: 16px;
-  color: #ccc;
+
+.awaiting {
+  background: #0099e8;
+}
+.blueblock {
+  background: #0099e8;
+}
+
+.pending {
+  background:red;
+}
+.redblock {
+  background:red;
+}
+
+.notpresent{
+  background:#fff;
+  .gazou{
+    padding: 160px 0 60px;
+    background: url(https://www.mercari.com/jp/assets/img/common/common/logo-gray-icon.svg?39597161);
+    background-repeat: no-repeat;
+    background-position: center 40px;
+    background-size: 100px 100px;
+    text-align: center;
+    font-size: 16px;
+    color: #ccc;
+  }
 }

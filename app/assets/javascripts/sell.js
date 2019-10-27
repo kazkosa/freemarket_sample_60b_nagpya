@@ -24,7 +24,6 @@ $(function(){
       $(".overlay").fadeIn(200);
       $(".modal_exhibit-comp").fadeIn(200);
       var path="/products/" + data.product_id;
-      var path="/users/" + data.current_user_id + "/showedit";
       $(".link_to_product").attr("href",path);
     }
     else{
