@@ -21,7 +21,13 @@ class UsersController < ApplicationController
   end
   
   def like
-    @likes = [1] #nemporaly
+    @likes = current_user.likes
+    @state_pending = false;
+    @likes.each do | like |
+      if like.product.state == "pending"
+        @state_pending = true;
+      end
+    end
   end
   def plofile
     #仮のモデル作成
