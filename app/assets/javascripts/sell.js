@@ -144,44 +144,13 @@ $(function(){
     });
   });
 
-  //手数料計算
-  var money_l = 300;
-  var money_h =9999999;
-  var fee_rate = 0.1;
-  if($(".money_box").val()){
-    var input_money = $(".money_box").val();
-    if(input_money >= money_l && input_money <= money_h){
-      var fee     = Math.floor(input_money*fee_rate);
-      var profit  = input_money - fee;
-      $(".l-right.fee").html("¥"+fee.toString().replace(/(\d)(?=(\d{3})+$)/g , '$1,'));
-      $(".l-right.profit").html("¥"+profit.toString().replace(/(\d)(?=(\d{3})+$)/g , '$1,')); 
-    }
-    else{
-      $(".l-right.fee").html("");
-      $(".l-right.profit").html(""); 
-    }
-  }
-  $(".money_box").on("keyup", function(){
-    var input_money = $(".money_box").val();
-    if(input_money >= money_l && input_money <= money_h){
-      var fee     = Math.floor(input_money*fee_rate);
-      var profit  = input_money - fee;
-      $(".l-right.fee").html("¥"+fee.toString().replace(/(\d)(?=(\d{3})+$)/g , '$1,'));
-      $(".l-right.profit").html("¥"+profit.toString().replace(/(\d)(?=(\d{3})+$)/g , '$1,')); 
-    }
-    else{
-      $(".l-right.fee").html("");
-      $(".l-right.profit").html(""); 
-    }
-  });
 
+  //出品時の画像数を取得
   var alreadysavedtotal = 0;
   if ( $(".block-image").data("alreadysavedtotal") ){
     alreadysavedtotal = $(".block-image").data("alreadysavedtotal");
   }
   
-  
-
   var delete_request_index = [];
   $(document).on("click",".delete_btn_box2", function(){
     var index = $(".delete_btn_box2").index(this);
@@ -190,7 +159,6 @@ $(function(){
     delete_request_index.push($(this).parent().parent().data("alreadysaved"));
     $(this).parent().parent().remove();
   });
-
 
   //編集処理
   $('#edit_item').on('submit', function(e){
@@ -222,4 +190,124 @@ $(function(){
       $(".btn-submit").removeAttr("disabled");
     });
   });
+
+
+
+  //手数料計算
+  var money_l = 300;
+  var money_h =9999999;
+  var fee_rate = 0.1;
+  if($(".money_box").val()){
+    var input_money = $(".money_box").val();
+    if(input_money >= money_l && input_money <= money_h){
+      var fee     = Math.floor(input_money*fee_rate);
+      var profit  = input_money - fee;
+      $(".l-right.fee").html("¥"+fee.toString().replace(/(\d)(?=(\d{3})+$)/g , '$1,'));
+      $(".l-right.profit").html("¥"+profit.toString().replace(/(\d)(?=(\d{3})+$)/g , '$1,')); 
+    }
+    else{
+      $(".l-right.fee").html("");
+      $(".l-right.profit").html(""); 
+    }
+  }
+  $(".money_box").on("keyup", function(){
+    var input_money = $(".money_box").val();
+    if(input_money >= money_l && input_money <= money_h){
+      var fee     = Math.floor(input_money*fee_rate);
+      var profit  = input_money - fee;
+      $(".l-right.fee").html("¥"+fee.toString().replace(/(\d)(?=(\d{3})+$)/g , '$1,'));
+      $(".l-right.profit").html("¥"+profit.toString().replace(/(\d)(?=(\d{3})+$)/g , '$1,')); 
+    }
+    else{
+      $(".l-right.fee").html("");
+      $(".l-right.profit").html(""); 
+    }
+  });
+
+
+  //カテゴリー選択
+  $("#parent-form").on("change",function(){
+    var input = $(this).val();
+    var url = "/products/select_category_m";    
+    if(input !== "" ){
+      $.ajax({
+        url: url,
+        type: 'get',
+        data:{category_id1: input},
+        dataType:'json'
+      })
+      .done(function(data){
+        if (data.length !== 0) {
+          $(".children-form").show();
+          $("#children-form").empty();
+          $("#grandchildren-form").empty();
+          for( var i=0; i < data.length ; i++ ){
+            if (i == 0){
+              var op = document.createElement("option");
+              op.value = 0;  //value値
+              op.text = "---";  //テキスト値
+              $("#children-form").append(op)
+
+              var op2 = document.createElement("option");
+              op2.value = 0;  //value値
+              op2.text = "---";  //テキスト値
+              $("#grandchildren-form").append(op2)
+              
+            }
+            else{
+              var op = document.createElement("option");
+              op.value = data[i].id;  //value値
+              op.text = data[i].name;  //テキスト値
+              $("#children-form").append(op)
+            }
+          }
+        }
+      })
+      .fail(function(){
+        alert("Search error");
+      })
+    }
+  });
+  $("#children-form").on("change",function(){
+    var input = $(this).val();
+    var url = "/products/select_category_s";    
+    if(input !== "" ){
+      $.ajax({
+        url: url,
+        type: 'get',
+        data:{category_id2: input},
+        dataType:'json'
+      })
+      .done(function(data){
+        if (data.length !== 0) {
+          $(".grandchildren-form").show();
+          $("#grandchildren-form").empty();
+          for( var i=0; i < data.length ; i++ ){
+            if (i == 0){
+              var op = document.createElement("option");
+              op.value = 0;  //value値
+              op.text = "---";  //テキスト値
+              $("#grandchildren-form").append(op)
+              
+            }
+            else{
+              var op = document.createElement("option");
+              op.value = data[i].id;  //value値
+              op.text = data[i].name;  //テキスト値
+              $("#grandchildren-form").append(op)
+            }
+          }
+        }
+      })
+      .fail(function(){
+        alert("Search error");
+      })
+    }
+  });
+  // カテゴリ編集時は初期表示
+  if(document.URL.match(/.+\/products\/.+\/edit/)){
+    $(".children-form").show();
+    $(".grandchildren-form").show();
+  }
+
 });
