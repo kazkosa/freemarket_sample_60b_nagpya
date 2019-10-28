@@ -37,7 +37,7 @@ set :keep_releases, 5
 # credentials.yml.enc用のシンボリックリンクを追加
 set :linked_files, %w{ config/credentials.yml.enc }
 
-デプロイ処理が終わった後、Unicornを再起動するための記述
+#デプロイ処理が終わった後、Unicornを再起動するための記述
 after 'deploy:publishing', 'deploy:restart'
 namespace :deploy do
   task :restart do
