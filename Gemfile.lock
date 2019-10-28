@@ -454,7 +454,7 @@ DEPENDENCIES
   rails (~> 5.2.3)
   rails-controller-testing
   rails-i18n
-  rake (< 11.0)
+  rake
   rspec-rails (~> 3.5)
   sass-rails (~> 5.0)
   selenium-webdriver
