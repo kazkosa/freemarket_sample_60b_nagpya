@@ -37,46 +37,23 @@ set :keep_releases, 5
 # credentials.yml.enc用のシンボリックリンクを追加
 set :linked_files, %w{ config/credentials.yml.enc }
 
-# デプロイ処理が終わった後、Unicornを再起動するための記述
-# after 'deploy:publishing', 'deploy:restart'
-# namespace :deploy do
-#   task :restart do
-#     invoke 'unicorn:restart'
-#   end
-#   desc 'upload credentials.yml.enc'
-#   task :upload do
-#     on roles(:app) do |host|
-#       if test "[ ! -d #{shared_path}/config ]"
-#         execute "mkdir -p #{shared_path}/config"
-#       end
-#       upload!('config/credentials.yml.enc', "#{shared_path}/config/credentials.yml.enc")
-#     end
-#   end
-#   before :starting, 'deploy:upload'
-#   after :finishing, 'deploy:cleanup'
-# end
-after 'deploy:publishing', 'deploy:db_reset'
+デプロイ処理が終わった後、Unicornを再起動するための記述
+after 'deploy:publishing', 'deploy:restart'
 namespace :deploy do
-
-  task :db_reset do
-    on roles(:app) do
-      within release_path do
-        with rails_env: fetch(:rails_env) do
-          execute :rake, "db:migrate:reset"
-        end
-      end
-    end
+  task :restart do
+    invoke 'unicorn:restart'
   end
-
-  task :db_seed do
-    on roles(:db) do |host|
-      with rails_env: fetch(:rails_env) do
-        within current_path do
-          execute :bundle, :exec, :rake, 'db:seed'
-        end
+  desc 'upload credentials.yml.enc'
+  task :upload do
+    on roles(:app) do |host|
+      if test "[ ! -d #{shared_path}/config ]"
+        execute "mkdir -p #{shared_path}/config"
       end
+      upload!('config/credentials.yml.enc', "#{shared_path}/config/credentials.yml.enc")
     end
   end
   before :starting, 'deploy:upload'
   after :finishing, 'deploy:cleanup'
+end
+
 end
