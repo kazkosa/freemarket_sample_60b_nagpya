@@ -55,7 +55,7 @@ set :linked_files, %w{ config/credentials.yml.enc }
 #   before :starting, 'deploy:upload'
 #   after :finishing, 'deploy:cleanup'
 # end
-
+after 'deploy:publishing', 'deploy:db_reset'
 namespace :deploy do
 
   task :db_reset do
@@ -77,5 +77,6 @@ namespace :deploy do
       end
     end
   end
-
+  before :starting, 'deploy:upload'
+  after :finishing, 'deploy:cleanup'
 end
