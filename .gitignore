@@ -26,7 +26,7 @@
 # Ignore master key for decrypting credentials and more.
 /config/master.key
 public/uploads/*
-/config/credentials.yml.enc
+#/config/credentials.yml.enc
 
 # .envはgithubには上げない
 *.env
