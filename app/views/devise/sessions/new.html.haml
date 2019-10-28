@@ -26,9 +26,15 @@
         .field
           = f.password_field :password, autocomplete: "off", placeholder: " パスワード"
         .robot
-          私はロボットじゃありません  
+          .g-recaptcha{"data-callback" => "clearcall", "data-sitekey" => "6Le_wb8UAAAAAKnQTJ_7GU0oKNMcWC0VRYkPV9bQ"}
         .actions
-          = f.submit "ログイン", class: 't_login'
+          = f.submit "ログイン", class: 't_login', name: "btn-rog", disabled: "disabled"
         = link_to root_path, class: "owasure" do
           パスワードをお忘れの方    
 =render "footer"
+:javascript
+  function clearcall(code) {
+  	if(code !== ""){
+  		$(':submit[name=btn-rog]').removeAttr("disabled");
+  	}
+  }     

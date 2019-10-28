@@ -128,12 +128,11 @@
         %p.sing__main__wrapper__content_m_text
           ※ 本人情報は正しく入力してください。会員登録後、修正するにはお時間を頂く場合があります。
     .sing__main__wrapper__content
-      .sing__main__wrapper__content_m  
-        私はロボットではありません
+      .g-recaptcha{"data-callback" => "clearcall", "data-sitekey" => "6Le_wb8UAAAAAKnQTJ_7GU0oKNMcWC0VRYkPV9bQ"}
       .sing__main__wrapper__content_m
         %p.l-single-text
           「次へ進む」のボタンを押すことにより、利用規約に同意したものとみなします
-        =f.submit "次へ進む" ,class: "btn-red"
+        =f.submit "次へ進む" ,class: "btn-red", disabled: "disabled",name: "btn-rog"
       .sing__main__wrapper__content_m
         =link_to root_path ,class:"m_text" do
           本人確認の登録について>
@@ -155,3 +154,9 @@
   %p.login__footer__2019
     %small
       2019 Mercari      
+:javascript
+  function clearcall(code) {
+  	if(code !== ""){
+  		$(':submit[name=btn-rog]').removeAttr("disabled");
+  	}
+  }      
