@@ -54,11 +54,11 @@
                   %div
                   .select-wrap
                     = icon("fas", "chevron-down tag fa-1g")
-                    = f.collection_select :category_id, @parent, :id, :name,{prompt: "---"}, class: "select-default", id: "parent-form", name: 'product[category_id1]' 
-                  .select-wrap
+                    = f.collection_select :category_id, @parent, :id, :name,{prompt: "---",selected: @parent_current.id}, class: "select-default", id: "parent-form", name: 'product[category_id1]'
+                  .select-wrap.children-form
                     = icon("fas", "chevron-down tag fa-1g")
                     = f.collection_select :category_id, @children, :id, :name,{prompt: "---"}, class: "select-default", id: "children-form", name:'product[category_id2]'   
-                  .select-wrap
+                  .select-wrap.grandchildren-form
                     = icon("fas", "chevron-down tag fa-1g")
                     = f.collection_select :category_id, @grandchildren, :id, :name,{prompt: "---"}, class: "select-default", id: "grandchildren-form", name: 'product[category_id]' 
                 .form-group

@@ -9,6 +9,8 @@ Rails.application.routes.draw do
     resources :comments,  only: [:new, :create]
     collection do
       get :sell
+      get :select_category_m
+      get :select_category_s
     end
     member do 
       get :showmain

@@ -6,11 +6,26 @@ class ProductsController < ApplicationController
   end
   def sell
     @product= Product.new()
-    @parent = Category.order("id ASC").limit(1)
-    @children =@parent[0].children 
-    @grandchildren = @children[0].children
+    @parent = Category.where(ancestry: nil)
+    @children = Category.none
+    @grandchildren = Category.none
     @product.product_images.build
   end 
+
+  def select_category_m
+    parent = Category.find_by(id: params[:category_id1])
+    @children = parent.children
+    respond_to do |format|
+      format.json
+    end
+  end
+  def select_category_s
+    child= Category.find_by(id: params[:category_id2])
+    @grandchildren = child.children
+    respond_to do |format|
+      format.json
+    end
+  end
 
   def create
     @product = Product.new(product_params)
@@ -27,14 +42,17 @@ class ProductsController < ApplicationController
   end
 
   def edit
-    @parent = Category.order("id ASC").limit(1)
-    @children =@parent[0].children 
-    @grandchildren = @children[0].children
+    @grandchildren  = Category.where(id: @product.category_id)
+    @children       = Category.where(id: @grandchildren[0].parent)
+    @parent         = Category.where(ancestry: nil)
+    @parent_current = Category.find_by(id: @children[0].parent.id)
+
     @product.product_images.build
     @product.product_images.each do |product_image|
       product_image.image.cache!
     end
   end
+
   def update
     if @product.update(product_params)
       @product_images = @product.product_images
@@ -108,22 +126,27 @@ class ProductsController < ApplicationController
       redirect_to showedit_user_path(current_user)
     end
   end
+
   def pend
     @product.state_transition("pending")
     redirect_to showmain_product_path(@product)
   end
+
   def resell
     @product.state_transition("in_sale")
     redirect_to showmain_product_path(@product)
   end
+
   def ship
     @product.state_transition("on_delivery")
     redirect_to show_transaction_main_product_path(@product)
   end
+
   def recieve
     @product.state_transition("arrived")
     redirect_to purchase_transaction_product_path(@product)
   end
+
   def close
     @product.state_transition("completed")
     redirect_to show_completed_main_product_path(@product)
@@ -131,13 +154,15 @@ class ProductsController < ApplicationController
 
   def show_transaction_main
   end
+
   def show_completed_main
   end
+
   def purchase_transaction
   end
+
   def purchase_completed
   end
-
 
   private
 
