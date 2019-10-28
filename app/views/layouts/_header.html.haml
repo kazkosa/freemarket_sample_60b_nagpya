@@ -43,19 +43,10 @@
               .right__menu__list__hover-box__user-box
                 .name
                   = "#{current_user.nickname} さん"
-                  
               %ul.right__menu__list__hover-box__mypage-nav__list  
-                %li.right__menu__list__hover-box__mypage-nav__list__inner
-                  =link_to todo_user_path(current_user), class:"right__menu__list__hover-box__mypage-nav__list__inner__item side-todo" do
-                    やることリスト
-                    = icon("fas", "angle-right right__menu__list__hover-box__mypage-nav__list__inner__item__icon fa-1g")
                 %li.right__menu__list__hover-box__mypage-nav__list__inner
                   =link_to like_user_path(current_user), class:"right__menu__list__hover-box__mypage-nav__list__inner__item side-like" do
                     いいね！一覧
-                    = icon("fas", "angle-right right__menu__list__hover-box__mypage-nav__list__inner__item__icon fa-1g")
-                %li.right__menu__list__hover-box__mypage-nav__list__inner
-                  =link_to sell_products_path, class:"right__menu__list__hover-box__mypage-nav__list__inner__item side-sell" do
-                    出品する
                     = icon("fas", "angle-right right__menu__list__hover-box__mypage-nav__list__inner__item__icon fa-1g")
                 %li.right__menu__list__hover-box__mypage-nav__list__inner
                   =link_to showedit_user_path(current_user), class:"right__menu__list__hover-box__mypage-nav__list__inner__item side-listings-listing" do
