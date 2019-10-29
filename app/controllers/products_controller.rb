@@ -2,7 +2,13 @@ class ProductsController < ApplicationController
   before_action :set_product, only:[:edit, :update, :show, :pay, :buy, :destroy, :pend, :resell, :ship, :recieve, :close, :showmain, :show_transaction_main, :show_completed_main, :purchase_transaction, :purchase_completed]
 
   def index 
-    @products = Product.order("id DESC").limit(5)
+    @products = Product.order("id DESC").limit(10)
+    category_ids_mens =Category.buildArray_of_family_from_parent(1)
+    @products_mens = Product.where(category_id: category_ids_mens).order("id DESC").limit(10)
+    category_ids_ladys =Category.buildArray_of_family_from_parent(61)
+    @products_ladys = Product.where(category_id: category_ids_ladys).order("id DESC").limit(10)
+    category_ids_kids =Category.buildArray_of_family_from_parent(134)
+    @products_kids = Product.where(category_id: category_ids_kids).order("id DESC").limit(10)
   end
   def sell
     @product= Product.new()

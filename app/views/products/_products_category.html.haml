@@ -16,23 +16,69 @@
         おもちゃ・ホビー・グッズ 
 .top-main__contens__category
   .top-main__contens__category__menu
-    .category__item
-      .category__item__top
-        .category__item__top__title
-          メンズ新着アイテム
-        = link_to do
-          %h2.category__item__top__refe
-            もっと見る＞
-      .category__item__bottom
-        - @products.each do |product|
-          .category__item__bottom__product
-            = link_to product_path(product) do
-              %span.category__item__bottom__product__price
-                = "¥#{product.price.to_s(:delimited)}"
-              = image_tag(product.product_images[0].image.url, class: "image3" ) 
-              %h3.category__item__bottom__product__text
-                = product.title
-                  
+    - unless @products_ladys.empty?
+      .category__item
+        .category__item__top
+          .category__item__top__title
+            レディース新着アイテム
+          = link_to do
+            %h2.category__item__top__refe
+              もっと見る＞
+        .category__item__bottom
+          - @products_ladys.each do |product|
+            .category__item__bottom__product
+              = link_to product_path(product) do
+                .category__item__bottom__product__box
+                  - if product.buyer
+                    .category__item__bottom__product__box__sold-label
+                      %p SOLD
+                  %span.category__item__bottom__product__box__price
+                    = "¥#{product.price.to_s(:delimited)}"
+                  = image_tag(product.product_images[0].image.url, class: "image3" ) 
+                  %h3.category__item__bottom__product__box__text
+                    = product.title
+    - unless @products_mens.empty?
+      .category__item
+        .category__item__top
+          .category__item__top__title
+            メンズ新着アイテム
+          = link_to do
+            %h2.category__item__top__refe
+              もっと見る＞
+        .category__item__bottom
+          - @products_mens.each do |product|
+            .category__item__bottom__product
+              = link_to product_path(product) do
+                .category__item__bottom__product__box
+                  - if product.buyer
+                    .category__item__bottom__product__box__sold-label
+                      %p SOLD
+                  %span.category__item__bottom__product__box__price
+                    = "¥#{product.price.to_s(:delimited)}"
+                  = image_tag(product.product_images[0].image.url, class: "image3" ) 
+                  %h3.category__item__bottom__product__box__text
+                    = product.title
+    - unless @products_kids.empty?
+      .category__item
+        .category__item__top
+          .category__item__top__title
+            ベビー・キッズ新着アイテム
+          = link_to do
+            %h2.category__item__top__refe
+              もっと見る＞
+        .category__item__bottom
+          - @products_kids.each do |product|
+            .category__item__bottom__product
+              = link_to product_path(product) do
+                .category__item__bottom__product__box
+                  - if product.buyer
+                    .category__item__bottom__product__box__sold-label
+                      %p SOLD
+                  %span.category__item__bottom__product__box__price
+                    = "¥#{product.price.to_s(:delimited)}"
+                  = image_tag(product.product_images[0].image.url, class: "image3" ) 
+                  %h3.category__item__bottom__product__box__text
+                    = product.title
                     
             
                                        
