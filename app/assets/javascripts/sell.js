@@ -241,25 +241,23 @@ $(function(){
           $(".children-form").show();
           $("#children-form").empty();
           $("#grandchildren-form").empty();
-          for( var i=0; i < data.length ; i++ ){
-            if (i == 0){
-              var op = document.createElement("option");
-              op.value = 0;  //value値
-              op.text = "---";  //テキスト値
-              $("#children-form").append(op)
 
-              var op2 = document.createElement("option");
-              op2.value = 0;  //value値
-              op2.text = "---";  //テキスト値
-              $("#grandchildren-form").append(op2)
-              
-            }
-            else{
-              var op = document.createElement("option");
-              op.value = data[i].id;  //value値
-              op.text = data[i].name;  //テキスト値
-              $("#children-form").append(op)
-            }
+          var op1 = document.createElement("option");
+          op1.value = 0;  //value値
+          op1.text = "---";  //テキスト値
+          $("#children-form").append(op1);
+
+          var op2 = document.createElement("option");
+          op2.value = 0;  //value値
+          op2.text = "---";  //テキスト値
+          $("#grandchildren-form").append(op2);
+
+          for( var i=0; i < data.length ; i++ ){             
+            var op = document.createElement("option");
+            op.value = data[i].id;  //value値
+            op.text = data[i].name;  //テキスト値
+            $("#children-form").append(op);
+
           }
         }
       })
