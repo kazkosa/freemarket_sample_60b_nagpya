@@ -27,8 +27,12 @@
         - @products.each do |product|
           .category__item__bottom__product
             = link_to product_path(product) do
-              %span.category__item__bottom__product__price
-                = "¥#{product.price.to_s(:delimited)}"
-              = image_tag(product.product_images[0].image.url, class: "image3" ) 
-              %h3.category__item__bottom__product__text
-                = product.title
+              .category__item__bottom__product__box
+                - if product.buyer
+                  .category__item__bottom__product__box__sold-label
+                    %p SOLD
+                %span.category__item__bottom__product__box__price
+                  = "¥#{product.price.to_s(:delimited)}"
+                = image_tag(product.product_images[0].image.url, class: "image3" ) 
+                %h3.category__item__bottom__product__box__text
+                  = product.title
