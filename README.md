@@ -18,12 +18,18 @@
 |birthday_day|integer|null:false|
 
 ### Association
-- has_one :adeles, dependent: delete_all
-- has_one :pay, dependent: delete_all
-- has_many :comments, dependent: delete_all
-- has_many :likes, dependent: delete_all
-- belongs_to :deal
-- has_many :products through:deals ,dependent: delete_all
+- has_many :products
+- has_many :likes, dependent: :delete_all
+- has_many :comments, dependent: :delete_all
+- has_one :address
+- accepts_nested_attributes_for :address 
+- has_many :cards
+- has_one :pay
+- accepts_nested_attributes_for :pay
+- has_many :buyed_products,                                         foreign_key: "buyer_id", class_name: "Product"
+- has_many :selling_products,  -> { where("buyer_id is NULL") },    foreign_key: "user_id", class_name: "Product"
+- has_many :sold_products,     -> { where("buyer_id is not NULL")}, foreign_key: "user_id", class_name: "Product"
+
 
 ## addressテーブル
 
@@ -42,20 +48,17 @@
 ## enum
 - prefectures
 
-## paysテーブル
+## cardsテーブル
 
 |Column|Type|Options|
 |------|----|-------|
-|user|references|null: false, foreign_key: true|
+|user_id|references|null: false, foreign_key: true|
 |card_id|integer|null: false|
-|year|integer|null: false|
-|month|integer|null: false|
-|security_number|integer|null: false|
 
 ## Association
 - belongs_to :user
 
-## comentsテーブル
+## commentsテーブル
 
 |Column|Type|Options|
 |------|----|-------|
@@ -66,14 +69,6 @@
 ## Association
 - belongs_to :user
 - belongs_to :product
-
-## dealsテーブル
-
-|Column|Type|Options|
-|------|----|-------|
-|product|references|null: false, foreign_key: true|
-|seller_id|references|null: false, foreign_key: { to_table: :users }|
-|buyer_id|references|null: false, foreign_key: { to_table: :users }|
 
 ## Association
 - has_many :users
@@ -106,26 +101,28 @@
 |size|string|null: false|
 |description|string|
 |condeition|string|null: false|
+|buyer_id|references|null: false, foreign_key: { to_table: :users }|
+|condeition|integer||
 
 ## Association
-- has_many :images, dependent: delete_all
-- has_many :comments, dependent: delete_all
-- has_many :likes, dependent: delete_all
-- belongs_to :deal
-- belongs_to :brand
-- belongs_to :cotegory
-- has_many :users through:deals
+- belongs_to :category 
+- has_many :product_images, dependent: :destroy
+- has_many :likes,          dependent: :delete_all
+- has_many :comments,       dependent: :delete_all
+- belongs_to :user
+- belongs_to :buyer, class_name: "User", optional: true
+- accepts_nested_attributes_for :product_images
+
 
 ## enum
+- condition
 - shipping_charges
-- shipping_area
 - shipping_date
 - shipping_method
 - size
-- condeition
+- state
 
 ## product_imagesテーブル
-
 |Column|Type|Options|
 |------|----|-------|
 |product|references|null: false, foreign_key: true|
@@ -153,27 +150,3 @@
 - has_many :products  
 (gem acenstryを使用)
 
-
-
-This README would normally document whatever steps are necessary to get the
-application up and running.
-
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
