@@ -47,7 +47,7 @@
     %h1.item-box-container__item-name
       = @product.title
     %button#modal-open-btn.btn-default.btn-red
-      = link_to "商品の受領したので、受取通知をする", ""
+      = link_to "商品を受領したので、受取通知をする", ""
 
   - elsif @product.state == "arrived"
     .message-box_after-pay
@@ -55,7 +55,7 @@
         .message-box_after-pay__inner__head
           %i.fas.fa-laugh.icon-laugh.evaluation-mark
           %span.message-text
-            購入者へ商品の受取を通知しました
+            出品者へ商品の受取を通知しました
         .message-box_after-pay__inner__description
           %p.p5 最後に、出品者による取引完了処理を持って
           %p.p6 取引は完了となります。
