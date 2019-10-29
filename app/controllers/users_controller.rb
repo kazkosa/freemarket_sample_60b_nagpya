@@ -49,7 +49,7 @@ class UsersController < ApplicationController
   end
 
   def purchase
-    @products=current_user.sold_products.where(state: ['waiting_for_shipping', 'on_delivery', 'arrived']).order("id DESC")
+    @products=current_user.buyed_products.where(state: ['waiting_for_shipping', 'on_delivery', 'arrived']).order("id DESC")
   end
   def purchased
     @products=current_user.sold_products.where(state: 'completed' ).order("id DESC")
