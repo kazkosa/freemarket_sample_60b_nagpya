@@ -23,16 +23,16 @@
         = link_to do
           %h2.category__item__top__refe
             もっと見る＞
-      .category__item__bottom
+      .category__item__bottom.fadein
         - @products.each do |product|
           .category__item__bottom__product
+            - if product.buyer
+              .category__item__bottom__product__sold-label
+                %p SOLD
             = link_to product_path(product) do
-              .category__item__bottom__product__box
-                - if product.buyer
-                  .category__item__bottom__product__box__sold-label
-                    %p SOLD
-                %span.category__item__bottom__product__box__price
-                  = "¥#{product.price.to_s(:delimited)}"
-                = image_tag(product.product_images[0].image.url, class: "image3" ) 
-                %h3.category__item__bottom__product__box__text
-                  = product.title
+              %span.category__item__bottom__product__price
+                = "¥#{product.price.to_s(:delimited)}"
+              .category__item__bottom__product__photo
+                = image_tag(product.product_images[0].image.url, class: "image3" )     
+              %h3.category__item__bottom__product__text
+                = product.title
