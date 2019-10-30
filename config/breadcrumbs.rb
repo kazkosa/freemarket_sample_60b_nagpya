@@ -32,6 +32,26 @@ crumb :showedit do
   parent :mypage
 end
 
+crumb :transaction do
+  link "出品した商品 - 取引中", show_transaction_user_path
+  parent :mypage
+end
+
+crumb :completed do
+  link "出品した商品 - 売却済み", show_completed_user_path
+  parent :mypage
+end
+
+crumb :purchase do
+  link "購入した商品 - 取引中", purchase_user_path
+  parent :mypage
+end
+
+crumb :purchased do
+  link "購入した商品 - 過去の取引", purchase_user_path
+  parent :mypage
+end
+
 # crumb :パンくず名 do
 #   link "ビューに表示させるリンク名", リンク先のパス
 #   parent 
